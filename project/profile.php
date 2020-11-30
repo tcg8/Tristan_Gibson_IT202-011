@@ -90,19 +90,21 @@ if (isset($_POST["saved"])) {
                     echo "di2 " . implode([":id" => get_user_id(), ":current" => $hash]);*/
                 $hash = password_hash($password, PASSWORD_BCRYPT);
                 
+                /**/
                 echo "this1 " . $password;
-                echo "this2 " . $hash;
-                echo "this3 " . $hash;
-                echo "this4 " . password_hash($password, PASSWORD_BCRYPT);
-                echo "this5 " . password_hash($password, PASSWORD_BCRYPT);
-                echo "this6 " . $hash;
-                //echo "this7 " . $_POST["password"]
+                echo "this2 " . $hash; //always same
+                echo "this3 " . $hash; //always same
+                echo "this4 " . password_hash($password, PASSWORD_BCRYPT); //changes
+                echo "this5 " . password_hash($password, PASSWORD_BCRYPT); //changes
+                echo "this6 " . $hash; //always same
                 
-             /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                //echo "this7 " . $_POST["password"]//THIS CRASHES SITE
+                
+             /**/       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "ci3 " . implode([":id" => get_user_id(), ":current" => $hash]);
                     echo "di3 " . implode([":id" => get_user_id(), ":current" => $hash]);  
-               */
+               
                 
                 //this one we'll do separate
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
