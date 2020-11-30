@@ -78,29 +78,50 @@ if (isset($_POST["saved"])) {
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) ){//&& !empty($_POST["current"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
                
-                
+                    echo "hi1 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "bi1 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "ci1 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    echo "di1 " . implode([":id" => get_user_id(), ":current" => $hash]);
                  
                     //$hash = password_hash($current, PASSWORD_BCRYPT);
                //     echo "bi " . $current= > $hash;
                 
                 
                 $password = $_POST["password"];
+                    echo "hi2 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "bi2 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "ci2 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    echo "di2 " . implode([":id" => get_user_id(), ":current" => $hash]);
                 $hash = password_hash($password, PASSWORD_BCRYPT);
+                
+                    echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "ci3 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    echo "di3 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                
                 //this one we'll do separate
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
+                    echo "hi4 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "bi4 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "ci4 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    echo "di4 " . implode([":id" => get_user_id(), ":current" => $hash]);
                 $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
-                
+                    echo "hi5 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "bi5 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "ci5 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    echo "di5 " . implode([":id" => get_user_id(), ":current" => $hash]);
               
                 
                 if ($r) {
                     flash("Reset Password");
-                    //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    //$hash = password_hash($current, PASSWORD_BCRYPT);
-                    //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
                     echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "bi " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "ci " . implode([":id" => get_user_id(), ":current" => $hash]);
                     echo "di " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    
+                    //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    //$hash = password_hash($current, PASSWORD_BCRYPT);
+                    //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
                     
                 }
                 else {
