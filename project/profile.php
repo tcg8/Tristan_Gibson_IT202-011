@@ -79,8 +79,7 @@ if (isset($_POST["saved"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
                
                 
-                 echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
-                 echo "zi " . implode([":id" => get_user_id(), ":password" => $hash]);
+                 
                     //$hash = password_hash($current, PASSWORD_BCRYPT);
                //     echo "bi " . $current= > $hash;
                 
@@ -98,7 +97,8 @@ if (isset($_POST["saved"])) {
                     //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
                     //$hash = password_hash($current, PASSWORD_BCRYPT);
                     //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
-                    
+                    echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
+                 echo "zi " . implode([":id" => get_user_id(), ":password" => $hash]);
                     
                 }
                 else {
