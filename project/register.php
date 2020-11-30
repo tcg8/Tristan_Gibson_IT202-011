@@ -83,8 +83,9 @@ if (!isset($username)) {
     </tr><tr>
         <td><label for="p2">Confirm Password:</label></td>
         <td><input type="password" id="p2" name="confirm" required/></td>
-    </tr>
+    </tr><tr><td>
         <input type="submit" name="register" value="Register"/>
+        </td></tr>
     </form>
 </table>
 
