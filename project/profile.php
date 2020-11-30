@@ -74,7 +74,7 @@ if (isset($_POST["saved"])) {
         }
         //password is optional, so check if it's even set
         //if so, then check if it's a valid reset request
-        flash($_SESSION["user"]["password"]);
+        
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { flash($_SESSION["user"]["password"])
                 $password = $_POST["password"];
@@ -83,6 +83,7 @@ if (isset($_POST["saved"])) {
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
                 $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
                 if ($r) {
+                    flash($_SESSION["user"]["password"]);
                     flash("Reset Password");
                 }
                 else {
