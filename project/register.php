@@ -68,6 +68,26 @@ if (!isset($username)) {
     $username = "";
 }
 ?>
+
+<table style="width:100%">
+    //<form method="POST">
+    <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="email" id="email" name="email" required value="<?php safer_echo($email); ?>"/></td>
+    </tr><tr>
+        <td><label for="user">Username:</label></td>
+        <td><input type="text" id="user" name="username" required maxlength="60" value="<?php safer_echo($username); ?>"/></td>
+    </tr><tr>
+        <td><label for="p1">Password:</label></td>
+        <td><input type="password" id="p1" name="password" required/></td>
+    </tr><tr>
+        <td><label for="p2">Confirm Password:</label></td>
+        <td><input type="password" id="p2" name="confirm" required/></td>
+    </tr>
+        <input type="submit" name="register" value="Register"/>
+    //</form>
+</table>
+/*
     <form method="POST">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required value="<?php safer_echo($email); ?>"/>
@@ -79,4 +99,5 @@ if (!isset($username)) {
         <input type="password" id="p2" name="confirm" required/>
         <input type="submit" name="register" value="Register"/>
     </form>
+*/
 <?php require(__DIR__ . "/partials/flash.php");
