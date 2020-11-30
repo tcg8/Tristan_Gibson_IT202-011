@@ -90,7 +90,13 @@ if (isset($_POST["saved"])) {
                     echo "di2 " . implode([":id" => get_user_id(), ":current" => $hash]);*/
                 $hash = password_hash($password, PASSWORD_BCRYPT);
                 
-                echo "this " . $hash;
+                echo "this1 " . $password;
+                echo "this2 " . $hash;
+                echo "this3 " . $hash;
+                echo "this4 " . password_hash($password, PASSWORD_BCRYPT);
+                echo "this5 " . password_hash($password, PASSWORD_BCRYPT);
+                echo "this6 " . $hash;
+                echo "this7 " . $hash;
                 
              /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
