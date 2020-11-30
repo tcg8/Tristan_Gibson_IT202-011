@@ -96,7 +96,7 @@ if (isset($_POST["saved"])) {
                 echo "this4 " . password_hash($password, PASSWORD_BCRYPT);
                 echo "this5 " . password_hash($password, PASSWORD_BCRYPT);
                 echo "this6 " . $hash;
-                echo "this7 " . $hash;
+                echo "this7 " . $_POST["password"]
                 
              /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
