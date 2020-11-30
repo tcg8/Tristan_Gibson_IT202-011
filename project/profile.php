@@ -75,11 +75,8 @@ if (isset($_POST["saved"])) {
         //password is optional, so check if it's even set
         //if so, then check if it's a valid reset request
         
-        if (!empty($_POST["password"]) && !empty($_POST["confirm"]) ){//&& !empty($_POST["current"])) {
+        if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
-                
-                echo "this4 " . implode([":id" => get_user_id(), ":$_POST["password"]" => $hash]); //changes
-                echo "this5 " . implode([":id" => get_user_id(), ":$_POST["password"]" => $hash]); //changes
                 
                 $password = $_POST["password"];
                 $hash = password_hash($password, PASSWORD_BCRYPT);
