@@ -109,35 +109,25 @@ if (isset($_POST["saved"])) {
 
 ?>
 
-    <div class="container-fluid">
-        <form method="POST">
-            <Table>
-                <tr>
-            <div class="form-group">
-             <td>   <label for="email">Email</label>  </td>
-             <td>   <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
-            </div>
-                </tr><tr>
-            <div class="form-group">
-              <td>  <label for="username">Username</label>  </td>
-              <td>  <input class="form-control" type="text" maxlength="60" name="username"
-                       value="<?php safer_echo(get_username()); ?>"/>  </td>
-            </div>
-                </tr><tr>
-            <div class="form-group">
-                <!-- DO NOT PRELOAD PASSWORD-->
-              <td>  <label for="pw">Password</label>  </td>
-              <td>  <input class="form-control" type="password" name="password"/>  </td>
-            </div>
-                </tr><tr>
-            <div class="form-group">
-              <td>  <label for="cpw">Confirm Password</label>  </td>
-              <td>  <input class="form-control" type="password" name="confirm"/>  </td>
-            </div>
-                </tr>
-                </Table>
-            <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
 
-        </form>
-    </div>
+    <form method="POST">
+        <Table>
+            <tr>
+        <td>  <label for="email">Email</label>  </td>
+        <td>  <input type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
+            </tr><tr>
+        <td>  <label for="username">Username</label>  </td>
+        <td>  <input type="text" maxlength="60" name="username" value="<?php safer_echo(get_username()); ?>"/>  </td>
+            </tr><tr>
+        <!-- DO NOT PRELOAD PASSWORD-->
+        <td>  <label for="pw">Password</label>  </td>
+        <td>  <input type="password" name="password"/>  </td>
+            </tr><tr>
+        <td>  <label for="cpw">Confirm Password</label>  </td>
+        <td>  <input type="password" name="confirm"/>  </td>
+            </tr>
+        </Table>
+        
+        <input type="submit" name="saved" value="Save Profile"/>
+    </form>
 <?php require(__DIR__ . "/partials/flash.php");
