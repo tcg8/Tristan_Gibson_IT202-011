@@ -77,23 +77,27 @@ if (isset($_POST["saved"])) {
         
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) ){//&& !empty($_POST["current"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
-               // echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
+               
+                
+                // echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
                     //$hash = password_hash($current, PASSWORD_BCRYPT);
                //     echo "bi " . $current= > $hash;
                 
+                echo $password;
                 $password = $_POST["password"];
+                echo $password;
                 $hash = password_hash($password, PASSWORD_BCRYPT);
                 //this one we'll do separate
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
                 $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
                 
-              //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    //$hash = password_hash($current, PASSWORD_BCRYPT);
-            //        echo "di " . password_hash($current, PASSWORD_BCRYPT);
+              
                 
                 if ($r) {
                     flash("Reset Password");
-                    
+                    //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    //$hash = password_hash($current, PASSWORD_BCRYPT);
+            //        echo "di " . password_hash($current, PASSWORD_BCRYPT);
                     
                 }
                 else {
