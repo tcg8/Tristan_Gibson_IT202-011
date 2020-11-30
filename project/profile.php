@@ -77,34 +77,28 @@ if (isset($_POST["saved"])) {
         
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) ){//&& !empty($_POST["current"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
-               
-
-                    //$hash = password_hash($current, PASSWORD_BCRYPT);
-                   // echo "bi " . $current= > $hash;
                 
+                echo "this4 " . password_hash($_POST["password"], PASSWORD_BCRYPT); //changes
+                echo "this5 " . password_hash($_POST["password"], PASSWORD_BCRYPT); //changes
                 
                 $password = $_POST["password"];
-            /*        echo "hi2 " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    echo "bi2 " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    echo "ci2 " . implode([":id" => get_user_id(), ":current" => $hash]);
-                    echo "di2 " . implode([":id" => get_user_id(), ":current" => $hash]);*/
                 $hash = password_hash($password, PASSWORD_BCRYPT);
                 
-                /**/
+                /*
                 echo "this1 " . $password;
                 echo "this2 " . $hash; //always same
                 echo "this3 " . $hash; //always same
                 echo "this4 " . password_hash($password, PASSWORD_BCRYPT); //changes
                 echo "this5 " . password_hash($password, PASSWORD_BCRYPT); //changes
                 echo "this6 " . $hash; //always same
-                
+                */
                 //echo "this7 " . $_POST["password"]//THIS CRASHES SITE
                 
-             /**/       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
+             /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
                     echo "ci3 " . implode([":id" => get_user_id(), ":current" => $hash]);
                     echo "di3 " . implode([":id" => get_user_id(), ":current" => $hash]);  
-               
+               */
                 
                 //this one we'll do separate
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
