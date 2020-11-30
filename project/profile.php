@@ -98,7 +98,9 @@ if (isset($_POST["saved"])) {
                     //$hash = password_hash($current, PASSWORD_BCRYPT);
                     //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
                     echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
-                 echo "zi " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "bi " . implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo "ci " . implode([":id" => get_user_id(), ":current" => $hash]);
+                    echo "di " . implode([":id" => get_user_id(), ":current" => $hash]);
                     
                 }
                 else {
