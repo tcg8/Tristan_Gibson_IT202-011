@@ -85,7 +85,9 @@ if (isset($_POST["saved"])) {
                 if ($r) {
                     flash("Reset Password");
                     echo implode([":id" => get_user_id(), ":password" => $hash]);
-                    echo [":id" => get_user_id(), ":password" => $hash];
+                    //$hash = password_hash($current, PASSWORD_BCRYPT);
+                    echo password_hash($current, PASSWORD_BCRYPT);
+                    
                 }
                 else {
                     flash("Error resetting password");
