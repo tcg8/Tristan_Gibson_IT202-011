@@ -111,7 +111,7 @@ if (isset($_POST["saved"])) {
 
 
     <form method="POST">
-        <Table>
+        <table>
             <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
@@ -126,7 +126,7 @@ if (isset($_POST["saved"])) {
         <td>  <label for="cpw">Confirm Password</label>  </td>
         <td>  <input type="password" name="confirm"/>  </td>
             </tr>
-        </Table>
+        </table>
         
         <input type="submit" name="saved" value="Save Profile"/>
     </form>
