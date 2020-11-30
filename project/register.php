@@ -68,9 +68,9 @@ if (!isset($username)) {
     $username = "";
 }
 ?>
-
+<form method="POST">
 <table style="width:100%">
-    <form method="POST">
+    
     <tr>
         <td><label for="email">Email:</label></td>
         <td><input type="email" id="email" name="email" required value="<?php safer_echo($email); ?>"/></td>
@@ -83,12 +83,11 @@ if (!isset($username)) {
     </tr><tr>
         <td><label for="p2">Confirm Password:</label></td>
         <td><input type="password" id="p2" name="confirm" required/></td>
-    </tr><tr><td>
-        <input type="submit" name="register" value="Register"/>
-        </td></tr>
-    </form>
+    </tr>
+    
 </table>
-
+    <input type="submit" name="register" value="Register"/>
+</form>
 
     
 
