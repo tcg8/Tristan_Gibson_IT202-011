@@ -83,8 +83,9 @@ if (isset($_POST["saved"])) {
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
                 $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
                 if ($r) {
-                    echo implode([":id" => get_user_id(), ":password" => $hash]);
                     flash("Reset Password");
+                    echo implode([":id" => get_user_id(), ":password" => $hash]);
+                    echo [":id" => get_user_id(), ":password" => $hash];
                 }
                 else {
                     flash("Error resetting password");
