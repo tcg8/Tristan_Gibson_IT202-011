@@ -111,7 +111,7 @@ if (isset($_POST["saved"])) {
 
 
     <form method="POST">
-        <table style="width:50%">>
+        <table style="width:100%">
             <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
@@ -120,7 +120,10 @@ if (isset($_POST["saved"])) {
         <td>  <input type="text" maxlength="60" name="username" value="<?php safer_echo(get_username()); ?>"/>  </td>
             </tr><tr>
         <!-- DO NOT PRELOAD PASSWORD-->
-        <td>  <label for="pw">Password</label>  </td>
+        <td>  <label for="curpw">Current Password</label>  </td>
+        <td>  <input type="password" name="current"/>  </td>
+            </tr><tr>
+        <td>  <label for="pw">New Password</label>  </td>
         <td>  <input type="password" name="password"/>  </td>
             </tr><tr>
         <td>  <label for="cpw">Confirm Password</label>  </td>
