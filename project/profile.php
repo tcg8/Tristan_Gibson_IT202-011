@@ -78,8 +78,8 @@ if (isset($_POST["saved"])) {
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) ){//&& !empty($_POST["current"])) {
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
                 
-                echo "this4 " . password_hash($_POST["password"], PASSWORD_BCRYPT); //changes
-                echo "this5 " . password_hash($_POST["password"], PASSWORD_BCRYPT); //changes
+                echo "this4 " . execute([":id" => get_user_id(), ":$_POST["password"]" => $hash]); //changes
+                echo "this5 " . execute([":id" => get_user_id(), ":$_POST["password"]" => $hash]); //changes
                 
                 $password = $_POST["password"];
                 $hash = password_hash($password, PASSWORD_BCRYPT);
