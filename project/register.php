@@ -24,7 +24,7 @@ if (isset($_POST["register"])) {
         echo "Passwords match <br>";
     }
     else {
-        echo "Passwords match <br>";
+        echo "Passwords don't match<br>";
         $isValid = false;
     }
     if (!isset($email) || !isset($password) || !isset($confirm)) {
@@ -49,7 +49,7 @@ if (isset($_POST["register"])) {
             }
             else {
                 if ($e[0] == "23000") {//code for duplicate entry
-                    echo "Username or email already exists. Please try again <br>";
+                    echo "<br>Either username or email is already registered, please try again";
                 }
                 else {
                     echo "uh oh something went wrong: " . var_export($e, true);
