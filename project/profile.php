@@ -83,9 +83,9 @@ if (isset($_POST["saved"])) {
                     //$hash = password_hash($current, PASSWORD_BCRYPT);
                //     echo "bi " . $current= > $hash;
                 
-                echo $password;
+                echo "yo " . $password;
                 $password = $_POST["password"];
-                echo $password;
+                echo "zo " . $password;
                 $hash = password_hash($password, PASSWORD_BCRYPT);
                 //this one we'll do separate
                 $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
