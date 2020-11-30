@@ -111,7 +111,7 @@ if (isset($_POST["saved"])) {
 
 
     <form method="POST">
-        <table>
+        <table style="width:50%">>
             <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
