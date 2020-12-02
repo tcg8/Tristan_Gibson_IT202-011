@@ -167,13 +167,13 @@ if (isset($_POST["saved"])) {
         <!-- DO NOT PRELOAD PASSWORD-->
 
         <td>  <label for="pwc">Current Password</label>  </td>
-        <td>  <input id="pwc" class="form-control" type="password" name="current_password"/>  </td>
+        <td>  <input id="pwc" class="form-control" type="password" required minlength="4" required maxlength="60" name="current_password"/>  </td>
             </tr><tr>
         <td>  <label for="pw">New Password</label>  </td>
-        <td>  <input id="pw" class="form-control" type="password" name="password"/>  </td>
+        <td>  <input id="pw" class="form-control" type="password" required minlength="4" required maxlength="60" name="password"/>  </td>
             </tr><tr>
         <td>  <label for="cpw">Confirm Password</label>  </td>
-        <td>  <input type="password" name="confirm"/>  </td>
+        <td>  <input type="password" required minlength="4" required maxlength="60" name="confirm"/>  </td>
             </tr>
         </table>
         
