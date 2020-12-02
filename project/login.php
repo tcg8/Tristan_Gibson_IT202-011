@@ -4,13 +4,13 @@
 <table style="width:100%">    
     <tr>
         <td><label for="email">Email:</label></td>
-        <td><input type="email" id="email" name="email" required/>
+        <td><input class="form-control" type="email" id="email" name="email" required/></td>
     </tr><tr>
-        <td><label for="p1">Password:</label>
-        <td><input type="password" id="p1" name="password" required/>
+        <td><label for="p1">Password:</label></td>
+        <td><input class="form-control" type="password" id="p1" name="password" required/>
     </td></tr>
     </table>
-        <input type="submit" name="login" value="Login"/>
+        <input class="btn btn-primary" type="submit" name="login" value="Login"/>
     </form>
     
 
