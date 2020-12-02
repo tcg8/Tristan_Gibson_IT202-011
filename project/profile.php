@@ -76,7 +76,7 @@ if (isset($_POST["saved"])) {
         //if so, then check if it's a valid reset request
         
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current"])) {
-            //$current = $_POST["current_password"];
+            $current = $_POST["current_password"];
             $stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 
             $params = array(":id" => get_user_id());
