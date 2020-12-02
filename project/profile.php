@@ -77,7 +77,7 @@ if (isset($_POST["saved"])) {
         
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current"])) {
             //$current = $_POST["current_password"];
-            $stmt = $db->prepare("SELECT password from Users WHERE email = :id LIMIT 1");
+            $stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 
             $params = array(":id" => get_user_id());
             $r = $stmt->execute($params);
