@@ -152,37 +152,9 @@ if (isset($_POST["saved"])) {
 
 ?>
 
-<div class="container-fluid">
-        <form method="POST">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input class="form-control" type="text" maxlength="60" name="username"
-                       value="<?php safer_echo(get_username()); ?>"/>
-            </div>
-            <div class="form-group">
-                <!-- DO NOT PRELOAD PASSWORD-->
-                <label for="pwc">Current Password</label>
-                <input id="pwc" class="form-control" type="password" name="current_password"/>
-            </div>
-            <div class="form-group">
-                <!-- DO NOT PRELOAD PASSWORD-->
-                <label for="pw">Password</label>
-                <input id="pw" class="form-control" type="password" name="password"/>
-            </div>
-            <div class="form-group">
-                <label for="cpw">Confirm Password</label>
-                <input id="cpw" class="form-control" type="password" name="confirm"/>
-            </div>
-            <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
-        </form>
-    </div>
 
 
-<!-- This doesn't work now that I added confirm password 
+ This doesn't work now that I added confirm password 
     <form method="POST">
         <table style="width:100%">
             <tr>
@@ -192,11 +164,11 @@ if (isset($_POST["saved"])) {
         <td>  <label for="username">Username</label>  </td>
         <td>  <input type="text" maxlength="60" name="username" value="<?php safer_echo(get_username()); ?>"/>  </td>
             </tr><tr>
--->
+
         <!-- DO NOT PRELOAD PASSWORD-->
-<!--
+
         <td>  <label for="curpw">Current Password</label>  </td>
-        <td>  <input type="password" name="current"/>  </td>
+        <td>  <input id="pwc" class="form-control" type="password" name="current_password"/>  </td>
             </tr><tr>
         <td>  <label for="pw">New Password</label>  </td>
         <td>  <input type="password" name="password"/>  </td>
@@ -208,6 +180,6 @@ if (isset($_POST["saved"])) {
         
         <input type="submit" name="saved" value="Save Profile"/>
     </form>
--->
+
 <?php require(__DIR__ . "/partials/flash.php");
 
