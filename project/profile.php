@@ -192,7 +192,9 @@ if (isset($_POST["saved"])) {
         <td>  <label for="username">Username</label>  </td>
         <td>  <input type="text" maxlength="60" name="username" value="<?php safer_echo(get_username()); ?>"/>  </td>
             </tr><tr>
-        <!-- DO NOT PRELOAD PASSWORD--><!--
+-->
+        <!-- DO NOT PRELOAD PASSWORD-->
+<!--
         <td>  <label for="curpw">Current Password</label>  </td>
         <td>  <input type="password" name="current"/>  </td>
             </tr><tr>
@@ -206,5 +208,6 @@ if (isset($_POST["saved"])) {
         
         <input type="submit" name="saved" value="Save Profile"/>
     </form>
-<?php require(__DIR__ . "/partials/flash.php");
 -->
+<?php require(__DIR__ . "/partials/flash.php");
+
