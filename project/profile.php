@@ -129,6 +129,7 @@ if (isset($_POST["saved"])) {
                 }
                 else{
                     flash("That is not your current password, please try again", "danger");
+                }
             }
         }
 //fetch/select fresh data in case anything changed
