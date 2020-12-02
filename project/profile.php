@@ -77,47 +77,58 @@ if (isset($_POST["saved"])) {
         
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current"])) {
             $current = $_POST["current_password"];
-            
-            if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
-                
-                $password = $_POST["password"];
-                $hash = password_hash($password, PASSWORD_BCRYPT);
-                
-                /*
-                echo "this1 " . $password;
-                echo "this2 " . $hash; //always same
-                echo "this3 " . $hash; //always same
-                echo "this4 " . password_hash($password, PASSWORD_BCRYPT); //changes
-                echo "this5 " . password_hash($password, PASSWORD_BCRYPT); //changes
-                echo "this6 " . $hash; //always same
-                */
-                //echo "this7 " . $_POST["password"]//THIS CRASHES SITE
-                
-             /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    echo "ci3 " . implode([":id" => get_user_id(), ":current" => $hash]);
-                    echo "di3 " . implode([":id" => get_user_id(), ":current" => $hash]);  
-               */
-                
-                //this one we'll do separate
-                $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
-                $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
-       
-                if ($r) {
-                    flash("Reset Password");
-                    //echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    //echo "bi " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    //echo "ci " . implode([":id" => get_user_id(), ":current" => $hash]);
-                    //echo "di " . implode([":id" => get_user_id(), ":current" => $hash]);
-                    
-                    //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
-                    //$hash = password_hash($current, PASSWORD_BCRYPT);
-                    //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
-                    
+            $stmt = $db->prepare("SELECT password from Users WHERE email = :id LIMIT 1");
+
+            $params = array(":id" => get_user_id());
+            $r = $stmt->execute($params);
+            if($r){
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                $_current = $result["password"];
+                if(password_verify($current, $_current)){
+                    if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
+
+                        $password = $_POST["password"];
+                        $hash = password_hash($password, PASSWORD_BCRYPT);
+
+                        /*
+                        echo "this1 " . $password;
+                        echo "this2 " . $hash; //always same
+                        echo "this3 " . $hash; //always same
+                        echo "this4 " . password_hash($password, PASSWORD_BCRYPT); //changes
+                        echo "this5 " . password_hash($password, PASSWORD_BCRYPT); //changes
+                        echo "this6 " . $hash; //always same
+                        */
+                        //echo "this7 " . $_POST["password"]//THIS CRASHES SITE
+
+                     /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                            echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
+                            echo "ci3 " . implode([":id" => get_user_id(), ":current" => $hash]);
+                            echo "di3 " . implode([":id" => get_user_id(), ":current" => $hash]);  
+                       */
+
+                        //this one we'll do separate
+                        $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
+                        $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
+
+                        if ($r) {
+                            flash("Reset Password");
+                            //echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
+                            //echo "bi " . implode([":id" => get_user_id(), ":password" => $hash]);
+                            //echo "ci " . implode([":id" => get_user_id(), ":current" => $hash]);
+                            //echo "di " . implode([":id" => get_user_id(), ":current" => $hash]);
+
+                            //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
+                            //$hash = password_hash($current, PASSWORD_BCRYPT);
+                            //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
+
+                        }
+                        else {
+                            flash("Error resetting password");
+                        }
+                    }
                 }
-                else {
-                    flash("Error resetting password");
-                }
+                else{
+                    flash("That is not your current password, please try again", "danger");
             }
         }
 //fetch/select fresh data in case anything changed
