@@ -76,6 +76,8 @@ if (isset($_POST["saved"])) {
         //if so, then check if it's a valid reset request
         
         if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current"])) {
+            $current = $_POST["current_password"];
+            
             if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
                 
                 $password = $_POST["password"];
