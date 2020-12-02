@@ -154,7 +154,7 @@ if (isset($_POST["saved"])) {
 
 
 
- This doesn't work now that I added confirm password 
+
     <form method="POST">
         <table style="width:100%">
             <tr>
