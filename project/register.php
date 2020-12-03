@@ -76,7 +76,7 @@ if (!isset($username)) {
         <td><input class="form-control" type="email" id="email" name="email" required value="<?php safer_echo($email); ?>"/></td>
     </tr><tr>
         <td><label for="user">Username:</label></td>
-        <td><input class="form-control" type="text" id="user" name="username" required minlength="4" required maxlength="60" value="<?php safer_echo($username); ?>"/></td>
+        <td><input class="form-control" type="text" id="user" name="username" required maxlength="60" value="<?php safer_echo($username); ?>"/></td>
     </tr><tr>
         <td><label for="p1">Password:</label></td>
         <td><input class="form-control" type="password" id="p1" required minlength="4" required maxlength="60" name="password" required/></td>
