@@ -154,6 +154,22 @@ if (isset($_POST["saved"])) {
 
 
 
+
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
     <form method="POST">
         <table style="width:100%">
             <tr>
@@ -167,6 +183,10 @@ if (isset($_POST["saved"])) {
   </div>
 </div>  </td>
             </tr>
+            
+            
+            
+            
             
             
             <tr>
