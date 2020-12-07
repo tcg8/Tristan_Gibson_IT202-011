@@ -158,8 +158,15 @@ if (isset($_POST["saved"])) {
         <table style="width:100%">
             <tr>
         <td>  <label for="scores">Last 10 scores</label>  </td>
-        <td>  <label for="scores">Last 10 scores</label>  </td>
-            </tr><tr>
+        <td>  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>  </td>
+            </tr>
+            
+            
+            <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
             </tr><tr>
