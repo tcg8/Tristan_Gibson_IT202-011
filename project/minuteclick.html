@@ -11,7 +11,7 @@ function clickCounter() {
     } else {
       localStorage.clickcount = 1;
     }
-    document.getElementById("result").innerHTML = "Your current score is" + localStorage.clickcount + " time(s).";
+    document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
   } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }
