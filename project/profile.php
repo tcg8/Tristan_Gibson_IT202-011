@@ -188,11 +188,51 @@ if (isset($_POST["saved"])) {
     </form>
 
     <form method="POST">
-        <table style="width:100%">
+        <table style="width:50%">
                         <tr>
                 <td>  <label for="lastscores">Last 10 scores</label>  </td>
                 <td>  <label>insert scores here </label> </td>
             </tr> 
+            <tr>
+                <td><label> #1 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #2 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #3 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #4 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #5 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #6 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #7 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #8 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #9 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
+            <tr>
+                <td><label> #10 </label></td>
+                <td><label>insert score here </label></td>
+            </tr>
             
             
      <tr>
