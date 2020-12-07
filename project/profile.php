@@ -184,7 +184,7 @@ if (isset($_POST["saved"])) {
         
         <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
         
-         </table>
+        
                     <tr>
         <td>  <label for="scores">Last 10 scores from the past: </label>  </td>
         <td>  <select name="scores" id="scores">
@@ -192,7 +192,9 @@ if (isset($_POST["saved"])) {
     <option value="month">Month</option>
     <option value="alltime">All Time</option>
   </select>  </td>
-            </tr>
+            </tr> 
+        
+    </table>
     </form>
 
 <?php require(__DIR__ . "/partials/flash.php");
