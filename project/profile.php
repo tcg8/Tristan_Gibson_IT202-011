@@ -161,8 +161,35 @@ if (isset($_POST["saved"])) {
     <form method="POST">
         <table style="width:100%">
             
-            
             <tr>
+        <td>  <label for="email">Email</label>  </td>
+        <td>  <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
+            </tr><tr>
+        <td>  <label for="username">Username</label>  </td>
+        <td>  <input class="form-control" type="text" maxlength="60" name="username" value="<?php safer_echo(get_username()); ?>"/>  </td>
+            </tr><tr>
+
+        <!-- DO NOT PRELOAD PASSWORD-->
+
+        <td>  <label for="pwc">Current Password</label>  </td>
+        <td>  <input id="pwc" class="form-control" type="password" required minlength="4" required maxlength="60" name="current_password"/>  </td>
+            </tr><tr>
+        <td>  <label for="pw">New Password</label>  </td>
+        <td>  <input id="pw" class="form-control" type="password" required minlength="4" required maxlength="60" name="password"/>  </td>
+            </tr><tr>
+        <td>  <label for="cpw">Confirm Password</label>  </td>
+        <td>  <input type="password" required minlength="4" required maxlength="60" name="confirm"/>  </td>
+            </tr>
+       
+        </table>
+        <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
+        
+    
+    </form>
+
+    <form method="POST">
+        <table style="width:100%">
+                        <tr>
                 <td>  <label for="lastscores">Last 10 scores</label>  </td>
                 <td>  <label>insert scores here </label> </td>
             </tr> 
@@ -217,35 +244,11 @@ if (isset($_POST["saved"])) {
                 <td><label>insert score here </label></td>
             </tr>
             
-
-            <tr>
-        <td>  <label for="email">Email</label>  </td>
-        <td>  <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
-            </tr><tr>
-        <td>  <label for="username">Username</label>  </td>
-        <td>  <input class="form-control" type="text" maxlength="60" name="username" value="<?php safer_echo(get_username()); ?>"/>  </td>
-            </tr><tr>
-
-        <!-- DO NOT PRELOAD PASSWORD-->
-
-        <td>  <label for="pwc">Current Password</label>  </td>
-        <td>  <input id="pwc" class="form-control" type="password" required minlength="4" required maxlength="60" name="current_password"/>  </td>
-            </tr><tr>
-        <td>  <label for="pw">New Password</label>  </td>
-        <td>  <input id="pw" class="form-control" type="password" required minlength="4" required maxlength="60" name="password"/>  </td>
-            </tr><tr>
-        <td>  <label for="cpw">Confirm Password</label>  </td>
-        <td>  <input type="password" required minlength="4" required maxlength="60" name="confirm"/>  </td>
-            </tr>
-       
         </table>
-        <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
-        
-        
+    </form> 
 
-        
-    
-    </form>
+
+
 
 <?php require(__DIR__ . "/partials/flash.php");
 
