@@ -160,6 +160,17 @@ if (isset($_POST["saved"])) {
 
     <form method="POST">
         <table style="width:100%">
+            
+            
+     <tr>
+        <td>  <label for="scores">Last 10 scores from the past: </label>  </td>
+        <td>  <select name="scores" id="scores">
+    <option value="week">Week</option>
+    <option value="month">Month</option>
+    <option value="alltime">All Time</option>
+  </select>  </td>
+    </tr> 
+            
 
             <tr>
         <td>  <label for="email">Email</label>  </td>
@@ -181,20 +192,13 @@ if (isset($_POST["saved"])) {
         <td>  <input type="password" required minlength="4" required maxlength="60" name="confirm"/>  </td>
             </tr>
        
-        
+        </table>
         <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
         
         
-                    <tr>
-        <td>  <label for="scores">Last 10 scores from the past: </label>  </td>
-        <td>  <select name="scores" id="scores">
-    <option value="week">Week</option>
-    <option value="month">Month</option>
-    <option value="alltime">All Time</option>
-  </select>  </td>
-            </tr> 
+
         
-    </table>
+    
     </form>
 
 <?php require(__DIR__ . "/partials/flash.php");
