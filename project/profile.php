@@ -158,11 +158,14 @@ if (isset($_POST["saved"])) {
         <table style="width:100%">
             <tr>
         <td>  <label for="scores">Last 10 scores</label>  </td>
-        <td>   <div id="myDropdown" class="dropdown-content">
+        <td>   <div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
     <a href="#">Link 1</a>
     <a href="#">Link 2</a>
     <a href="#">Link 3</a>
-  </div>  </td>
+  </div>
+</div>  </td>
             </tr>
             
             
