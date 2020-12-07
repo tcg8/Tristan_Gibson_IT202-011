@@ -162,9 +162,14 @@ if (isset($_POST["saved"])) {
         <table style="width:100%">
             
             
+            <tr>
+                <td>  <label for="lastscores">Last 10 scores</label>  </td>
+                <td>  <label>insert scores here </label> </td>
+            </tr> 
+            
      <tr>
-        <td>  <label for="scores">Last 10 scores from the past: </label>  </td>
-        <td>  <select name="scores" id="scores">
+        <td>  <label for="topscores">Top 10 scores from the past: </label>  </td>
+        <td>  <select name="topscores" id="topscores">
     <option value="week">Week</option>
     <option value="month">Month</option>
     <option value="alltime">All Time</option>
