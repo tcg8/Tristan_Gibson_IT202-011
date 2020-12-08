@@ -14,7 +14,7 @@ flash("You are logged in, your score will be saved");
 //$score=localStorage.clickcount;
 	//$testvar=3;
 	//flash("testing display " . $testvar);
-	$score=$_POST["clicker"];//localStorage.clickcount;
+	$score=$_POST["sendscore"];//localStorage.clickcount;
 	flash("the score is " . $score);
 	
 	if (isset($_POST["clicker"])) {
@@ -73,7 +73,8 @@ function clickCounter() {
 	
 function submitScore() {
  //xhttp.send("score=" + localStorage.clickcount);
- localStorage.clickcount = 0;
+ //localStorage.clickcount = 0;
+	value=localStorage.clickcount;
  document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
 </script>
@@ -82,7 +83,7 @@ function submitScore() {
 <body>
 	<form>
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
-	<button onclick="clickCounter()" id="clicker" type="button" style="width: 100%; height: 200px;" value=localStorage.clickcount;>Click Me!</button>
+	<button onclick="clickCounter()" id="clicker" type="button" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
 	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score"/>
