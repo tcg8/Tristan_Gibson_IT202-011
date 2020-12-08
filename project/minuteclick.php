@@ -100,6 +100,7 @@ function clickCounter() {
 	
 function submitScore() {
  //xhttp.send("score=" + localStorage.clickcount);
+	cout.value=localStorage.clickcount;
  localStorage.clickcount = 0;
 	//value=localStorage.clickcount;
  document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
