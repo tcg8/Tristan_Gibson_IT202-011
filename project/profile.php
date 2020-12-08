@@ -14,8 +14,8 @@ if (!is_logged_in()) {
 
 //<?php
 
-$stmt = $db->prepare("
-SELECT Scores.score FROM Scores JOIN Users on Scores.user_id = Users.id where Users.id = :user_id");// and Roles.is_active = 1 and UserRoles.is_active = 1");
+//$stmt = $db->prepare("
+//SELECT Scores.score FROM Scores JOIN Users on Scores.user_id = Users.id where Users.id = :user_id");// and Roles.is_active = 1 and UserRoles.is_active = 1");
 //$stmt = $db->prepare("
 //SELECT Roles.name FROM Roles JOIN UserRoles on Roles.id = UserRoles.role_id where UserRoles.user_id = :user_id and Roles.is_active = 1 and UserRoles.is_active = 1");
 
