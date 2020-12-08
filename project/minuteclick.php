@@ -74,7 +74,7 @@ function clickCounter() {
 function submitScore() {
  //xhttp.send("score=" + localStorage.clickcount);
  //localStorage.clickcount = 0;
-	value=localStorage.clickcount;
+	//value=localStorage.clickcount;
  document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
 </script>
@@ -86,7 +86,7 @@ function submitScore() {
 	<button onclick="clickCounter()" id="clicker" type="button" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
-	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value=localStorage.clickcount />
+	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
 	<h3 id="countdown">Time Left</h3>-->
 	</form>
