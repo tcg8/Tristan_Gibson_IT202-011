@@ -24,10 +24,10 @@ if (!is_logged_in()) {
 		//$id = get_id();
 		$db = getDB();
         	if (isset($db)) {
-			$user_id = get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
-			$score = 7;
+			$user_id = get_user_id();//$_SESSION["user"]["id"];
+			$score = $_POST["count"]//7;
 			//$created = null;
-			flash("1This should appear when submit score is clicked");
+			//flash("1This should appear when submit score is clicked");
 			///*
 			//here we'll use placeholders to let PDO map and sanitize our data
 			$stmt = $db->prepare("INSERT INTO Scores( user_id, score) VALUES(:user_id,:score)");
@@ -112,6 +112,7 @@ function submitScore() {
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
+		<label name="count">4</label>
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
 <!----><input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
