@@ -149,12 +149,6 @@ if (isset($_POST["saved"])) {
 }
 
 
-<table style="width:50%">
-                        <tr>
-                <td>  <label for="lastscores">Last 10 scores</label>  </td>
-                <td>  <label>insert scores here </label> </td>
-            </tr>
-                    </table>
 
 ?>
 
