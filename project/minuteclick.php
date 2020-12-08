@@ -18,30 +18,31 @@ if (!is_logged_in()) {
 	//$score=4;//xhttp.send("score=" + localStorage.clickcount);//$_POST["sendscore"];//localStorage.clickcount;
 	//flash("the score is " . $score);
 	
-	$db = getDB();
+	//$db = getDB();
 	if (isset($_POST["sendscore"])) {
-		flash("2This should appear when submit score is clicked");
+		//flash("2This should appear when submit score is clicked");
 		//$id = get_id();
-		$user_id = get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
-		$score = 7;
-		$created = null;
-		if (isset($db)) {
-			flash("1This should appear when submit score is clicked");
-			///*
-		    //here we'll use placeholders to let PDO map and sanitize our data
-		    $stmt = $db->prepare("INSERT INTO Scores( user_id, score, created) VALUES(:user_id,:score,:created)");
-		    //here's the data map for the parameter to data
-		    $params = array( ":user_id" => $user_id, ":score" => $score, ":created" => $created);
-
-		    $r = $stmt->execute($params);
-
-		    $e = $stmt->errorInfo();
-		    if ($e[0] == "00000") {
-			flash("Successfully recorded score");
-		    }
-		    else {
-			flash("something went wrong");
-		    }//*/
+		$db = getDB();
+        	if (isset($db)) {
+			$user_id = get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
+			$score = 7;
+			$created = null;
+			if (isset($db)) {
+				flash("1This should appear when submit score is clicked");
+				///*
+			    	//here we'll use placeholders to let PDO map and sanitize our data
+			    	$stmt = $db->prepare("INSERT INTO Scores( user_id, score, created) VALUES(:user_id,:score,:created)");
+			    	//here's the data map for the parameter to data
+			    	$params = array( ":user_id" => $user_id, ":score" => $score, ":created" => $created);
+				$r = $stmt->execute($params);
+				$e = $stmt->errorInfo();
+			    	if ($e[0] == "00000") {
+					flash("Successfully recorded score");
+			    	}
+			    	else {
+					flash("something went wrong");
+			    	}//*/
+			}
 		}
 	}
 //}
