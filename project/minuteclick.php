@@ -80,7 +80,7 @@ function get_user_id(){
 	<label for="score">The score is </label> 
 	<label value="hi" />
 	<!--<div id="result"></div>-->
-	<!--<input class="btn btn-primary" type="submit" name="sendscore" value="Submit Score"/>-->
+	<!----><input class="btn btn-primary" type="submit" name="sendscore" value="Submit Score"/>
 </form>
 
 
