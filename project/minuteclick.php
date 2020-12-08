@@ -6,7 +6,7 @@ if (isset($_POST["sendscore"])) {
 	
  $db = getDB();
 	if (isset($db)) {
-		flash("This should appear when submit score is clicked");
+		flash("1This should appear when submit score is clicked");
 		/*
             //here we'll use placeholders to let PDO map and sanitize our data
             $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
@@ -49,6 +49,7 @@ function clickCounter() {
 }
 	
 function submitScore() {
+	flash("2This should appear when submit score is clicked");
  localStorage.clickcount = 0;
  document.getElementById("result").innerHTML = "Your current score is " + 0;
 }
