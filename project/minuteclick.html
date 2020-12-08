@@ -4,6 +4,7 @@
 <head>
 
 <script>
+	document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 function clickCounter() {
   if (typeof(Storage) !== "undefined") {
     if (localStorage.clickcount) {
