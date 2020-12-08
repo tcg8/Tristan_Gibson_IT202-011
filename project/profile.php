@@ -9,8 +9,9 @@ if (!is_logged_in()) {
     die(header("Location: login.php"));
 }
 
-$testingThing=$_SESSION["Users"]["id"];
-flash("testing thisThing " . $testingThing );
+$testingThing=$_SESSION["user"]["id"];
+flash("testing thisThing " . $testingThing . " ==== " . get_id());
+
 
 $db = getDB();
 //save data if we submitted the form
