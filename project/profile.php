@@ -170,6 +170,11 @@ $arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sun
 foreach($arr as $index=>$value){
     echo "$index => $value<br>\n";
 }
+
+$arr2 = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+foreach($arr2 as $index=>$value){
+    echo "$index => $value<br>\n";
+}
 //$stmt = $db->prepare("
 //SELECT Scores.score FROM Scores JOIN Users on Scores.user_id = Users.id where Users.id = :user_id");// and Roles.is_active = 1 and UserRoles.is_active = 1");
 //$stmt = $db->prepare("
