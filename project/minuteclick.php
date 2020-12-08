@@ -2,9 +2,9 @@
 
 
 <?php
-/*
+
  $db = getDB();
-	if (isset($db)) {
+	if (isset($db)) {/*
             //here we'll use placeholders to let PDO map and sanitize our data
             $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
             //here's the data map for the parameter to data
@@ -21,8 +21,8 @@
                 else {
                     flash("An error occurred, please try again");
                 }
-            }
-        }*/
+            }*/
+        }
 
 ?>
 
