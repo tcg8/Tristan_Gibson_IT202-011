@@ -48,14 +48,14 @@ if (isset($_POST["sendscore"])) {
 ?>
 
 
-<!--<form>
+<form>
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
-	<button  id="clicker" type="button" style="width: 100%; height: 200px;">Click Me!</button>
-	<div id="result"></div>
+	<button  id="clicker" name="clicker" type="button" style="width: 100%; height: 200px;" value="Click me">Click Me!</button>
+	<!--<div id="result"></div>-->
 	<input class="btn btn-primary" type="submit" name="sendscore" value="Submit Score"/>
 </form>
--->
 
+<!--
 <html>
 <head>
 <script>
@@ -87,14 +87,14 @@ function submitScore() {
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
-<!----><input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
+<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />-->
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
 	<h3 id="countdown">Time Left</h3>-->
-	<!----></form>
+	<!--</form>
 </body>
 	
 
-</html>
+</html>-->
 
 <?php require(__DIR__ . "/partials/flash.php");
 	
