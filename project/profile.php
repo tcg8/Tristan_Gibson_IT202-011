@@ -154,6 +154,8 @@ if (isset($_POST["saved"])) {
 
 
 
+
+
 <?php
 
 
@@ -173,7 +175,7 @@ flash("in a loop bb");
 */
 $safetyUser=get_user_id();
 $stmt = $db->prepare("SELECT score from Scores WHERE id = $safetyUser");
-
+flash($stmt);
 ?>
 
 
