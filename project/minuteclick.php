@@ -41,7 +41,7 @@ if (!is_logged_in()) {
 				}
 				else{
 					$e = $stmt->errorInfo();
-					flash("Error creating :"));// . var_export($e, true));
+					flash("Error creating :" . var_export($e, true));
 				}
 				/*$e = $stmt->errorInfo();
 			    	if ($e[0] == "00000") {
