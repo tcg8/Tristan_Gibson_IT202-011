@@ -165,7 +165,7 @@ if (isset($_POST["saved"])) {
 $results = $stmt->fetchAll();
 ?>
 <? foreach($results as $r):?>
-<?php endforeach;?>
+<?php endforeach:?>
 
 <?php
 
