@@ -87,7 +87,7 @@ function submitScore() {
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
-<!----><input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
+<!----><input class="btn btn-primary"  type="submit" name="sendscore" value="Submit Score" />
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
 	<h3 id="countdown">Time Left</h3>-->
 	<!----></form>
