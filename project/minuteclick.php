@@ -15,7 +15,7 @@ flash("You are logged in, your score will be saved");
 		flash("33This should appear when submit score is clicked");
 	}
 if (isset($_POST["sendscore"])) {
-	//flash("33This should appear when submit score is clicked");
+	flash("33This should appear when submit score is clicked");
  $db = getDB();
 	if (isset($db)) {
 		flash("1This should appear when submit score is clicked");
