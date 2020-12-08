@@ -3,6 +3,7 @@
 
 <?php
 if (isset($_POST["sendscore"])) {
+	flash("Username or email already exists.");
  $db = getDB();
 	if (isset($db)) {/*
             //here we'll use placeholders to let PDO map and sanitize our data
