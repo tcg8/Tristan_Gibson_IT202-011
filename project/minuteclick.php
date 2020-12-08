@@ -25,7 +25,7 @@ if (!is_logged_in()) {
 		$db = getDB();
         	if (isset($db)) {
 			$user_id = get_user_id();//$_SESSION["user"]["id"];
-			$score = $_POST["count"]//7;
+			$score = $_POST["count"];//7;
 			//$created = null;
 			//flash("1This should appear when submit score is clicked");
 			///*
