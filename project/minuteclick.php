@@ -57,7 +57,7 @@ function clickCounter() {
 }
 	
 function submitScore() {
-	
+ xhttp.send("score=" + localStorage.clickcount);
  localStorage.clickcount = 0;
  document.getElementById("result").innerHTML = "Your current score is " + 0;
 }
