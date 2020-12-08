@@ -11,7 +11,9 @@ if (!is_logged_in()) {
 }
 else{
 flash("You are logged in, your score will be saved");
-	flash("22This should appear when submit score is clicked");
+//$score=localStorage.clickcount;
+$testvar=3;
+	flash("testing display ".testvar);
 	
 	if (isset($_POST["clicker"])) {
 		flash("33This should appear when submit score is clicked");
