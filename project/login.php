@@ -2,9 +2,13 @@
 
 <form method="POST">
 <table style="width:100%">    
+    <p>Must use email or username to log in.
     <tr>
         <td><label for="email">Email:</label></td>
         <td><input class="form-control" type="email" id="email" name="email" required/></td>
+    </tr><tr>
+        <td><label for="username">Username:</label></td>
+        <td><input class="form-control" type="username" id="username" name="username" required/></td>
     </tr><tr>
         <td><label for="p1">Password:</label></td>
         <td><input class="form-control" type="password" id="p1" name="password" required/>
@@ -18,16 +22,24 @@
 if (isset($_POST["login"])) {
     $email = null;
     $password = null;
+    $username = null;
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
     }
     if (isset($_POST["password"])) {
         $password = $_POST["password"];
     }
+    if (isset($_POST["username"])) {
+        $password = $_POST["username"];
+    }
     $isValid = true;
-    if (!isset($email) || !isset($password)) {
+    if (!isset($password)) {
         $isValid = false;
-        flash("Email or password missing");
+        flash("Password is missing");
+    }
+    if (!isset($email) || !isset($username)) {
+        $isValid = false;
+        flash("Email or Username missing");
     }
     if (!strpos($email, "@")) {
         $isValid = false;
