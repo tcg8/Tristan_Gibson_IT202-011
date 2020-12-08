@@ -1,10 +1,35 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
 
-<html>
-	
-<head>
+<?php
+/*
+ $db = getDB();
+	if (isset($db)) {
+            //here we'll use placeholders to let PDO map and sanitize our data
+            $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
+            //here's the data map for the parameter to data
+            /$params = array(":id" => id, ":user_id" => $user_id, ":score" => $score, ":created" => $created);
+            $r = $stmt->execute($params);
+            $e = $stmt->errorInfo();
+            if ($e[0] == "00000") {
+                flash("Successfully registered! Please login.");
+            }
+            else {
+                if ($e[0] == "23000") {//code for duplicate entry
+                    flash("Username or email already exists.");
+                }
+                else {
+                    flash("An error occurred, please try again");
+                }
+            }
+        }*/
 
+
+
+
+
+<html>
+<head>
 <script>
 function clickCounter() {
   if (typeof(Storage) !== "undefined") {
@@ -37,3 +62,4 @@ function submitScore() {
 	
 
 </html>
+	?>
