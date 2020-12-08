@@ -9,45 +9,20 @@ if (!is_logged_in()) {
     flash("You are not logged in, your score won't be saved");
     //die(header("Location: login.php"));
 }
-else{
-	
-flash("You are logged in, your score will be saved");
-//$score=localStorage.clickcount;
+//else{	
+//flash("You are logged in, your score will be saved");
+
+	//$score=localStorage.clickcount;
 	//$testvar=3;
 	//flash("testing display " . $testvar);
 	//$score=4;//xhttp.send("score=" + localStorage.clickcount);//$_POST["sendscore"];//localStorage.clickcount;
 	//flash("the score is " . $score);
 	
 	$db = getDB();
-	
-	
-	/*
-	if (isset($_POST["clicker"])) {
-		flash("33This should appear when button is clicked");
-	}
-	*/
-	/*
-if (isset($_POST["sendscore"])) {
-	flash("2This should appear when submit score is clicked");
-	$isValid = true;
-}
-	
-	*/
-	/*
-	if ($isValid) {
-		$stmt = $db->prepare("UPDATE Scores set email = :email, username= :username where id = :id");
-		$r = $stmt->execute([":email" => $newEmail, ":username" => $newUsername, ":id" => get_user_id()]);
-		if ($r) {
-		    flash("Updated profile");
-		}
-		else {
-		    flash("Error updating profile");
-		}
-	}
-	*/
 	if (isset($_POST["sendscore"])) {
+		flash("2This should appear when submit score is clicked");
 		//$id = get_id();
-		$user_id = get_id();
+		$user_id = get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
 		$score = 7;
 		$created = null;
 		if (isset($db)) {
@@ -69,10 +44,17 @@ if (isset($_POST["sendscore"])) {
 		    }//*/
 		}
 	}
-}
+//}
 
 //$c = (int)$result["eggs"];
-
+/*
+function get_user_id(){
+	if (is_logged_in() && isset($_SESSION["user"]["id"])) {
+		return $_SESSION["user"]["id"];
+	}
+	return "";
+}
+*/
 
 ?>
 
