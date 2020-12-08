@@ -12,6 +12,8 @@ if (!is_logged_in()) {
 else{
 	
 flash("You are logged in, your score will be saved");
+	$user_id = get_id();
+	flash("the id " . $user_id);
 //$score=localStorage.clickcount;
 	//$testvar=3;
 	//flash("testing display " . $testvar);
@@ -46,17 +48,17 @@ if (isset($_POST["sendscore"])) {
 	}
 	*/
 	if (isset($_POST["sendscore"])) {
-		$id = get_id();
-		$user_id = get_username();
+		//$id = get_id();
+		$user_id = get_id();
 		$score = 7;
 		$created = null;
 		if (isset($db)) {
 			flash("1This should appear when submit score is clicked");
 			///*
 		    //here we'll use placeholders to let PDO map and sanitize our data
-		    $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
+		    $stmt = $db->prepare("INSERT INTO Scores( user_id, score, created) VALUES(:user_id,:score,:created)");
 		    //here's the data map for the parameter to data
-		    $params = array(":id" => id, ":user_id" => $user_id, ":score" => $score, ":created" => $created);
+		    $params = array( ":user_id" => $user_id, ":score" => $score, ":created" => $created);
 
 		    $r = $stmt->execute($params);
 
