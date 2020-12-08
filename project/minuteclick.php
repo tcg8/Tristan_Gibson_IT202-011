@@ -45,10 +45,10 @@ if (isset($_POST["sendscore"])) {
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
 	<button  id="clicker" type="button" style="width: 100%; height: 200px;">Click Me!</button>
 	<div id="result"></div>
-	<input class="btn btn-primary" type="submit" id="sendscore">Submit Score</input>
+	<input class="btn btn-primary" type="submit" name="sendscore">Submit Score</input>
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
 	<h3 id="countdown">Time Left</h3>-->
-	<!--</form>
+	</form>
 
 <!--<html>
 <head>
