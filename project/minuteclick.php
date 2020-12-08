@@ -72,7 +72,7 @@ function get_user_id(){
 ?>
 
 
-<form>
+<form method="POST">
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
 	<button  id="clicker" name="clicker" type="button" style="width: 100%; height: 200px;" value="Click me">Click Me!</button>
 	<label for="score">The score is </label> 
