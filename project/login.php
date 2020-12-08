@@ -2,7 +2,6 @@
 
 <form method="POST">
 <table style="width:100%">    
-    <p>Must use email or username to log in.
     <tr>
         <td><label for="email">Email:</label></td>
         <td><input class="form-control" type="email" id="email" name="email" required/></td>
@@ -34,17 +33,23 @@ if (isset($_POST["login"])) {
         $isValid = false;
         flash("Password is missing");
     }
+    $usingemail=true;
     if (!strpos($email, "@")) {
-        $isValid = false;
+        $usingemail=false;
+        //$isValid = false;
         //echo "<br>Invalid email<br>";
-        flash("Invalid email");
+        //flash("Invalid email");
     }
     if ($isValid) {
         $db = getDB();
         if (isset($db)) {
             $stmt = $db->prepare("SELECT id, email, username, password from Users WHERE email = :email LIMIT 1");
 
-            $params = array(":email" => $email);
+            if($usingemail){
+                $params = array(":email" => $email);
+            }else{
+                $params = array(":username" => $email);
+            }
             $r = $stmt->execute($params);
             //echo "db returned: " . var_export($r, true);
             $e = $stmt->errorInfo();
