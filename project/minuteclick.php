@@ -12,7 +12,7 @@ if (!is_logged_in()) {
 else{
 flash("This should appear when logged in");
 if (isset($_POST["sendscore"])) {
-	flash("33This should appear when submit score is clicked");
+	//flash("33This should appear when submit score is clicked");
  $db = getDB();
 	if (isset($db)) {
 		flash("1This should appear when submit score is clicked");
