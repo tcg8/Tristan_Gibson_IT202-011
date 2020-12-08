@@ -160,14 +160,17 @@ if (isset($_POST["saved"])) {
 
 
 
-//SELECT * from Scores where user_id = :id order by created desc limit 10;
+<?php
+
+/*
+SELECT * from Scores where user_id = :id order by created desc limit 10;
 <?php
 $results = $stmt->fetchAll();
 ?>
 <? foreach($results as $r):?>
-<?php endforeach:?>
+<?php endforeach;?>
+*/
 
-<?php
 
 /*$arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 foreach($arr as $index=>$value){
