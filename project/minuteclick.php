@@ -67,4 +67,6 @@ function submitScore() {
 	
 
 </html>
+
+<?php require(__DIR__ . "/partials/flash.php"); ?>
 	
