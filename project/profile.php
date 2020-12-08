@@ -9,8 +9,6 @@ if (!is_logged_in()) {
     die(header("Location: login.php"));
 }
 
-$testingThing=$_SESSION["user"]["id"];
-flash("testing thisThing " . $testingThing);// . " ==== " . get_id());
 
 
 $db = getDB();
@@ -152,10 +150,31 @@ if (isset($_POST["saved"])) {
     }
 }
 
-
-
 ?>
 
+
+
+<?php
+
+
+/*$testingThing=$_SESSION["user"]["id"];
+flash("testing thisThing " . $testingThing);// . " ==== " . get_id());
+
+$arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+//note we take the array first, then we get the value "as" the next variable we declare
+foreach($arr as $day){
+ echo "$day <br>\n";
+}
+//we can also return the key/value separately for associative arrays
+foreach($arr as $index=>$value){
+ echo "$index => $value<br>\n";
+}
+flash("in a loop bb");
+*/
+$safetyUser=get_user_id();
+$stmt = $db->prepare("SELECT score from Scores WHERE id = $safetyUser");
+
+?>
 
 
 
