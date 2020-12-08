@@ -165,7 +165,7 @@ SELECT * from Scores where user_id = :id order by created desc limit 10;
 $results = $stmt->fetchAll();
 ?>
 <? foreach($results as $r):?>
-<?php endforeach;?>
+<?php endforeach:?>
 
 <?php
 
