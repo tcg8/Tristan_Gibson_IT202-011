@@ -26,16 +26,16 @@ if (!is_logged_in()) {
         	if (isset($db)) {
 			$user_id = get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
 			$score = 7;
-			$created = null;
+			//$created = null;
 			if (isset($db)) {
 				flash("1This should appear when submit score is clicked");
 				///*
 			    	//here we'll use placeholders to let PDO map and sanitize our data
-			    	$stmt = $db->prepare("INSERT INTO Scores( user_id, score, created) VALUES(:user_id,:score,:created)");
+			    	$stmt = $db->prepare("INSERT INTO Scores( user_id, score) VALUES(:user_id,:score)");
 			    	//here's the data map for the parameter to data
-			    	//$params = array( ":user_id" => $user_id, ":score" => $score, ":created" => $created);
+			    	//$params = array( ":user_id" => $user_id, ":score" => $score);
 				//$r = $stmt->execute($params);
-				$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score, ":created" => $created]);
+				$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score]);
 				if($r){
 					flash("Created successfully with id: " . $db->lastInsertId());
 				}
