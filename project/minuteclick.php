@@ -2,6 +2,15 @@
 
 
 <?php
+
+
+if (!is_logged_in()) {
+    //this will redirect to login and kill the rest of this script (prevent it from executing)
+    flash("You are not logged in, your score won't be saved");
+    //die(header("Location: login.php"));
+}
+else{
+flash("This should appear when logged in");
 if (isset($_POST["sendscore"])) {
 	
  $db = getDB();
@@ -23,6 +32,7 @@ if (isset($_POST["sendscore"])) {
                 flash("something went wrong");
             }*/
         }
+}
 }
 
 ?>
