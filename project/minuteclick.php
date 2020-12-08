@@ -9,7 +9,7 @@ if (!is_logged_in()) {
     flash("You are not logged in, your score won't be saved");
     //die(header("Location: login.php"));
 }
-else{
+//else{
 flash("You are logged in, your score will be saved");
 //$score=localStorage.clickcount;
 	//$testvar=3;
@@ -42,7 +42,7 @@ if (isset($_POST["sendscore"])) {
                 flash("something went wrong");
             }*/
         }
-}
+//}
 }
 
 ?>
