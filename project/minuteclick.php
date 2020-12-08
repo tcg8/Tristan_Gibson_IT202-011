@@ -22,7 +22,7 @@ if (!is_logged_in()) {
 	if (isset($_POST["sendscore"])) {
 		flash("2This should appear when submit score is clicked");
 		//$id = get_id();
-		$user_id = $_SESSION["user"]["id"];//get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
+		$user_id = get_user_id();//$_SESSION["user"]["id"];//3;//get_id();
 		$score = 7;
 		$created = null;
 		if (isset($db)) {
