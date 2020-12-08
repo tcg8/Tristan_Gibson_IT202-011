@@ -4,7 +4,7 @@
 <table style="width:100%">    
     <tr>
         <td><label for="email">Email:</label></td>
-        <td><input class="form-control" type="email" id="email" name="email" required/></td>
+        <td><input class="form-control" id="email" name="email" required/></td>
     </tr><tr>
         <td><label for="p1">Password:</label></td>
         <td><input class="form-control" type="password" id="p1" name="password" required/>
