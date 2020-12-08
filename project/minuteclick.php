@@ -47,11 +47,12 @@ if (isset($_POST["sendscore"])) {
 
 ?>
 
-var count=0;
+
 <form>
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
 	<button  id="clicker" name="clicker" type="button" style="width: 100%; height: 200px;" value="Click me">Click Me!</button>
-	<label for="score">The score is </label>
+	<label for="score">The score is </label> 
+	<label>hi</label>
 	<!--<div id="result"></div>-->
 	<input class="btn btn-primary" type="submit" name="sendscore" value="Submit Score"/>
 </form>
