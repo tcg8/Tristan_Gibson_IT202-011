@@ -160,12 +160,12 @@ if (isset($_POST["saved"])) {
 
 
 
-SELECT * from Scores where user_id = :id order by created desc limit 10;
+//SELECT * from Scores where user_id = :id order by created desc limit 10;
 <?php
 $results = $stmt->fetchAll();
 ?>
 <? foreach($results as $r):?>
-<?php endforeach:?>
+<?php endforeach;?>
 
 <?php
 
