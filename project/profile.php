@@ -9,7 +9,7 @@ if (!is_logged_in()) {
     die(header("Location: login.php"));
 }
 
-$testingThing=$_SESSION["Scores"]["id"];
+$testingThing=$_SESSION["user"]["id"];
 flash("testing thisThing " . $testingThing );
 
 $db = getDB();
