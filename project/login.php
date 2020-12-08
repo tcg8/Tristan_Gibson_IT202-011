@@ -6,10 +6,7 @@
     <tr>
         <td><label for="email">Email:</label></td>
         <td><input class="form-control" type="email" id="email" name="email" required/></td>
-    </tr><!--<tr>
-        <td><label for="username">Username:</label></td>
-        <td><input class="form-control" type="username" id="username" name="username" required/></td>
-    </tr>--><tr>
+    </tr><tr>
         <td><label for="p1">Password:</label></td>
         <td><input class="form-control" type="password" id="p1" name="password" required/>
     </td></tr>
