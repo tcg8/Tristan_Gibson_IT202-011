@@ -10,6 +10,7 @@ if (!is_logged_in()) {
     //die(header("Location: login.php"));
 }
 else{
+	
 flash("You are logged in, your score will be saved");
 //$score=localStorage.clickcount;
 	//$testvar=3;
@@ -17,33 +18,61 @@ flash("You are logged in, your score will be saved");
 	//$score=4;//xhttp.send("score=" + localStorage.clickcount);//$_POST["sendscore"];//localStorage.clickcount;
 	//flash("the score is " . $score);
 	
+	$db = getDB();
+	
+	
+	/*
 	if (isset($_POST["clicker"])) {
 		flash("33This should appear when button is clicked");
 	}
+	*/
+	/*
 if (isset($_POST["sendscore"])) {
 	flash("2This should appear when submit score is clicked");
+	$isValid = true;
+}
 	
- $db = getDB();
-	if (isset($db)) {
-		flash("1This should appear when submit score is clicked");
-		/*
-            //here we'll use placeholders to let PDO map and sanitize our data
-            $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
-            //here's the data map for the parameter to data
-            /$params = array(":id" => id, ":user_id" => $user_id, ":score" => $score, ":created" => $created);
-            
-	    $r = $stmt->execute($params);
-            
-	    $e = $stmt->errorInfo();
-            if ($e[0] == "00000") {
-                flash("Successfully registered! Please login.");
-            }
-            else {
-                flash("something went wrong");
-            }*/
-        }
+	*/
+	/*
+	if ($isValid) {
+		$stmt = $db->prepare("UPDATE Scores set email = :email, username= :username where id = :id");
+		$r = $stmt->execute([":email" => $newEmail, ":username" => $newUsername, ":id" => get_user_id()]);
+		if ($r) {
+		    flash("Updated profile");
+		}
+		else {
+		    flash("Error updating profile");
+		}
+	}
+	*/
+	if (isset($_POST["sendscore"])) {
+		$id = get_id();
+		$user_id = get_username();
+		$score = 7;
+		$created = null;
+		if (isset($db)) {
+			flash("1This should appear when submit score is clicked");
+			///*
+		    //here we'll use placeholders to let PDO map and sanitize our data
+		    $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
+		    //here's the data map for the parameter to data
+		    $params = array(":id" => id, ":user_id" => $user_id, ":score" => $score, ":created" => $created);
+
+		    $r = $stmt->execute($params);
+
+		    $e = $stmt->errorInfo();
+		    if ($e[0] == "00000") {
+			flash("Successfully recorded score");
+		    }
+		    else {
+			flash("something went wrong");
+		    }//*/
+		}
+	}
 }
-}
+
+//$c = (int)$result["eggs"];
+
 
 ?>
 
