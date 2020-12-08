@@ -6,10 +6,10 @@
     <tr>
         <td><label for="email">Email:</label></td>
         <td><input class="form-control" type="email" id="email" name="email" required/></td>
-    </tr><tr>
+    </tr><!--<tr>
         <td><label for="username">Username:</label></td>
         <td><input class="form-control" type="username" id="username" name="username" required/></td>
-    </tr><tr>
+    </tr>--><tr>
         <td><label for="p1">Password:</label></td>
         <td><input class="form-control" type="password" id="p1" name="password" required/>
     </td></tr>
@@ -22,14 +22,14 @@
 if (isset($_POST["login"])) {
     $email = null;
     $password = null;
-    $username = null;
+    //$username = null;
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
     }
     if (isset($_POST["password"])) {
         $password = $_POST["password"];
     }
-    if (isset($_POST["username"])) {
+    /*if (isset($_POST["username"])) {
         $password = $_POST["username"];
     }
     $isValid = true;
@@ -40,7 +40,10 @@ if (isset($_POST["login"])) {
     if (!isset($email) || !isset($username)) {
         $isValid = false;
         flash("Email or Username missing");
-    }
+    }*/
+    if (!isset($email) || !isset($password)) {
+        $isValid = false;
+        flash("Email or passwordd missing");
     if (!strpos($email, "@")) {
         $isValid = false;
         //echo "<br>Invalid email<br>";
