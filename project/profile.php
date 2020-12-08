@@ -166,7 +166,7 @@ if (isset($_POST["saved"])) {
 
 
 <?php
-$arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+/*$arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 foreach($arr as $index=>$value){
     echo "$index => $value<br>\n";
 }
@@ -175,6 +175,7 @@ $arr2 = "SELECT score from Scores";
 foreach($arr2 as $index){
     echo "$index <br>\n";
 }
+*/
 //$stmt = $db->prepare("
 //SELECT Scores.score FROM Scores JOIN Users on Scores.user_id = Users.id where Users.id = :user_id");// and Roles.is_active = 1 and UserRoles.is_active = 1");
 //$stmt = $db->prepare("
