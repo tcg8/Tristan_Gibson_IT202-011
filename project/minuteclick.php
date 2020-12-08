@@ -49,7 +49,7 @@ function clickCounter() {
 }
 	
 function submitScore() {
-	flash("2This should appear when submit score is clicked");
+	
  localStorage.clickcount = 0;
  document.getElementById("result").innerHTML = "Your current score is " + 0;
 }
