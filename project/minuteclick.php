@@ -34,7 +34,7 @@ if (!is_logged_in()) {
 				flash("Successfully recorded score");
 			}
 			else {
-				flash("something went wrong");
+				flash("You are not logged in so the score was not saved");
 			}//*/
 		}
 	}
