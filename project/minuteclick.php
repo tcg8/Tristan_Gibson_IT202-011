@@ -3,9 +3,11 @@
 
 <?php
 if (isset($_POST["sendscore"])) {
-	flash("Username or email already exists.");
+	
  $db = getDB();
-	if (isset($db)) {/*
+	if (isset($db)) {
+		flash("This should appear when submit score is clicked");
+		/*
             //here we'll use placeholders to let PDO map and sanitize our data
             $stmt = $db->prepare("INSERT INTO Scores(id, user_id, score, created) VALUES(:id,:user_id,:score,:created)");
             //here's the data map for the parameter to data
