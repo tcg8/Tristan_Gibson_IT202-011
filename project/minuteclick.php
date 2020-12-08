@@ -10,9 +10,12 @@ if (!is_logged_in()) {
     //die(header("Location: login.php"));
 }
 else{
-flash("This should appear when logged in");
+flash("You are logged in, your score will be saved");
+	if (isset($_POST["clicker"])) {
+		flash("33This should appear when submit score is clicked");
+	}
 if (isset($_POST["sendscore"])) {
-	flash("33This should appear when submit score is clicked");
+	//flash("33This should appear when submit score is clicked");
  $db = getDB();
 	if (isset($db)) {
 		flash("1This should appear when submit score is clicked");
@@ -38,9 +41,16 @@ if (isset($_POST["sendscore"])) {
 ?>
 
 
+<form>
+	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
+	<button  id="clicker" type="button" style="width: 100%; height: 200px;">Click Me!</button>
+	<div id="result"></div>
+	<button  id="sendscore" type="button">Submit Score</button>
+	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
+	<h3 id="countdown">Time Left</h3>-->
+	<!--</form>
 
-
-<html>
+<!--<html>
 <head>
 <script>
 function clickCounter() {
@@ -72,11 +82,11 @@ function submitScore() {
 	<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
 	<h3 id="countdown">Time Left</h3>-->
-	</form>
+	<!--</form>
 </body>
 	
 
-</html>
+</html>-->
 
 <?php require(__DIR__ . "/partials/flash.php");
 	
