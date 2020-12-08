@@ -24,7 +24,7 @@
             }
         }*/
 
-
+?>
 
 
 
@@ -62,4 +62,4 @@ function submitScore() {
 	
 
 </html>
-	?>
+	
