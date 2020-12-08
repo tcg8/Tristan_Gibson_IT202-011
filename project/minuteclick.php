@@ -112,7 +112,7 @@ function submitScore() {
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
-		<label name="count">4</label>
+		<input type="hidden" id="count" value="4" />
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
 <!----><input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
 	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
