@@ -167,7 +167,7 @@ if (isset($_POST["saved"])) {
 
 <?php
 $arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-foreach($arr as $day){
+foreach($arr as $index=>$value){
     echo "$index => $value<br>\n";
 }
 //$stmt = $db->prepare("
