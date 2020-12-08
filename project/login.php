@@ -19,30 +19,17 @@
 if (isset($_POST["login"])) {
     $email = null;
     $password = null;
-    //$username = null;
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
     }
     if (isset($_POST["password"])) {
         $password = $_POST["password"];
     }
-    /*if (isset($_POST["username"])) {
-        $password = $_POST["username"];
-    }
-    */
     $isValid = true;
-    /*
-    if (!isset($password)) {
-        $isValid = false;
-        flash("Password is missing");
-    }
-    if (!isset($email) || !isset($username)) {
-        $isValid = false;
-        flash("Email or Username missing");
-    }*/
     if (!isset($email) || !isset($password)) {
         $isValid = false;
-        flash("Email or passwordd missing");
+        flash("Email or password missing");
+    }
     if (!strpos($email, "@")) {
         $isValid = false;
         //echo "<br>Invalid email<br>";
