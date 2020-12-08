@@ -171,7 +171,7 @@ foreach($arr as $index=>$value){
     echo "$index => $value<br>\n";
 }
 
-$arr2 = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+$arr2 = SELECT score from Scores;
 foreach($arr2 as $index=>$value){
     echo "$index => $value<br>\n";
 }
