@@ -14,8 +14,8 @@ flash("You are logged in, your score will be saved");
 //$score=localStorage.clickcount;
 	//$testvar=3;
 	//flash("testing display " . $testvar);
-	$score=4;//xhttp.send("score=" + localStorage.clickcount);//$_POST["sendscore"];//localStorage.clickcount;
-	flash("the score is " . $score);
+	//$score=4;//xhttp.send("score=" + localStorage.clickcount);//$_POST["sendscore"];//localStorage.clickcount;
+	//flash("the score is " . $score);
 	
 	if (isset($_POST["clicker"])) {
 		flash("33This should appear when submit score is clicked");
@@ -74,7 +74,7 @@ function clickCounter() {
 	
 function submitScore() {
  //xhttp.send("score=" + localStorage.clickcount);
- //localStorage.clickcount = 0;
+ localStorage.clickcount = 0;
 	//value=localStorage.clickcount;
  document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
