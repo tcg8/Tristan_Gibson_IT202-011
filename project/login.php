@@ -32,7 +32,9 @@ if (isset($_POST["login"])) {
     /*if (isset($_POST["username"])) {
         $password = $_POST["username"];
     }
-    */$isValid = true;/*
+    */
+    $isValid = true;
+    /*
     if (!isset($password)) {
         $isValid = false;
         flash("Password is missing");
