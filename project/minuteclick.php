@@ -12,8 +12,6 @@ if (!is_logged_in()) {
 else{
 	
 flash("You are logged in, your score will be saved");
-	$user_id = get_id();
-	flash("the id " . $user_id);
 //$score=localStorage.clickcount;
 	//$testvar=3;
 	//flash("testing display " . $testvar);
