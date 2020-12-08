@@ -26,9 +26,13 @@ if (isset($_POST["login"])) {
         $password = $_POST["password"];
     }
     $isValid = true;
-    if (!isset($email) || !isset($password)) {
+    if (!isset($email)) {
         $isValid = false;
-        flash("Email or password missing");
+        flash("Email is missing");
+    }
+    if (!isset($password)) {
+        $isValid = false;
+        flash("Password is missing");
     }
     if (!strpos($email, "@")) {
         $isValid = false;
