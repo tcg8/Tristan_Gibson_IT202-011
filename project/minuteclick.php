@@ -2,7 +2,7 @@
 
 
 <?php
-
+if (isset($_POST["sendscore"])) {
  $db = getDB();
 	if (isset($db)) {/*
             //here we'll use placeholders to let PDO map and sanitize our data
@@ -23,6 +23,7 @@
                 }
             }*/
         }
+}
 
 ?>
 
