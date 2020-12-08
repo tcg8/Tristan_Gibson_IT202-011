@@ -10,7 +10,7 @@ if (!is_logged_in()) {
 }
 
 $testingThing=$_SESSION["user"]["id"];
-flash("testing thisThing " . $testingThing . " ==== " . get_id());
+flash("testing thisThing " . $testingThing);// . " ==== " . get_id());
 
 
 $db = getDB();
