@@ -15,14 +15,14 @@ if (!is_logged_in()) {
 <?php
 $db = getDB();
 //$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
-$stmt = $db->prepare("SELECT score,created from Scores where user_id = :id order by score desc limit 10");
+$stmt = $db->prepare("SELECT score,created from Scores where user_id = :id and id<25 order by score desc limit 10");
 //WILL NEED A WHERE STATEMENT TO GET TIME FRAME
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
 //flash("todays date is " . );
-$currtime=mktime();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
+$currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
 $testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
 flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
 flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
