@@ -138,21 +138,21 @@ if (isset($_POST["saved"])) {
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 $stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
 
+$params = array(":id" => get_user_id());
+$results = $stmt->fetchAll();
+flash("itsa me " . count($results));
 //flash("itsa me " . implode("", $results));
 //echo $results;
 /*foreach($results as $index){
     echo "$index <br>\n";
 }*/
-$results = $stmt->fetchAll();
+
 ?>
 
 <?php foreach($results as $r):?>
 
 <?php endforeach;?>
-<?php
 
-flash("itsa me " . count($results));
-?>
 
 
 
