@@ -157,7 +157,7 @@ if (count($results)==0) {
 }
 if($hasScores) {
     flash("Your last 10 scores (still need message for when user has less than 10 scores)");
-    $i=count($results);
+    $i=10-count($results);
     
     if(count($results)==10) {
         $i=count($results)-10;
@@ -173,7 +173,7 @@ if($hasScores) {
         $finalNum = implode($results[$i]) % $modifier;
         //flash("digits " . length(implode($results[$i])));
         //if(implode($results[$i])>10){$check=100;}
-        flash("#" . $a . " most recent score is " . $finalNum);
+        flash("#" . $a . " most recent score is " . $finalNum . " $i is " . $i);
         //flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
       $i++;
