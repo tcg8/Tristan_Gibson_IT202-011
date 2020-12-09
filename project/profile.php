@@ -150,7 +150,7 @@ flash("line 145 " . count($results));
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $i = count($results);
 do {
-  echo "a is $i <br>\n";
+  echo "a is $results <br>\n";
   $i--;
 }
 while($i>0);
