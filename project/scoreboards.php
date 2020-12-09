@@ -22,8 +22,10 @@ $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
 //flash("todays date is " . );
-$d=mktime();//$d=mktime(11, 14, 54, 8, 12, 2014);
-flash( "Created date is " . date("Y-m-d h:i:sa", $d));
+$currtime=mktime();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
+$testtime=mktime()-30;
+flash( "Current date is " . date("Y-m-d h:i:sa", $currtime));
+flash( "Testing date is " . date("Y-m-d h:i:sa", $testtime));
 
 
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
