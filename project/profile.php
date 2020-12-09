@@ -159,7 +159,7 @@ if($r) {
     flash("itsa me " . count($results));
     
 }*/
-flash("itsa me " . count($results));
+//flash("itsa me " . count($results));
 
 
 //$results = $stmt->fetchAll();
@@ -171,9 +171,7 @@ flash("itsa me " . count($results));
 }*/
 ?>
 
-<?php foreach($results as $r):?>
 
-<?php endforeach;?>
 
 
 
