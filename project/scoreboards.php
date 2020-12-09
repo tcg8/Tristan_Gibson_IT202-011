@@ -40,7 +40,7 @@ if (count($results)==0) {
     flash("You do not have any scores recorded, try playing the game!");
 }
 if($hasScores) {
-        flash("Your last " . count($results) . " scores");
+        flash("The Top " . count($results) . " scores of the last Month");
     $i=10-count($results);
     $a=1;
     do {
