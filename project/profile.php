@@ -157,7 +157,7 @@ if (count($results)==0) {
 }
 if($hasScores) {
     flash("Your last 10 scores (still need message for when user has less than 10 scores)");
-    $i=count($results)-10;
+    $i=count($results);
     if(count($results)==10) {
         $i = count($results)-10;
     }
