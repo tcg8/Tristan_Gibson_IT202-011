@@ -151,13 +151,16 @@ flash("line 145 " . count($results));
 $i = count($results)-10;
 $a=1;
 do {
-    $check=10;
+    //So $results was printing double, like 27 came out at 2727 and 0 as 00 so I am modding by 10^(number of digits / 2)
+    //so when $results is 2727 we do $results%$modifier where $modifier will be 100 since 27 is a 2 digit number and 10^2=100
+    //doing modifier like this will get rid of the extra digits being produced
     //$numlength = strlen((string)$num);
-    $numlength = strlen(implode($results[$i]))/2;
-    $modifier = 10**$numlength;
+    $numlength = strlen(implode($results[$i]))/2; //this gets the number of digits that is supposed to be printed
+    $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+    $finalNum = $results[$i] % $modifier;
     //flash("digits " . length(implode($results[$i])));
     //if(implode($results[$i])>10){$check=100;}
-  flash("#" . $a . " most recent score is " . implode($results[$i]) . " modifier " . $modifier);//%$check);//for some reason the score displayed is being doubled
+  flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
   $a++;
   $i++;
 }
