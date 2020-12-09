@@ -141,7 +141,7 @@ if (isset($_POST["saved"])) {
 <?php
 
 
-$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
+$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
@@ -150,7 +150,7 @@ flash("line 145 " . count($results));
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $i = count($results);
 do {
-  flash("a is " . implode($results[$i]));
+  flash("a is " . implode($results[$i]));//for some reason the score displayed is being doubled
   $i--;
 }
 while($i>0);
