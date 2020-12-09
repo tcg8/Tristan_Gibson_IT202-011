@@ -141,7 +141,7 @@ if (isset($_POST["saved"])) {
 <?php
 
 
-$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
+$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
