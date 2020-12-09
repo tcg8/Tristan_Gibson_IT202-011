@@ -85,7 +85,7 @@ if (isset($_POST["saved"])) {
 
             $params = array(":id" => get_user_id());
             $r = $stmt->execute($params);
-            flash("line 88 " . count($r));
+            //flash("line 88 " . count($r));
             if($r){
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 $_current = $result["password"];
@@ -139,14 +139,17 @@ if (isset($_POST["saved"])) {
 <?php
 
 
-
+$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
+$params = array(":id" => get_user_id());
+$r = $stmt->execute($params);
+flash("line 145 " . count($r));
 
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 //flash("check somethin " . :id);
 //$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
-$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
-$params = array(":id" => get_user_id());
-$results = $stmt->fetchAll();
+//$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
+//$params = array(":id" => get_user_id());
+//$results = $stmt->fetchAll();
 
 
 /*$r = $stmt->execute($params);
