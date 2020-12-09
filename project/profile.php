@@ -145,9 +145,10 @@ $stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id d
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-flash("line 145 " . count($results));
 
+//flash("line 145 " . count($results));
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
+flash("Your last 10 scores (still need message for when user has less than 10 scores)");
 $i = count($results)-10;
 $a=1;
 do {
@@ -167,35 +168,6 @@ do {
 }
 while($i<10);
 
-
-
-
-
-//$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
-//flash("check somethin " . :id);
-//$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
-//$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
-//$params = array(":id" => get_user_id());
-//$results = $stmt->fetchAll();
-
-
-/*$r = $stmt->execute($params);
-if($r) {
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    //$_current = $result["password"];
-    flash("itsa me " . count($results));
-    
-}*/
-//flash("itsa me " . count($results));
-
-
-//$results = $stmt->fetchAll();
-//flash("itsa me " . count($results));
-//flash("itsa me " . implode("", $results));
-//echo $results;
-/*foreach($results as $index){
-    echo "$index <br>\n";
-}*/
 ?>
 
 <?php foreach($results as $r):?>
