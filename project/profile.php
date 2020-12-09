@@ -139,6 +139,7 @@ if (isset($_POST["saved"])) {
 $stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
 $results = $stmt->fetchAll();
 //flash("itsa me " . implode("", $results));
+echo $results;
 foreach($results as $index){
     echo "$index <br>\n";
 }
