@@ -70,8 +70,6 @@ function getMessages() {
 
 
 
-
-//can copy and paste this whole php statement 3 times for week month and year other option is to try and find a different way like with a POST form label input
 function get10week(){
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
