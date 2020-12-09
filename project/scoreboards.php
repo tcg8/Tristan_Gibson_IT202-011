@@ -11,7 +11,8 @@ $stmt = $db->prepare("SELECT score,id from Scores where created > :timeCon order
 //$stmt = $db->prepare("SELECT score,id from Scores order by score desc limit 10");
 //WILL NEED A WHERE STATEMENT TO GET TIME FRAME
 //$params = array(":id" => get_user_id());
-$params = array(":timeCon" => strtotime("-1Month"));
+$testtime=strtotime("-1 Month");
+$params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
