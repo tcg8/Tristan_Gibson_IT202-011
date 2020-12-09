@@ -22,7 +22,7 @@ $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
 $timeType="Month";
-$testtime=strtotime("-1 Month"); // THIS IS WHERE TO CHANGE BY WEEK/MONTH/YEAR
+$testtime=strtotime("-1 $timeType"); // THIS IS WHERE TO CHANGE BY WEEK/MONTH/YEAR
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
