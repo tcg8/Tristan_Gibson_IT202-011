@@ -157,7 +157,7 @@ if (count($results)==0) {
 }
 if($hasScores) {
     flash("Your last 10 scores (still need message for when user has less than 10 scores)");
-    $i=count($results)-10;
+    $i=10-count($results);
     
     if(count($results)==10) {
         $i=count($results)-10;
@@ -168,9 +168,9 @@ if($hasScores) {
         //so when $results is 2727 we do $results%$modifier where $modifier will be 100 since 27 is a 2 digit number and 10^2=100
         //doing modifier like this will get rid of the extra digits being produced
         //$numlength = strlen((string)$num);
-        $numlength = strlen(implode($results[$i]))/2; //this gets the number of digits that is supposed to be printed
+        $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-        $finalNum = implode($results[$i]) % $modifier;
+        $finalNum = implode($results[$a-1]) % $modifier;
         //flash("digits " . length(implode($results[$i])));
         //if(implode($results[$i])>10){$check=100;}
         flash("#" . $a . " most recent score is " . $finalNum . " i or $i is " . $i);
