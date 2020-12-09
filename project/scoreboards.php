@@ -22,7 +22,7 @@ $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
 //flash("todays date is " . );
-$d=mktime(11, 14, 54, 8, 12, 2014);
+$d=mktime();//$d=mktime(11, 14, 54, 8, 12, 2014);
 flash( "Created date is " . date("Y-m-d h:i:sa", $d));
 
 
