@@ -70,7 +70,7 @@ if (isset($_POST["saved"])) {
     if ($isValid) {
         $stmt = $db->prepare("UPDATE Users set email = :email, username= :username where id = :id");
         $r = $stmt->execute([":email" => $newEmail, ":username" => $newUsername, ":id" => get_user_id()]);
-        flash("line 73 " . count($r));
+        //flash("line 73 " . count($r));
         if ($r) {
             flash("Updated profile");
         }
@@ -85,6 +85,7 @@ if (isset($_POST["saved"])) {
 
             $params = array(":id" => get_user_id());
             $r = $stmt->execute($params);
+            flash("line 88 " . count($r));
             if($r){
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 $_current = $result["password"];
@@ -136,6 +137,9 @@ if (isset($_POST["saved"])) {
 
 
 <?php
+
+
+
 
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 //flash("check somethin " . :id);
