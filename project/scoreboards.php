@@ -23,7 +23,7 @@ $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
 //flash("todays date is " . );
 $currtime=mktime();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
-$testtime=strtotime("-1 Months");
+$testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
 flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
 flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
 
