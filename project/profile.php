@@ -151,7 +151,10 @@ flash("line 145 " . count($results));
 $i = count($results)-10;
 $a=1;
 do {
-  flash("#" . $a . " most recent score is " . implode($results[$i])%10);//for some reason the score displayed is being doubled
+    $check=10;
+    flash("digits " . size(implode($results[$i])));
+    //if(implode($results[$i])>10){$check=100;}
+  flash("#" . $a . " most recent score is " . implode($results[$i])%$check);//for some reason the score displayed is being doubled
   $a++;
   $i++;
 }
