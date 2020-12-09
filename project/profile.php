@@ -154,9 +154,10 @@ do {
     $check=10;
     //$numlength = strlen((string)$num);
     $numlength = strlen(implode($results[$i]))/2;
+    $modifier = 10*$numlength;
     //flash("digits " . length(implode($results[$i])));
     //if(implode($results[$i])>10){$check=100;}
-  flash("#" . $a . " most recent score is " . implode($results[$i]) . " numlength " . $numlength);//%$check);//for some reason the score displayed is being doubled
+  flash("#" . $a . " most recent score is " . implode($results[$i]) . " modifier " . $modifier);//%$check);//for some reason the score displayed is being doubled
   $a++;
   $i++;
 }
