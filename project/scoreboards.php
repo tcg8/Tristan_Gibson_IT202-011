@@ -29,12 +29,7 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-/*
-$currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
-$testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
-flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
-flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
-*/
+
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -50,7 +45,6 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
         flash("The #" . $a . " top score is " . $finalNum);
-        //flash("#" . $a . " most recent score is " . implode($results[$a-1]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
       $i++;
     }
@@ -84,12 +78,7 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-/*
-$currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
-$testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
-flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
-flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
-*/
+
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -105,7 +94,6 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
         flash("The #" . $a . " top score is " . $finalNum);
-        //flash("#" . $a . " most recent score is " . implode($results[$a-1]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
       $i++;
     }
@@ -138,12 +126,7 @@ $testtime=strtotime("-1 Year"); //SINCE GOT RID OF "WHERE" PART IN $STMT IT DOES
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-/*
-$currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
-$testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
-flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
-flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
-*/
+
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -159,7 +142,6 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
         flash("The #" . $a . " top score is " . $finalNum);
-        //flash("#" . $a . " most recent score is " . implode($results[$a-1]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
       $i++;
     }
