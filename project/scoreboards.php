@@ -122,10 +122,10 @@ flash("</br>");
 //other option is to try and find a different way like with a POST form label input
 $db = getDB();
 //$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
-$stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
-
-$timeType="Year";
-$testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH/YEAR
+$stmt = $db->prepare("SELECT score from Scores order by score desc limit 10");
+//THIS SHOULD BE LIFETIME NOT YEAR
+$timeType="Lifetime";
+$testtime=strtotime("-1 Year"); //SINCE GOT RID OF "WHERE" PART IN $STMT IT DOESN'T MATTER WHAT GOES HERE
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
