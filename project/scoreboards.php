@@ -21,6 +21,10 @@ $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
+//flash("todays date is " . );
+$d=mktime(11, 14, 54, 8, 12, 2014);
+flash( "Created date is " . date("Y-m-d h:i:sa", $d));
+
 
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $hasScores=true;
