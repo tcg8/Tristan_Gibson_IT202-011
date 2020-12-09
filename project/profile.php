@@ -149,8 +149,10 @@ flash("line 145 " . count($results));
 
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $i = count($results);
+$a=1;
 do {
-  flash("a is " . implode($results[$i-1]));//for some reason the score displayed is being doubled
+  flash("#" . $a . " most recent score is " . implode($results[$i-1]));//for some reason the score displayed is being doubled
+  $a++;
   $i--;
 }
 while($i>0);
