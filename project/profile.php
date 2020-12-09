@@ -153,7 +153,7 @@ if (count($results)==0) {
     flash("You do not have any scores recorded, try playing the game!");
 }
 if($hasScores) {
-    flash("Your last 10 scores (still need message for when user has less than 10 scores)");
+        flash("Your last " . count($results) . " scores");
     $i=10-count($results);
     $a=1;
     do {
