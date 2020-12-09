@@ -147,6 +147,18 @@ $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 flash("line 145 " . count($results));
 
+//ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
+$i = count($results);
+do {
+  echo "a is $i <br>\n";
+  $i--;
+}
+while($i>0);
+
+
+
+
+
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 //flash("check somethin " . :id);
 //$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
