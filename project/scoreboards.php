@@ -15,13 +15,10 @@
 
 
 
-
 <?php
-//can copy and paste this whole php statement 3 times for week month and year 
-//other option is to try and find a different way like with a POST form label input
+//can copy and paste this whole php statement 3 times for week month and year other option is to try and find a different way like with a POST form label input
 function get10week(){
 $db = getDB();
-//$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
 $timeType="Week";
@@ -67,10 +64,8 @@ get10week();
 
 <?php
 function get10month(){
-//can copy and paste this whole php statement 3 times for week month and year 
-//other option is to try and find a different way like with a POST form label input
+//can copy and paste this whole php statement 3 times for week month and year other option is to try and find a different way like with a POST form label input
 $db = getDB();
-//$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
 $timeType="Month";
@@ -114,11 +109,9 @@ get10month();
 
 
 <?php
+//can copy and paste this whole php statement 3 times for week month and year other option is to try and find a different way like with a POST form label input
 function get10lifetime(){
-//can copy and paste this whole php statement 3 times for week month and year 
-//other option is to try and find a different way like with a POST form label input
 $db = getDB();
-//$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores order by score desc limit 10");
 //THIS SHOULD BE LIFETIME NOT YEAR
 $timeType="Lifetime";
