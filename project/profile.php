@@ -148,7 +148,7 @@ $results = $stmt->fetchAll();
 flash("line 145 " . count($results));
 
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
-$i = count($results);
+$i = count($results)-10;
 $a=1;
 do {
   flash("#" . $a . " most recent score is " . implode($results[$i+1]));//for some reason the score displayed is being doubled
