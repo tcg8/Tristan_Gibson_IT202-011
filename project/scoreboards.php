@@ -15,9 +15,10 @@
 
 
 
+
 <?php
 //can copy and paste this whole php statement 3 times for week month and year 
-//other option is to try and find a different way
+//other option is to try and find a different way like with a POST form label input
 $db = getDB();
 //$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
@@ -27,15 +28,12 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-
 /*
 $currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
 $testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
 flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
 flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
 */
-
-//ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -71,7 +69,7 @@ flash("</br>");
 
 <?php
 //can copy and paste this whole php statement 3 times for week month and year 
-//other option is to try and find a different way
+//other option is to try and find a different way like with a POST form label input
 $db = getDB();
 //$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
@@ -81,15 +79,12 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-
 /*
 $currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
 $testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
 flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
 flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
 */
-
-//ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -111,7 +106,7 @@ if($hasScores) {
     }
     while($i<10);
 }
-echo "</br>";
+flash("</br>");
 ?>
 
 <?php foreach($results as $r):?>
@@ -121,9 +116,10 @@ echo "</br>";
 
 
 
+
 <?php
 //can copy and paste this whole php statement 3 times for week month and year 
-//other option is to try and find a different way
+//other option is to try and find a different way like with a POST form label input
 $db = getDB();
 //$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
@@ -133,15 +129,12 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-
 /*
 $currtime=time();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
 $testtime=strtotime("-1 Month");//strtotime("-1 Weeks");//strtotime("-1 Years");
 flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
 flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
 */
-
-//ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -163,7 +156,7 @@ if($hasScores) {
     }
     while($i<10);
 }
-flash(" ");
+flash("</br>");
 ?>
 
 <?php foreach($results as $r):?>
