@@ -151,11 +151,11 @@ flash("line 145 " . count($results));
 $i = count($results);
 $a=1;
 do {
-  flash("#" . $a . " most recent score is " . implode($results[$i-1]));//for some reason the score displayed is being doubled
+  flash("#" . $a . " most recent score is " . implode($results[$i+1]));//for some reason the score displayed is being doubled
   $a++;
-  $i--;
+  $i++;
 }
-while($i>0);
+while($i<10);
 
 
 
