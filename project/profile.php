@@ -138,7 +138,7 @@ if (isset($_POST["saved"])) {
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 $stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
 
-$params = array(":id" => get_user_id());
+//$params = array(":id" => get_user_id());
 $results = $stmt->fetchAll();
 flash("itsa me " . count($results));
 //flash("itsa me " . implode("", $results));
