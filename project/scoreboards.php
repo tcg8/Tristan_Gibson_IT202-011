@@ -10,16 +10,10 @@ if (!is_logged_in()) {
     flash("You must be logged in to access this page");
     die(header("Location: login.php"));
 }
-
-$db = getDB();
-
 ?>
 
-
-
-
-
 <?php
+$db = getDB();
 //$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where user_id = :id order by score desc limit 10");
 //WILL NEED A WHERE STATEMENT TO GET TIME FRAME
