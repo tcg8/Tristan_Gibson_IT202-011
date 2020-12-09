@@ -1,5 +1,9 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
+
+
+<?php
+
 <form method="POST">
         <table style="width:50%">
      <tr>
@@ -12,8 +16,6 @@
     </tr> 
     </table>
 </form>
-
-<?php
 //can copy and paste this whole php statement 3 times for week month and year 
 //other option is to try and find a different way
 $db = getDB();
