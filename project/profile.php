@@ -70,6 +70,7 @@ if (isset($_POST["saved"])) {
     if ($isValid) {
         $stmt = $db->prepare("UPDATE Users set email = :email, username= :username where id = :id");
         $r = $stmt->execute([":email" => $newEmail, ":username" => $newUsername, ":id" => get_user_id()]);
+        flash("line 73 " . count($r));
         if ($r) {
             flash("Updated profile");
         }
