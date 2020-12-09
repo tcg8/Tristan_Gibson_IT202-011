@@ -15,7 +15,7 @@ if (!is_logged_in()) {
 <?php
 $db = getDB();
 //$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
-$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by score desc limit 10");
+$stmt = $db->prepare("SELECT score,created from Scores where user_id = :id order by score desc limit 10");
 //WILL NEED A WHERE STATEMENT TO GET TIME FRAME
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
