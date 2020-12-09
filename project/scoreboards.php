@@ -15,8 +15,6 @@
 
 <?php
 
-flash("<label for="topscores">Top 10 scores from the past: </label>");
-
 //can copy and paste this whole php statement 3 times for week month and year 
 //other option is to try and find a different way
 $db = getDB();
