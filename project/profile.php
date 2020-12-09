@@ -128,7 +128,7 @@ if (isset($_POST["saved"])) {
     }
 }
 
-<p> please show up </p>
+
 
 ?>
 
