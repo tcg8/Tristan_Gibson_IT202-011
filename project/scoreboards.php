@@ -64,7 +64,7 @@ if($hasScores) {
 
 
 
-<?php flash(""); ?>
+<?php flash(" "); ?>
 
 
 
@@ -117,7 +117,7 @@ if($hasScores) {
 
 
 
-<?php flash(""); ?>
+<?php flash(" "); ?>
 
 
 
