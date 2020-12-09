@@ -141,16 +141,17 @@ if (isset($_POST["saved"])) {
 //$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
 $params = array(":id" => get_user_id());
+$results = $stmt->fetchAll();
 
 
-$r = $stmt->execute($params);
+/*$r = $stmt->execute($params);
 if($r) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     //$_current = $result["password"];
     flash("itsa me " . count($results));
     
-}
-
+}*/
+flash("itsa me " . count($results));
 
 
 //$results = $stmt->fetchAll();
