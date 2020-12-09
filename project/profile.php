@@ -139,9 +139,9 @@ if (isset($_POST["saved"])) {
 <?php
 
 
-$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
-$params = array(":id" => get_user_id());
-$ree = $stmt->execute($params);
+$stmt2 = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
+$params2 = array(":id" => get_user_id());
+$ree = $stmt2->execute($params2);
 flash("line 145 " . $ree);
 
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
