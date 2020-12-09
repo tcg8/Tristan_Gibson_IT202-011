@@ -173,7 +173,7 @@ if($hasScores) {
         $finalNum = implode($results[$a-1]) % $modifier;
         //flash("digits " . length(implode($results[$i])));
         //if(implode($results[$i])>10){$check=100;}
-        flash("#" . $a . " most recent score is " . $finalNum . " i or $i is " . $i);
+        flash("#" . $a . " most recent score is " . $finalNum);
         //flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
       $i++;
