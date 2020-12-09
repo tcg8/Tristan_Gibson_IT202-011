@@ -57,6 +57,7 @@ if($hasScores) {
     }
     while($i<10);
 }
+flash(" ");
 ?>
 
 <?php foreach($results as $r):?>
@@ -64,7 +65,7 @@ if($hasScores) {
 
 
 
-<?php flash(" "); ?>
+
 
 
 
@@ -110,6 +111,7 @@ if($hasScores) {
     }
     while($i<10);
 }
+flash(" ");
 ?>
 
 <?php foreach($results as $r):?>
@@ -163,6 +165,7 @@ if($hasScores) {
     }
     while($i<10);
 }
+flash(" ");
 ?>
 
 <?php foreach($results as $r):?>
