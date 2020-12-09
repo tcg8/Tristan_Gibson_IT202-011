@@ -143,7 +143,7 @@ $stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created 
 $params = array(":id" => get_user_id());
 //$results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-flash("line 145 " . $results);
+flash("line 145 " . count($results));
 
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 //flash("check somethin " . :id);
