@@ -152,9 +152,9 @@ $i = count($results)-10;
 $a=1;
 do {
     $check=10;
-    flash("digits " . length(implode($results[$i])));
+    //flash("digits " . length(implode($results[$i])));
     //if(implode($results[$i])>10){$check=100;}
-  flash("#" . $a . " most recent score is " . implode($results[$i])%$check);//for some reason the score displayed is being doubled
+  flash("#" . $a . " most recent score is " . implode($results[$i]));//%$check);//for some reason the score displayed is being doubled
   $a++;
   $i++;
 }
