@@ -147,6 +147,8 @@ $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 
 //flash("line 145 " . count($results));
+flash("line 150 " . count($results));
+
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 flash("Your last 10 scores (still need message for when user has less than 10 scores)");
 $i = count($results)-10;
