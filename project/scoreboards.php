@@ -24,8 +24,8 @@ $results = $stmt->fetchAll();
 //flash("todays date is " . );
 $currtime=mktime();//$currtime=mktime(11, 14, 54, 8, 12, 2014);
 $testtime=mktime()-30;
-flash( "Current date is " . date("Y-m-d h:i:sa", $currtime));
-flash( "Testing date is " . date("Y-m-d h:i:sa", $testtime));
+flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
+flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
 
 
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
