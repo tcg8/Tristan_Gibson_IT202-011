@@ -6,7 +6,7 @@ $db = getDB();
 $stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 //WILL NEED A WHERE STATEMENT TO GET TIME FRAME
-$testtime=strtotime("-1 Year");
+$testtime=strtotime("-1 Month");
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
