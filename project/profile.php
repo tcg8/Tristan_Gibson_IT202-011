@@ -157,7 +157,7 @@ do {
     //$numlength = strlen((string)$num);
     $numlength = strlen(implode($results[$i]))/2; //this gets the number of digits that is supposed to be printed
     $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-    $finalNum = $results[$i] % $modifier;
+    $finalNum = implode($results[$i]) % $modifier;
     //flash("digits " . length(implode($results[$i])));
     //if(implode($results[$i])>10){$check=100;}
   flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
