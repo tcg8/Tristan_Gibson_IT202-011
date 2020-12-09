@@ -142,7 +142,7 @@ if (isset($_POST["saved"])) {
 $stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
 $params = array(":id" => get_user_id());
 $ree = $stmt->execute($params);
-flash("line 145 " . $ree);
+flash("line 145 " . $stmt);
 
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
 //flash("check somethin " . :id);
