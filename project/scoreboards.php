@@ -111,11 +111,11 @@ if($hasScores) {
     while($i<10);
 }
 flash("</br>");
-
+foreach($results as $r):
+endforeach;
 ?>
 
-<?php foreach($results as $r):?>
-<?php endforeach;?>
+
 
 
 
