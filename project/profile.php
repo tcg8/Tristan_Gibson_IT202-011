@@ -16,7 +16,6 @@ if (!is_logged_in()) {
 
 
 
-
 $db = getDB();
 //save data if we submitted the form
 if (isset($_POST["saved"])) {
@@ -97,37 +96,11 @@ if (isset($_POST["saved"])) {
                         $password = $_POST["password"];
                         $hash = password_hash($password, PASSWORD_BCRYPT);
 
-                        /*
-                        echo "this1 " . $password;
-                        echo "this2 " . $hash; //always same
-                        echo "this3 " . $hash; //always same
-                        echo "this4 " . password_hash($password, PASSWORD_BCRYPT); //changes
-                        echo "this5 " . password_hash($password, PASSWORD_BCRYPT); //changes
-                        echo "this6 " . $hash; //always same
-                        */
-                        //echo "this7 " . $_POST["password"]//THIS CRASHES SITE
-
-                     /*       echo "hi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
-                            echo "bi3 " . implode([":id" => get_user_id(), ":password" => $hash]);
-                            echo "ci3 " . implode([":id" => get_user_id(), ":current" => $hash]);
-                            echo "di3 " . implode([":id" => get_user_id(), ":current" => $hash]);  
-                       */
-
-                        //this one we'll do separate
                         $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
                         $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
 
                         if ($r) {
                             flash("Reset Password");
-                            //echo "hi " . implode([":id" => get_user_id(), ":password" => $hash]);
-                            //echo "bi " . implode([":id" => get_user_id(), ":password" => $hash]);
-                            //echo "ci " . implode([":id" => get_user_id(), ":current" => $hash]);
-                            //echo "di " . implode([":id" => get_user_id(), ":current" => $hash]);
-
-                            //  echo "ci " . implode([":id" => get_user_id(), ":password" => $hash]);
-                            //$hash = password_hash($current, PASSWORD_BCRYPT);
-                            //echo "di " . password_hash("aaa", PASSWORD_BCRYPT);//THIS WILL NOT WORK
-
                         }
                         else {
                             flash("Error resetting password");
@@ -161,6 +134,9 @@ if (isset($_POST["saved"])) {
 
 
 <?php
+
+//$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
+$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
 
 /*
 SELECT * from Scores where user_id = :id order by created desc limit 10;
