@@ -160,7 +160,8 @@ do {
     $finalNum = implode($results[$i]) % $modifier;
     //flash("digits " . length(implode($results[$i])));
     //if(implode($results[$i])>10){$check=100;}
-  flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
+    flash("#" . $a . " most recent score is " . $finalNum);
+    //flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
   $a++;
   $i++;
 }
@@ -238,50 +239,6 @@ if($r) {
 
     <form method="POST">
         <table style="width:50%">
-                        <tr>
-                <td>  <label for="lastscores">Last 10 scores</label>  </td>
-                <td>  <label>insert scores here </label> </td>
-            </tr> 
-            <tr>
-                <td><label> #1 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #2 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #3 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #4 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #5 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #6 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #7 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #8 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #9 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
-            <tr>
-                <td><label> #10 </label></td>
-                <td><label>insert score here </label></td>
-            </tr>
             
             
      <tr>
