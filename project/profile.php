@@ -155,10 +155,6 @@ if (count($results)==0) {
 if($hasScores) {
     flash("Your last 10 scores (still need message for when user has less than 10 scores)");
     $i=10-count($results);
-    
-    if(count($results)==10) {
-        $i=10-count($results);
-    }
     $a=1;
     do {
         //So $results was printing double, like 27 came out at 2727 and 0 as 00 so I am modding by 10^(number of digits / 2)
