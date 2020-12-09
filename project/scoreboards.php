@@ -32,15 +32,15 @@ flash( "Current date is " . date("Y-m-d h:i:s", $currtime));
 flash( "Testing date is " . date("Y-m-d h:i:s", $testtime));
 */
 
-
+$timeType="Month";
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
-    flash("You do not have any scores recorded, try playing the game!");
+    flash("There have been no scores set in the past " . $timeType);
 }
 if($hasScores) {
-        flash("The Top " . count($results) . " scores of the last Month");
+        flash("The Top " . count($results) . " scores of the last " . $timeType);
     $i=10-count($results);
     $a=1;
     do {
