@@ -137,12 +137,24 @@ if (isset($_POST["saved"])) {
 <?php
 
 //$stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
-flash("check somethin " . :id);
-$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
+//flash("check somethin " . :id);
+//$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by created desc limit 10");
+$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by created desc limit 10");
+$params = array(":id" => get_user_id());
 
-//$params = array(":id" => get_user_id());
-$results = $stmt->fetchAll();
-flash("itsa me " . count($results));
+
+$r = $stmt->execute($params);
+if($r) {
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    //$_current = $result["password"];
+    flash("itsa me " . count($results));
+    
+}
+
+
+
+//$results = $stmt->fetchAll();
+//flash("itsa me " . count($results));
 //flash("itsa me " . implode("", $results));
 //echo $results;
 /*foreach($results as $index){
