@@ -57,7 +57,7 @@ if($hasScores) {
     }
     while($i<10);
 }
-flash(" ");
+flash("</br>");
 ?>
 
 <?php foreach($results as $r):?>
@@ -111,15 +111,13 @@ if($hasScores) {
     }
     while($i<10);
 }
-flash(" ");
+echo "</br>";
 ?>
 
 <?php foreach($results as $r):?>
 <?php endforeach;?>
 
 
-
-<?php flash(" "); ?>
 
 
 
