@@ -72,7 +72,6 @@ get10week();
 
 
 <?php
-function get10month(){
 //can copy and paste this whole php statement 3 times for week month and year 
 //other option is to try and find a different way like with a POST form label input
 $db = getDB();
@@ -112,13 +111,11 @@ if($hasScores) {
     while($i<10);
 }
 flash("</br>");
-php foreach($results as $r):
-php endforeach;
-}
-get10month();
+
 ?>
 
-
+<?php foreach($results as $r):?>
+<?php endforeach;?>
 
 
 
