@@ -40,8 +40,8 @@ if($hasScores) {
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
-        flash("#" . $a . " most recent score is " . $finalNum);
-        //flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
+        //flash("#" . $a . " most recent score is " . $finalNum);
+        flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
       $i++;
     }
