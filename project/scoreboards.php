@@ -19,6 +19,7 @@
 <?php
 //can copy and paste this whole php statement 3 times for week month and year 
 //other option is to try and find a different way like with a POST form label input
+function get10week(){
 $db = getDB();
 //$stmt = $db->prepare("SELECT score,created from Scores where created >= :timeCon order by score desc limit 10");
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
@@ -56,6 +57,8 @@ if($hasScores) {
     while($i<10);
 }
 flash("</br>");
+}
+get10week();
 ?>
 
 <?php foreach($results as $r):?>
