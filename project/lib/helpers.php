@@ -81,6 +81,15 @@ function getMessages() {
     return array();
 }
 
+function getMessages2() {
+    if (isset($_SESSION['flash2'])) {
+        $flashes2 = $_SESSION['flash2'];
+        $_SESSION['flash2'] = array();
+        return $flashes2;
+    }
+    return array();
+}
+
 
 
 function get10week(){
