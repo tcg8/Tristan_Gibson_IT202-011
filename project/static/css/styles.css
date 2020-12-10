@@ -9,7 +9,7 @@ ul[class="nav"]{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    
+    background-color: #10026e;
 }
 
 .nav > li {
