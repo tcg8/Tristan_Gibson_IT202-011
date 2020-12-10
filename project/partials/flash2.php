@@ -4,7 +4,7 @@
  populate the flash variable and then display at the proper timing*/
 ?>
 <div class="container" id="flash2">
-    <?php $messages = getMessages(); ?>
+    <?php $messages = getMessages2(); ?>
     <?php if ($messages): ?>
         <?php foreach ($messages as $msg): ?>
             <div class="row bg-secondary justify-content-center">
