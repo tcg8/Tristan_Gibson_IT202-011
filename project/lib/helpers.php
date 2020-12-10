@@ -105,10 +105,10 @@ $results = $stmt->fetchAll();
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
-    flash("There have been no scores set in the past " . $timeType);
+    flash2("There have been no scores set in the past " . $timeType);
 }
 if($hasScores) {
-        flash("The Top " . count($results) . " scores of the last " . $timeType);
+        flash2("The Top " . count($results) . " scores of the last " . $timeType);
     $i=10-count($results);
     $a=1;
     do {
@@ -116,13 +116,13 @@ if($hasScores) {
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
-        flash("The #" . $a . " top score is " . $finalNum);
+        flash2("The #" . $a . " top score is " . $finalNum);
       $a++;
       $i++;
     }
     while($i<10);
 }
-flash("</br>");
+flash2("</br>");
         foreach($results as $r):
         endforeach;
 }
@@ -159,7 +159,7 @@ if($hasScores) {
     }
     while($i<10);
 }
-flash("</br>");
+flash2("</br>");
 foreach($results as $r):
 endforeach;
 }
@@ -198,7 +198,7 @@ if($hasScores) {
     }
     while($i<10);
 }
-flash("</br>");
+flash2("</br>");
 foreach($results as $r):
 endforeach;
 }
