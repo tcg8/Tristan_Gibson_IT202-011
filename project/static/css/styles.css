@@ -7,9 +7,8 @@ body {
 ul[class="nav"]{
     list-style-type: none;
     margin: 0;
-    background-color: #10026e;
-    
     padding: 0;
+    background-color: #10026e;
     overflow: hidden;
     
 }
