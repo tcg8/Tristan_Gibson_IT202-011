@@ -2,7 +2,7 @@
 body {
     font-family: system;
     font-size: 1.7em;
-    border: 2px solid powderblue;
+    border: 2px solid black;
 }
 
 ul[class="nav"]{
@@ -10,7 +10,7 @@ ul[class="nav"]{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #10026e;
+    background-color: #E1CD08;
     
 }
 
