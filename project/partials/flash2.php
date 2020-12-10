@@ -22,5 +22,5 @@
         }
     }
 
-    moveMeUp(document.getElementById("flash"));
+    moveMeUp(document.getElementById("flash2"));
 </script>
