@@ -7,9 +7,11 @@ body {
 ul[class="nav"]{
     list-style-type: none;
     margin: 0;
+    background-color: #10026e;
+    
     padding: 0;
     overflow: hidden;
-    background-color: #10026e;
+    
 }
 
 .nav > li {
