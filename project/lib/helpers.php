@@ -60,7 +60,7 @@ function flash($msg) {
 }
 
 
-//other flash for styling
+//other flash for styling for milestone 2
 function flash2($msg) {
     if (isset($_SESSION['flash2'])) {
         array_push($_SESSION['flash2'], $msg);
@@ -80,7 +80,7 @@ function getMessages() {
     }
     return array();
 }
-
+//Made this second messages to help styling for milestone 2
 function getMessages2() {
     if (isset($_SESSION['flash2'])) {
         $flashes2 = $_SESSION['flash2'];
@@ -91,7 +91,7 @@ function getMessages2() {
 }
 
 
-
+//One of the functions for milestone 2
 function get10week(){
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
@@ -128,7 +128,7 @@ flash2("</br>");
 }
 
 
-
+//one of the scoreboard functions for milestone 2
 function get10month(){
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
@@ -167,7 +167,7 @@ endforeach;
 
 
 
-
+//the lifetime scoreboard funtion for milestone 2
 function get10lifetime(){
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores order by score desc limit 10");
@@ -184,7 +184,7 @@ if (count($results)==0) {
     flash2("There have been no scores set in the past " . $timeType);
 }
 if($hasScores) {
-        flash2("The Top " . count($results) . " scores of the last " . $timeType);
+        flash2("The Top " . count($results) . " scores of the games whole " . $timeType);
     $i=10-count($results);
     $a=1;
     do {
