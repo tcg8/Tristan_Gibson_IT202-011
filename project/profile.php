@@ -207,7 +207,7 @@ if($hasScores) {
     
     </form>
 
-
-<?php require(__DIR__ . "/partials/flash.php");?>
 <?php require(__DIR__ . "/partials/flash2.php");?>
+<?php require(__DIR__ . "/partials/flash.php");?>
+
 
