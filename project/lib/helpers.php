@@ -59,6 +59,19 @@ function flash($msg) {
 
 }
 
+
+//other flash for styling
+function flash2($msg) {
+    if (isset($_SESSION['flash2'])) {
+        array_push($_SESSION['flash2'], $msg);
+    }
+    else {
+        $_SESSION['flash2'] = array();
+        array_push($_SESSION['flash2'], $msg);
+    }
+
+}
+
 function getMessages() {
     if (isset($_SESSION['flash'])) {
         $flashes = $_SESSION['flash'];
