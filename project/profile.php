@@ -209,4 +209,5 @@ if($hasScores) {
 
 
 <?php require(__DIR__ . "/partials/flash.php");
+<?php require(__DIR__ . "/partials/flash2.php");
 
