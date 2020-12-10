@@ -1,12 +1,13 @@
-<?php require_once(__DIR__ . "/partials/nav.php"); ?>
+ <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
 
 <?php
+//This php file is the whole game, its not completed yet but still generates a score to go to 
+//the database as the milestone requested
 
-
-if (!is_logged_in()) {
+if (!is_logged_in() ) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    flash("You are not logged in, your score won't be saved");
+    flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
 	if (isset($_POST["sendscore"])) {
