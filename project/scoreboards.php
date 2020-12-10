@@ -3,6 +3,10 @@
 
 <?php
 
+//This was created for milestone 2 to show that these methods work, they get the top 10 scores. The functions are defined in helpers.php
+
+echo " ";
+//need something here or it might not see any changes made; 
 get10week();
 
 get10month();

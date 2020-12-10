@@ -2,11 +2,12 @@
 
 
 <?php
-
+//This is the game I made for Milestone 2, you click a button as much as possible in one minute for a score. The clock hasn't been added yet but the score still works
+//which is enough for this milestone
 
 if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    flash("You are not logged in, your score won't be saved");
+    flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
 	if (isset($_POST["sendscore"])) {

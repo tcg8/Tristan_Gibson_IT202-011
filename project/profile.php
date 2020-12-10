@@ -35,7 +35,7 @@ if (isset($_POST["saved"])) {
             }
         }
         if ($inUse > 0) {
-            flash("Email already in use");
+            flash("Email already in use!");
             //for now we can just stop the rest of the update
             $isValid = false;
         }
@@ -133,6 +133,8 @@ if (isset($_POST["saved"])) {
 
 
 <?php
+
+//THIS PHP SECTION WAS CREAED FOR MILESTONE 2, THIS IS WHAT SENDS THE SCORE TO THE DATABASE WHEN THE USER IS LOGGED IN.
 
 $stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
 $params = array(":id" => get_user_id());
