@@ -7,7 +7,7 @@
     <?php $messages = getMessages2(); ?>
     <?php if ($messages): ?>
         <?php foreach ($messages as $msg): ?>
-            <div class="row bg-secondary justify-content-center">
+            <div class="row bg-secondary justify-content-center" style="border: 2px solid powderblue">
                 <p><?php echo $msg; ?></p>
             </div>
         <?php endforeach; ?>
