@@ -146,10 +146,10 @@ $results = $stmt->fetchAll();
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
-    flash("You do not have any scores recorded, try playing the game!");
+    flash2("You do not have any scores recorded, try playing the game!");
 }
 if($hasScores) {
-        flash("Your last " . count($results) . " scores");
+        flash2("Your last " . count($results) . " scores");
     $i=10-count($results);
     $a=1;
     do {
