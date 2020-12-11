@@ -95,6 +95,7 @@ function submitScore() {
 //This is the Timer function for how long you have to click the button
 function startTimer(){
     var time=10;
+    localStorage.clickcount=0;
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
