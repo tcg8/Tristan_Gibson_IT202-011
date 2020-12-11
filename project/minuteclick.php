@@ -50,7 +50,7 @@ if (!is_logged_in()) {
 <head>
 <script>
 
-var constTime=20;   //this is so I can change the time length of the game easier, maily for testing
+var constTime=5;   //this is so I can change the time length of the game easier, maily for testing
 var constTime2=5;   //this is for cooldown timer
 
 //variables for game and game timer
@@ -98,6 +98,7 @@ function clickCounter() {
 //It also resets the score for the next game.
 function submitScore() {
 count.value=clickcount;
+document.getElementById("result").innerHTML = "You scored " + clickcount = " points!";
  clickcount = 0;
 }
 
