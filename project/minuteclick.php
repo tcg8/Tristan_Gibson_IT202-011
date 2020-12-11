@@ -3,7 +3,7 @@
 
 <?php
 /*
-var time=30;
+var time=10;
 setInterval(function(){
 	
 	time--;
@@ -13,6 +13,29 @@ setInterval(function(){
 	}
 }, 1000);
 */
+/*
+var time=10;
+timer = setInterval(function(){
+	
+	time--;
+	console.log(time);
+	if(time<=0){
+		console.log("stop me");
+		clearInterval(timer);
+	}
+}, 1000);
+*/
+
+$time=10;
+timer = setInterval(function(){
+	
+	$time--;
+	flash("time is $time");
+	if($time<=0){
+		flash("stop me");
+		clearInterval(timer);
+	}
+}, 1000);
 
 //This is the game I made for Milestone 2, you click a button as much as possible in one minute for a score. The clock hasn't been added yet but the score still works
 //which is enough for this milestone
