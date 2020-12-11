@@ -51,8 +51,8 @@ if (!is_logged_in()) {
 <head>
 <script>
 
-var constTime=5;//this is so I can change the time length of the game easier, maily for testing
-var constTime2=5;//this is for cooldown timer
+var constTime=5;   //this is so I can change the time length of the game easier, maily for testing
+var constTime2=5;   //this is for cooldown timer
 
 //variables for game and game timer
 var gameOff=true;
@@ -95,15 +95,11 @@ function clickCounter() {
 	
 	
 	
-	
+//This sets the value of the hidden field which then submits your score.
+//It also resets the score for the next game.
 function submitScore() {
 count.value=clickcount;
  clickcount = 0;
- //xhttp.send("score=" + localStorage.clickcount);
-//	count.value=localStorage.clickcount;
- //localStorage.clickcount = 0;
-	//value=localStorage.clickcount;
- //document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
 
 	
@@ -119,7 +115,6 @@ function startTimer(){
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
-       //console.log(time);
 	    if(time==1) { //this just here so it says "1 second" instead of "1 seconds"
 		document.getElementById("timeLeft").innerHTML = "You have " + time + " second left to click the button!"; 
 	    }else{
@@ -129,7 +124,7 @@ function startTimer(){
            //console.log("stop me");
            gameOff=true;
            clearInterval(timer);
-	       //note to self: IF NOT DOING COOLDOWN TIMER THEN here the score would submit, but only if not doing cooldown (can replace the submit button with a restart button)
+	       //Start cooldown now that game is over
 	       onCooldown=true;
 	       startCooldown();
 	       
@@ -144,7 +139,7 @@ function startCooldown(){
 	cooldownTime=constTime2; 
 	onCooldown=true;
 	
-	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit submit score now to save your score)";
+	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit the \"Submit Score\" Button now to save your score)";
     timer = setInterval(function(){
        cooldownTime--;
        //console.log(time);
@@ -175,7 +170,6 @@ function startCooldown(){
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
-<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Restart (score wont submit if you click be in time)" />-->
 	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
 	<!----></form>
 </body>
