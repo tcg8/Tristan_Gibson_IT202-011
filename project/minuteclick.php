@@ -12,6 +12,20 @@ if (!is_logged_in()) {
     //die(header("Location: login.php"));
 }
 
+
+
+$db = getDB();
+//fetch and update latest user's balance
+$stmt = $db->prepare("SELECT points from Users where id = :id");
+$r = $stmt->execute([":id"=>get_user_id()]);
+if($r){
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($result){
+        $balance = $result["points"];
+        $_SESSION["user"]["balance"] = $balance;
+    }
+}
+
 ?>
 
 
