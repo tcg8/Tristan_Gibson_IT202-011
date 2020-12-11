@@ -22,6 +22,12 @@ if (!is_logged_in()) {
 			//here's the data map for the parameter to data
 			$params = array( ":user_id" => $user_id, ":score" => $score);
 			$r = $stmt->execute($params);
+			
+			if ($r) {
+			    $response = ["status" => 200, "message" => "Added score to database"];
+			    echo json_encode($response);
+			    die();
+			}
 			/*$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score]);
 			if($r){
 				flash("Created successfully with id: " . $db->lastInsertId());
