@@ -51,7 +51,7 @@ if (!is_logged_in()) {
 <head>
 <script>
 
-var constTime=5;   //this is so I can change the time length of the game easier, maily for testing
+var constTime=20;   //this is so I can change the time length of the game easier, maily for testing
 var constTime2=5;   //this is for cooldown timer
 
 //variables for game and game timer
@@ -144,9 +144,9 @@ function startCooldown(){
        cooldownTime--;
        //console.log(time);
 	    if(cooldownTime==1) { //this just here so it says "1 second" instead of "1 seconds"
-		document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " second to start again. (Hit submit score now to save your score)"; 
+		document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " second to start again. (Hit the \"Submit Score\" Button now to save your score)"; 
 	    }else{
-	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit submit score now to save your score)"; 
+	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit the \"Submit Score\" Button now to save your score)"; 
 	    }
        if(cooldownTime<=0){
            //console.log("stop me");
@@ -165,7 +165,7 @@ function startCooldown(){
 	
 <body>
 	<form method="POST">
-	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
+	<h3>Game starts when you click the button, You have 20 seconds to get a high score!</h3>
 	<div id="timeLeft"></div>
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
