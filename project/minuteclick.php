@@ -11,7 +11,7 @@ if (!is_logged_in()) {
     flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
-	if (isset($_POST["sendscore"])) {
+	//if (isset($_POST["sendscore"])) {
 		$db = getDB();
         	if (isset($db)) {
 			$user_id = get_user_id();//$_SESSION["user"]["id"];
@@ -39,7 +39,7 @@ if (!is_logged_in()) {
 				flash("You are not logged in so the score was not saved");
 			}//*/
 		}
-	}
+	//}
 ?>
 
 
@@ -96,10 +96,10 @@ function clickCounter() {
 	
 //This sets the value of the hidden field which then submits your score.
 //It also resets the score for the next game.
-function submitScore() {
-count.value=clickcount;
- clickcount = 0;
-}
+//function submitScore() {
+//count.value=clickcount;
+// clickcount = 0;
+//}
 
 	
 	
@@ -138,18 +138,18 @@ function startCooldown(){
 	cooldownTime=constTime2; 
 	onCooldown=true;
 	
-	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit the \"Submit Score\" Button now to save your score)";
+	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again.";
     timer = setInterval(function(){
        cooldownTime--;
        //console.log(time);
 	    if(cooldownTime==1) { //this just here so it says "1 second" instead of "1 seconds"
-		document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " second to start again. (Hit the \"Submit Score\" Button now to save your score)"; 
+		document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " second to start again."; 
 	    }else{
-	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit the \"Submit Score\" Button now to save your score)"; 
+	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again."; 
 	    }
        if(cooldownTime<=0){
-           //console.log("stop me");
            gameOff=true;
+	   count.value=clickcount;
            clearInterval(timer);
 	   onCooldown=false;
 	    time=constTime;
@@ -169,7 +169,7 @@ function startCooldown(){
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
-	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
+	<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />-->
 	<!----></form>
 </body>
 	
