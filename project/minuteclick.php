@@ -11,7 +11,7 @@ if (!is_logged_in()) {
     //flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
-
+$db = getDB();
 ?>
 
 
