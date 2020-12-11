@@ -1,5 +1,8 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
+		    
+<?php
+/*
 <script>
 var time=10;
 timer = setInterval(function(){
@@ -12,44 +15,8 @@ timer = setInterval(function(){
 	}
 }, 1000);
 </script>
-		    
-<?php
-/*
-var time=10;
-setInterval(function(){
-	
-	time--;
-	console.log(time);
-	if(time<=0){
-		console.log("stop me");
-	}
-}, 1000);
 */
-/*
-var time=10;
-timer = setInterval(function(){
-	
-	time--;
-	console.log(time);
-	if(time<=0){
-		console.log("stop me");
-		clearInterval(timer);
-	}
-}, 1000);
-*/
-/*
-//This crashes the site in php
-$time=10;
-timer = setInterval(function(){
-	
-	$time--;
-	flash("time is $time");
-	if($time<=0){
-		flash("stop me");
-		clearInterval(timer);
-	}
-}, 1000);
-*/
+
 //This is the game I made for Milestone 2, you click a button as much as possible in one minute for a score. The clock hasn't been added yet but the score still works
 //which is enough for this milestone
 
@@ -115,6 +82,25 @@ function submitScore() {
 	//value=localStorage.clickcount;
  //document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
+var gameOn=false;
+function startTimer(){
+  if(!gameOn){
+    gameOn=true;
+    var time=10;
+    timer = setInterval(function(){
+     
+       time--;
+       console.log(time);
+       if(time<=0){
+           console.log("stop me");
+           gameOn=false;
+           clearInterval(timer);
+       }//---if(time<=0)
+    }, 1000);//---setInterval
+  }//---if(!gameOn)
+}//---startTimer function
+
+
 </script>
 </head>
 	
