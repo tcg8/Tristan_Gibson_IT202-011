@@ -97,7 +97,8 @@ function startTimer(){
 	       //Start cooldown now that game is over
 	       onCooldown=true;
 	       count.value=clickcount;
-	       addScore(clickcount);
+	       //addScore(clickcount);
+	       addScore(<?php echo $count["value"];?>);
 	       startCooldown();
 	       
        }//---if(time<=0)
