@@ -1,5 +1,6 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
+<script>
 var time=10;
 timer = setInterval(function(){
 	
@@ -10,6 +11,7 @@ timer = setInterval(function(){
 		clearInterval(timer);
 	}
 }, 1000);
+</script>
 		    
 <?php
 /*
