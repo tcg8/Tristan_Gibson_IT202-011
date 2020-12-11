@@ -155,7 +155,7 @@ function startCooldown(){
 	    //this is required for post ajax calls to submit it as a form
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             //map any key/value data similar to query params
-            xhttp.send(clickcount);
+            xhttp.send("count="+clickcount);
 
         }
 	
