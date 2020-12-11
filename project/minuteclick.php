@@ -1,5 +1,5 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
-
+<?php $huz="wasssssssssssup"; ?>
 <?php
 //This is the game I made for Milestone 2, you click a button as much as possible in one minute for a score. The clock hasn't been added yet but the score still works
 //which is enough for this milestone
@@ -47,7 +47,7 @@ flash("HUZZA the huz is here " . $huz);
 		}
 	}
 ?>
-<?php $huz="wasssssssssssup"; ?>
+
 
 
 
