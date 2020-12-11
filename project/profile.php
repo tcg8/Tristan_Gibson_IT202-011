@@ -14,6 +14,18 @@ if (!is_logged_in()) {
 
 
 $db = getDB();
+
+//get users points and show on profile page
+    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+    $params = array(":id" => get_user_id());
+    $r = $stmt->execute($params);
+    if($r){
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $profilePoints = $result["points"];
+flash("Your account has " . $profilePoints . " points.");
+    }
+
+
 //save data if we submitted the form
 if (isset($_POST["saved"])) {
     $isValid = true;
@@ -159,7 +171,7 @@ if($hasScores) {
         //$numlength = strlen((string)$num);
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-        $finalNum = implode($results[$a-1]) % $modifier;
+        $finalNum = strlen(implode($results[$a-1])) % $modifier;
         flash2("#" . $a . " most recent score is " . $finalNum);
         //flash("#" . $a . " most recent score is " . implode($results[$i]) . " finalNum " . $finalNum);//%$check);//for some reason the score displayed is being doubled
       $a++;
