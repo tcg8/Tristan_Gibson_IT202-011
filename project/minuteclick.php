@@ -7,7 +7,7 @@
 
 if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    flash("You are not logged in, your score won't be saved!");
+    flash("You are not logged in, so your score won't be saved!");
     //die(header("Location: login.php"));
 }
 	if (isset($_POST["sendscore"])) {
