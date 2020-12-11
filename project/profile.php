@@ -14,12 +14,11 @@ if (!is_logged_in()) {
 
 
 $db = getDB();
-    //$profilePoints = $_POST["current_password"];
-    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
 
+//get users points and show on profile page
+    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
     $params = array(":id" => get_user_id());
     $r = $stmt->execute($params);
-    //flash("line 88 " . count($r));
     if($r){
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $profilePoints = $result["points"];
