@@ -97,7 +97,7 @@ function startTimer(){
 	       //Start cooldown now that game is over
 	       onCooldown=true;
 	       count.value=clickcount;
-	       addScore();
+	       addScore(clickcount);
 	       startCooldown();
 	       
        }//---if(time<=0)
@@ -134,7 +134,7 @@ function startCooldown(){
 	
 	
 	
-		function addScore() {
+		function addScore(submitIt) {
             //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -142,10 +142,10 @@ function startCooldown(){
                     let json = JSON.parse(this.responseText);
                     if (json) {
                         if (json.status == 200) {
-                            alert("Congrats you scored " + clickcount + " points!");
-                            location.reload();
+                            //alert("Congrats you scored " + clickcount + " points!");
+                            //location.reload();
                         } else {
-                            alert(json.error);
+                            //alert(json.error);
                         }
                     }
                 }
@@ -155,7 +155,7 @@ function startCooldown(){
 	    //this is required for post ajax calls to submit it as a form
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             //map any key/value data similar to query params
-            xhttp.send();
+            xhttp.send(submitIt);
 
         }
 	
