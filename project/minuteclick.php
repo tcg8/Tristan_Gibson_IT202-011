@@ -66,6 +66,7 @@ if (!is_logged_in()) {
 var gameOff=true;
 
 function clickCounter() {
+	console.log("gameOff is " + gameOff);
   if (typeof(Storage) !== "undefined") {
     if (localStorage.clickcount) {
       localStorage.clickcount = Number(localStorage.clickcount)+1;
@@ -95,7 +96,7 @@ function submitScore() {
 //This is the Timer function for how long you have to click the button
 function startTimer(){
     var time=10;
-    localStorage.clickcount=0;
+    localStorage.clickcount=1;//startTimer only runs when you click to run a new game so the score will start at 1
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
