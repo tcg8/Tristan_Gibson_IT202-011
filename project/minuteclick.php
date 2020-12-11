@@ -2,20 +2,7 @@
 
 		    
 <?php
-/*
-<script>
-var time=10;
-timer = setInterval(function(){
-	
-	time--;
-	console.log(time);
-	if(time<=0){
-		console.log("stop me");
-		clearInterval(timer);
-	}
-}, 1000);
-</script>
-*/
+
 
 //This is the game I made for Milestone 2, you click a button as much as possible in one minute for a score. The clock hasn't been added yet but the score still works
 //which is enough for this milestone
@@ -64,16 +51,28 @@ if (!is_logged_in()) {
 <head>
 <script>
 
+var constTime=5;//this is so I can change the time length of the game easier, maily for testing
+var constTime2=5;//this is for cooldown timer
+
+//variables for game and game timer
 var gameOff=true;
 var clickcount=0;
-var time=5;
+var time=constTime;
 
+//variables for cooldown
+var cooldownTime=constTime2; //this is a cooldown timer that starts after the game timer ends to prevent you from accidentailly starting a new game right away or clearing your score before you submit it.
+var onCooldown=false;
+
+//display info
 document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds to click the button. Timer starts when you click.";
 document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 
+
 function clickCounter() {
 	//console.log("gameOff is " + gameOff);
+    if(!onCooldown){
 	clickcount++;
+    }
 	document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 /*
   if (typeof(Storage) !== "undefined") {
@@ -116,7 +115,7 @@ function startTimer(){
 	clickcount=1;//these 2 lines are so the score resets when you restart a new game
 	document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 	
-    time = 5
+    time = constTime;
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
@@ -127,17 +126,44 @@ function startTimer(){
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!"; 
 	    }
        if(time<=0){
-           console.log("stop me");
+           //console.log("stop me");
            gameOff=true;
            clearInterval(timer);
-	       //HERE THE SCORE SHOULD AUTOMATICALLY SUBMIT (can replace the submit button with a restart button)
+	       //note to self: IF NOT DOING COOLDOWN TIMER THEN here the score would submit, but only if not doing cooldown (can replace the submit button with a restart button)
+	       onCooldown=true;
+	       startCooldown();
 	       
        }//---if(time<=0)
     }, 1000);//---setInterval
 }//---startTimer function
 
+	
+	
 //Here is the Timer function to make the button clicks not work for a short time (might not do)
-
+function startCooldown(){
+	cooldownTime=constTime2; 
+	onCooldown=true;
+	
+	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit submit score now to save your score)";
+    timer = setInterval(function(){
+       cooldownTime--;
+       //console.log(time);
+	    if(cooldownTime==1) { //this just here so it says "1 second" instead of "1 seconds"
+		document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " second to start again. (Hit submit score now to save your score)"; 
+	    }else{
+	document.getElementById("timeLeft").innerHTML = "Game Over, wait " + cooldownTime + " seconds to start again. (Hit submit score now to save your score)"; 
+	    }
+       if(cooldownTime<=0){
+           //console.log("stop me");
+           gameOff=true;
+           clearInterval(timer);
+	   onCooldown=false;
+	    time=constTime;
+	   document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds to click the button. Timer starts when you click.";
+	       
+       }//---if(time<=0)
+    }, 1000);//---setInterval
+}//---startTimer function
 
 </script>
 </head>
