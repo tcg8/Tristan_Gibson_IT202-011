@@ -95,11 +95,15 @@ function submitScore() {
 //This is the Timer function for how long you have to click the button
 function startTimer(){
     var time=10;
-	//document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
+	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
        //console.log(time);
-	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
+	    if(time==1) { //this just here so it says "1 second" instead of "1 seconds"
+		document.getElementById("timeLeft").innerHTML = "You have " + time + " second left to click the button!"; 
+	    }else{
+	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!"; 
+	    }
        if(time<=0){
            console.log("stop me");
            gameOff=true;
