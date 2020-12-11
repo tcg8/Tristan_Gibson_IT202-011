@@ -98,7 +98,7 @@ function clickCounter() {
 //It also resets the score for the next game.
 function submitScore() {
 count.value=clickcount;
-document.getElementById("result").innerHTML = "You scored " + clickcount = " points!";
+document.getElementById("result").innerHTML = "You scored " + clickcount + " points!";
  clickcount = 0;
 }
 
