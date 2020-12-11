@@ -102,26 +102,30 @@ function clickCounter() {
 //}
 	
 	
-	
-	let xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-if (this.readyState == 4 && this.status == 200) {
+function addScore() {
+            //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
                     let json = JSON.parse(this.responseText);
                     if (json) {
                         if (json.status == 200) {
-                            alert(json.message);
+                            alert("Congrats you received 1 " + clickcount);
+                            location.reload();
                         } else {
                             alert(json.error);
                         }
                     }
                 }
             };
-            xhttp.open("POST", "<?php echo getURL("api/minuteclick.php");?>", true);
-            //this is required for post ajax calls to submit it as a form
+            
+            xhttp.open("POST", "<?php echo getURL("minuteclick.php");?>", true);
+	    //this is required for post ajax calls to submit it as a form
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             //map any key/value data similar to query params
-            xhttp.send("clickcount="+clickcount);
+            xhttp.send();
 
+        }
 	
 	
 	
@@ -148,6 +152,7 @@ function startTimer(){
 	       //Start cooldown now that game is over
 	       onCooldown=true;
 	       count.value=clickcount;
+	       addScore();
 	       startCooldown();
 	       
        }//---if(time<=0)
