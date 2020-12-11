@@ -68,7 +68,7 @@ var gameOff=true;
 var clickcount=0;
 
 function clickCounter() {
-	console.log("gameOff is " + gameOff);
+	//console.log("gameOff is " + gameOff);
 	clickcount++;
 	document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 /*
@@ -109,6 +109,7 @@ count.value=clickcount;
 //This is the Timer function for how long you have to click the button
 function startTimer(){
     var time=10;
+    clickount=1;
     //localStorage.clickcount=1;//startTimer only runs when you click to run a new game so the score will start at 1
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
