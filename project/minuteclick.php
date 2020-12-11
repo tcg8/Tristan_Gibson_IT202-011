@@ -66,6 +66,10 @@ if (!is_logged_in()) {
 
 var gameOff=true;
 var clickcount=0;
+var time=5;
+
+document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds to click the button. Timer starts when you click.";
+document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 
 function clickCounter() {
 	//console.log("gameOff is " + gameOff);
@@ -108,9 +112,11 @@ count.value=clickcount;
 	
 //This is the Timer function for how long you have to click the button
 function startTimer(){
-    var time=10;
-    clickount=1;
-    //localStorage.clickcount=1;//startTimer only runs when you click to run a new game so the score will start at 1
+	
+	clickcount=1;//these 2 lines are so the score resets when you restart a new game
+	document.getElementById("result").innerHTML = "Your current score is " + clickcount;
+	
+    time = 5
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
@@ -124,9 +130,10 @@ function startTimer(){
            console.log("stop me");
            gameOff=true;
            clearInterval(timer);
+	       //HERE THE SCORE SHOULD AUTOMATICALLY SUBMIT (can replace the submit button with a restart button)
+	       
        }//---if(time<=0)
     }, 1000);//---setInterval
-  //}//---if(gameOff)
 }//---startTimer function
 
 //Here is the Timer function to make the button clicks not work for a short time (might not do)
@@ -142,10 +149,8 @@ function startTimer(){
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
-	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
-<!----><input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
-	<!--<button class="btn btn-primary" id="reset" type="button" style>Restart</button>
-	<h3 id="countdown">Time Left</h3>-->
+<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Restart (score wont submit if you click be in time)" />-->
+	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
 	<!----></form>
 </body>
 	
