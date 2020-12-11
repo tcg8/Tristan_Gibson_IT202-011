@@ -11,7 +11,13 @@ if (!is_logged_in()) {
     flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
-	if (isset($_POST["sendscore"])) {
+
+
+//flash("HUZZA the huz is here ");// . $huz);
+
+
+	//if (isset($_POST["sendscore"])) {
+		
 		$db = getDB();
         	if (isset($db)) {
 			$user_id = get_user_id();//$_SESSION["user"]["id"];
@@ -39,7 +45,7 @@ if (!is_logged_in()) {
 				flash("You are not logged in so the score was not saved");
 			}//*/
 		}
-	}
+	//}
 ?>
 
 
