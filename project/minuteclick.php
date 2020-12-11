@@ -13,10 +13,10 @@ if (!is_logged_in()) {
 }
 
 
-//flash("HUZZA the huz is here ");// . $huz);
+flash("HUZZA the huz is here " . $huz);
 
 
-	//if (isset($_POST["sendscore"])) {
+	if (isset($_POST["sendscore"])) {
 		
 		$db = getDB();
         	if (isset($db)) {
@@ -45,9 +45,9 @@ if (!is_logged_in()) {
 				flash("You are not logged in so the score was not saved");
 			}//*/
 		}
-	//}
+	}
 ?>
-
+<?php $huz="wasssssssssssup"; ?>
 
 
 
