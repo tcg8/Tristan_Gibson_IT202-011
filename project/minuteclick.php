@@ -11,7 +11,7 @@ if (!is_logged_in()) {
     flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
-	if (isset($_POST["count"])) {
+	if (isset($_POST["sendscore"])) {
 		$db = getDB();
         	if (isset($db)) {
 			$user_id = get_user_id();//$_SESSION["user"]["id"];
@@ -50,7 +50,7 @@ if (!is_logged_in()) {
 <head>
 <script>
 
-var constTime=5;   //this is so I can change the time length of the game easier, maily for testing
+var constTime=20;   //this is so I can change the time length of the game easier, maily for testing
 var constTime2=5;   //this is for cooldown timer
 
 //variables for game and game timer
@@ -98,7 +98,6 @@ function clickCounter() {
 //It also resets the score for the next game.
 function submitScore() {
 count.value=clickcount;
-document.getElementById("result").innerHTML = "You scored " + clickcount + " points!";
  clickcount = 0;
 }
 
@@ -126,7 +125,6 @@ function startTimer(){
            clearInterval(timer);
 	       //Start cooldown now that game is over
 	       onCooldown=true;
-	       submitScore();
 	       startCooldown();
 	       
        }//---if(time<=0)
@@ -171,12 +169,11 @@ function startCooldown(){
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
-	<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />-->
-	</form>
+	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
+	<!----></form>
 </body>
 	
 
 </html>
 
 <?php require(__DIR__ . "/partials/flash.php");
-	
