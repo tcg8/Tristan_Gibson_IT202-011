@@ -24,6 +24,7 @@ $db = getDB();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $profilePoints = $result["points"];
 flash("Your account has " . $profilePoints . " points.");
+    }
 
 
 //save data if we submitted the form
