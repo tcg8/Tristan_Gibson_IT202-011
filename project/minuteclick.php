@@ -149,7 +149,7 @@ if (!is_logged_in()) {
     //die(header("Location: login.php"));
 }
 
-when(isset($_POST["testy"])){
+if(isset($_POST["testy"])){
 flash("HUZZA the huz is here ");// . $huz);
 }
 
