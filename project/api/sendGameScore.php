@@ -28,14 +28,7 @@ if (!is_logged_in()) {
 			    echo json_encode($response);
 			    die();
 			}
-			/*$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score]);
-			if($r){
-				flash("Created successfully with id: " . $db->lastInsertId());
-			}
-			else{
-				$e = $stmt->errorInfo();
-				flash("Error creating :" . var_export($e, true));
-			}
+
 			*/$e = $stmt->errorInfo();
 			if ($e[0] == "00000") {
 				//flash("Successfully recorded score");
