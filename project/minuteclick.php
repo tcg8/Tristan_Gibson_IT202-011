@@ -91,14 +91,14 @@ function submitScore() {
 	//value=localStorage.clickcount;
  //document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
-//var gameOff=true;
-function startTimer(){
 
+//This is the Timer function for how long you have to click the button
+function startTimer(){
     var time=10;
     timer = setInterval(function(){
-     
        time--;
-       console.log(time);
+       //console.log(time);
+	document.getElementById("result").innerHTML = "You have " + time + "seconds left to click the button!";
        if(time<=0){
            console.log("stop me");
            gameOff=true;
@@ -108,6 +108,8 @@ function startTimer(){
   //}//---if(gameOff)
 }//---startTimer function
 
+//Here is the Timer function to make the button clicks not work for a short time (might not do)
+
 
 </script>
 </head>
@@ -115,6 +117,7 @@ function startTimer(){
 <body>
 	<form method="POST">
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
+	<div id="timeLeft"></div>
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
