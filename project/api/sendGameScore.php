@@ -4,11 +4,11 @@
 
 //This game is now completely done, Finished for milestone 4
 
-if (is_logged_in()) {
+if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    //flash("You are not logged in, your score won't be saved!");
+    flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
-//}
+}else{
 	//if (isset($_POST["sendscore"])) {
 	if (isset($_POST["count"])){
 		$db = getDB();
