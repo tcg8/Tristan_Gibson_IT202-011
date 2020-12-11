@@ -134,7 +134,7 @@ function startCooldown(){
 	
 	
 	
-		function addScore(submitIt) {
+		function addScore(clickcount) {
             //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -155,7 +155,7 @@ function startCooldown(){
 	    //this is required for post ajax calls to submit it as a form
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             //map any key/value data similar to query params
-            xhttp.send(submitIt);
+            xhttp.send(clickcount);
 
         }
 	
