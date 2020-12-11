@@ -62,6 +62,9 @@ if (!is_logged_in()) {
 <html>
 <head>
 <script>
+
+var gameOff=true;
+
 function clickCounter() {
   if (typeof(Storage) !== "undefined") {
     if (localStorage.clickcount) {
@@ -73,6 +76,12 @@ function clickCounter() {
   } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }
+
+  if(gameOff){
+    gameOff=false;
+    startTimer();
+  }
+
 }
 	
 function submitScore() {
@@ -82,10 +91,9 @@ function submitScore() {
 	//value=localStorage.clickcount;
  //document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
-var gameOff=true;
+//var gameOff=true;
 function startTimer(){
-  if(gameOff){
-    gameOff=false;
+
     var time=10;
     timer = setInterval(function(){
      
@@ -97,7 +105,7 @@ function startTimer(){
            clearInterval(timer);
        }//---if(time<=0)
     }, 1000);//---setInterval
-  }//---if(!gameOn)
+  //}//---if(gameOff)
 }//---startTimer function
 
 
@@ -107,7 +115,7 @@ function startTimer(){
 <body>
 	<form method="POST">
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
-	<button onclick="clickCounter()" onclick="startTimer()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
+	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
