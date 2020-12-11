@@ -49,7 +49,7 @@ if (!is_logged_in()) {
 <html>
 <head>
 <script>
-
+count.value=0;
 var constTime=20;   //this is so I can change the time length of the game easier, maily for testing
 var constTime2=5;   //this is for cooldown timer
 
@@ -100,7 +100,29 @@ function clickCounter() {
 //count.value=clickcount;
 // clickcount = 0;
 //}
+	
+	
+	
+	let xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+if (this.readyState == 4 && this.status == 200) {
+                    let json = JSON.parse(this.responseText);
+                    if (json) {
+                        if (json.status == 200) {
+                            alert(json.message);
+                        } else {
+                            alert(json.error);
+                        }
+                    }
+                }
+            };
+            xhttp.open("POST", "<?php echo getURL("api/minuteclick.php");?>", true);
+            //this is required for post ajax calls to submit it as a form
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //map any key/value data similar to query params
+            xhttp.send("clickcount="+clickcount);
 
+	
 	
 	
 	
@@ -125,6 +147,7 @@ function startTimer(){
            clearInterval(timer);
 	       //Start cooldown now that game is over
 	       onCooldown=true;
+	       count.value=clickcount;
 	       startCooldown();
 	       
        }//---if(time<=0)
@@ -149,7 +172,6 @@ function startCooldown(){
 	    }
        if(cooldownTime<=0){
            gameOff=true;
-	   count.value=clickcount;
            clearInterval(timer);
 	   onCooldown=false;
 	    time=constTime;
