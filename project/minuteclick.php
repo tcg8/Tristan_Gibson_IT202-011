@@ -11,36 +11,7 @@ if (!is_logged_in()) {
     flash("You are not logged in, your score won't be saved!");
     //die(header("Location: login.php"));
 }
-	//if (isset($_POST["sendscore"])) {
-	if (isset($_POST["count"])){
-		$db = getDB();
-        	if (isset($db)) {
-			$user_id = get_user_id();//$_SESSION["user"]["id"];
-			$score = $_POST["count"];//7;
-			//flash("1This should appear when submit score is clicked");
-			///*
-			//here we'll use placeholders to let PDO map and sanitize our data
-			$stmt = $db->prepare("INSERT INTO Scores( user_id, score) VALUES(:user_id,:score)");
-			//here's the data map for the parameter to data
-			$params = array( ":user_id" => $user_id, ":score" => $score);
-			$r = $stmt->execute($params);
-			/*$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score]);
-			if($r){
-				flash("Created successfully with id: " . $db->lastInsertId());
-			}
-			else{
-				$e = $stmt->errorInfo();
-				flash("Error creating :" . var_export($e, true));
-			}
-			*/$e = $stmt->errorInfo();
-			if ($e[0] == "00000") {
-				flash("Successfully recorded score");
-			}
-			else {
-				flash("You are not logged in so the score was not saved");
-			}//*/
-		}
-	}
+
 ?>
 
 
@@ -102,34 +73,7 @@ function clickCounter() {
 // clickcount = 0;
 //}
 	
-	
 
-	function addScore() {
-            //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    let json = JSON.parse(this.responseText);
-                    if (json) {
-                        if (json.status == 200) {
-                            alert("Congrats you received 1 " + clickcount);
-                            location.reload();
-                        } else {
-                            alert(json.error);
-                        }
-                    }
-                }
-            };
-            
-            xhttp.open("POST", "<?php echo getURL("minuteclick.php");?>", true);
-	    //this is required for post ajax calls to submit it as a form
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            //map any key/value data similar to query params
-            xhttp.send();
-
-        }
-	
-	
 	
 //This is the Timer function for how long you have to click the button
 function startTimer(){
@@ -153,7 +97,7 @@ function startTimer(){
 	       //Start cooldown now that game is over
 	       onCooldown=true;
 	       count.value=clickcount;
-	       //addScore();
+	       addScore();
 	       startCooldown();
 	       
        }//---if(time<=0)
@@ -187,6 +131,38 @@ function startCooldown(){
     }, 1000);//---setInterval
 }//---startTimer function
 
+	
+	
+	
+		function addScore() {
+            //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let json = JSON.parse(this.responseText);
+                    if (json) {
+                        if (json.status == 200) {
+                            alert("Congrats you scored " + clickcount + " points!");
+                            location.reload();
+                        } else {
+                            alert(json.error);
+                        }
+                    }
+                }
+            };
+            
+            xhttp.open("POST", "<?php echo getURL("api/sendGameScore.php");?>", true);
+	    //this is required for post ajax calls to submit it as a form
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //map any key/value data similar to query params
+            xhttp.send();
+
+        }
+	
+	
+	
+	
+	
 </script>
 </head>
 	
