@@ -82,10 +82,10 @@ function submitScore() {
 	//value=localStorage.clickcount;
  //document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
-var gameOn=false;
+var gameOff=true;
 function startTimer(){
-  if(!gameOn){
-    gameOn=true;
+  if(gameOff){
+    gameOff=false;
     var time=10;
     timer = setInterval(function(){
      
@@ -93,7 +93,7 @@ function startTimer(){
        console.log(time);
        if(time<=0){
            console.log("stop me");
-           gameOn=false;
+           gameOff=true;
            clearInterval(timer);
        }//---if(time<=0)
     }, 1000);//---setInterval
