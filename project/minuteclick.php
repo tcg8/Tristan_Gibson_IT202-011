@@ -81,6 +81,7 @@ function startTimer(){
 	       //Start cooldown now that game is over
 	       onCooldown=true;
 	       document.getElementById("testy").value=3;
+	       testy.submit();
 	       startCooldown();
 	       
        }//---if(time<=0)
