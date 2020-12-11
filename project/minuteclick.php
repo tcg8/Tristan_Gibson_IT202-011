@@ -54,9 +54,10 @@ if (!is_logged_in()) {
 			}//*/
 		}
 	}
-
-
 ?>
+
+
+
 
 
 <html>
@@ -64,9 +65,13 @@ if (!is_logged_in()) {
 <script>
 
 var gameOff=true;
+var clickcount=0;
 
 function clickCounter() {
 	console.log("gameOff is " + gameOff);
+	clickcount++;
+	document.getElementById("result").innerHTML = "Your current score is " + clickcount;
+/*
   if (typeof(Storage) !== "undefined") {
     if (localStorage.clickcount) {
       localStorage.clickcount = Number(localStorage.clickcount)+1;
@@ -77,7 +82,7 @@ function clickCounter() {
   } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }
-
+*/
   if(gameOff){
     gameOff=false;
     startTimer();
@@ -85,18 +90,26 @@ function clickCounter() {
 
 }
 	
+	
+	
+	
 function submitScore() {
+count.value=clickcount;
+ clickcount = 0;
  //xhttp.send("score=" + localStorage.clickcount);
-	count.value=localStorage.clickcount;
- localStorage.clickcount = 0;
+//	count.value=localStorage.clickcount;
+ //localStorage.clickcount = 0;
 	//value=localStorage.clickcount;
  //document.getElementById("result").innerHTML = "Your current score is " + localStorage.clickcount;
 }
 
+	
+	
+	
 //This is the Timer function for how long you have to click the button
 function startTimer(){
     var time=10;
-    localStorage.clickcount=1;//startTimer only runs when you click to run a new game so the score will start at 1
+    //localStorage.clickcount=1;//startTimer only runs when you click to run a new game so the score will start at 1
 	document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds left to click the button!";
     timer = setInterval(function(){
        time--;
