@@ -21,8 +21,8 @@ $r = $stmt->execute([":id"=>get_user_id()]);
 if($r){
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     if($result){
-        $balance = $result["points"];
-        $_SESSION["user"]["balance"] = $balance;
+        //$balance = $result["points"];
+       // $_SESSION["user"]["balance"] = $balance;
     }
 }
 
