@@ -107,7 +107,7 @@ function startTimer(){
 <body>
 	<form method="POST">
 	<h3>Game starts when you click the button, You have a minute to get a high score!</h3>
-	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
+	<button onclick="clickCounter()" onclick="startTimer()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
 	<!--<button onclick="submitScore()" id="sendscore" type="button">Submit Score</button>-->
