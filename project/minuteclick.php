@@ -125,6 +125,7 @@ function startTimer(){
            clearInterval(timer);
 	       //Start cooldown now that game is over
 	       onCooldown=true;
+	       submitScore();
 	       startCooldown();
 	       
        }//---if(time<=0)
@@ -169,8 +170,8 @@ function startCooldown(){
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
 	<div id="result"></div>
 		<input type="hidden" id="count" name="count" value=0 />
-	<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />
-	<!----></form>
+	<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />-->
+	</form>
 </body>
 	
 
