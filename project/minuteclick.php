@@ -86,7 +86,7 @@ function clickCounter() {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }
 */
-  if(gameOff){
+  if(gameOff && !onCooldown){
     gameOff=false;
     startTimer();
   }
