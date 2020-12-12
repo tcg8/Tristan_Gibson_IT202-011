@@ -214,6 +214,7 @@ if($hasScores) {
 
 <html>
     <head>
+        <div id="10recent"></div> 
     <script>
         console.log("WHY WONT THIS WORK");
         //var statusState = "Public";
@@ -226,7 +227,7 @@ if($hasScores) {
            
 
         <form method="POST">
-            <div id="10recent"></div> 
+            
             <table style="width:100%">
             <div id="currStatus"></div>
             <tr>
