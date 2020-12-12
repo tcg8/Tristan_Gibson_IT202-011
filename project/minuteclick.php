@@ -24,7 +24,7 @@ if (!is_logged_in()) {
 <html>
 <head>
 <script>
-count.value=0;
+//count.value=0;
 var constTime=20;   //this is so I can change the time length of the game easier, maily for testing
 var constTime2=5;   //this is for cooldown timer
 
