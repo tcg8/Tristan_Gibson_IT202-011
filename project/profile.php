@@ -217,8 +217,8 @@ if($hasScores) {
     <script>
         console.log("WHY WONT THIS WORK");
         //var statusState = "Public";
-
-        document.getElementById("10recent").innerHTML = "hello";
+        var speakbb="there";
+        document.getElementById("10recent").innerHTML = "hello "+speakbb;
     </script>
     </head>
     
