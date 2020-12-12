@@ -101,7 +101,7 @@ function startTimer(){
 	       onCooldown=true;
 	       count.value=clickcount;
 	       //addScore(clickcount);
-	       addScore(<?php echo $count["value"];?>);
+	       addScore(clickcount);
 	       startCooldown();
 	       
        }//---if(time<=0)
