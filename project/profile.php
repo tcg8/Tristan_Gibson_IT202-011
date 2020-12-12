@@ -215,11 +215,10 @@ if($hasScores) {
 <html>
     <head>
         <div id="10recent"></div> 
+        
+        
     <script>
-        console.log("WHY WONT THIS WORK");
-        //var statusState = "Public";
-        var speakbb="there";
-        document.getElementById("10recent").innerHTML = "hello "+speakbb;
+        document.getElementById("10recent").innerHTML = "Here are your Top 10 most recent scores";
     </script>
     </head>
     
