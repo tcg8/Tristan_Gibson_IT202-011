@@ -216,15 +216,16 @@ if($hasScores) {
     <head>
     <script>
         //var statusState = "Public";
-        if(3>2){
-        document.getElementById("10recent").innerHTML = "hello";}
+
+        document.getElementById("10recent").innerHTML = "hello";
     </script>
     </head>
     
     <body>
-           <div id="10recent"></div> 
+           
 
         <form method="POST">
+            <div id="10recent"></div> 
             <table style="width:100%">
             <div id="currStatus"></div>
             <tr>
