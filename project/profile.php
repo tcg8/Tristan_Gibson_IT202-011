@@ -258,9 +258,15 @@ if($hasScores) {
         </table>
         <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
         
-        <div id="10recent"></div>
+        
     
     </form>
+        
+        <form method="POST">
+            <div id="10recent"></div>
+        </form>
+        
+        
     </body>
 
 </html>
