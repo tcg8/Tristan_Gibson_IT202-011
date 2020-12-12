@@ -26,6 +26,8 @@ if (!is_logged_in()) {
 	</head>
 	
 <body>
+	<p>WASSSSSSSUP</p>
+	</body><body>
 	<form method="POST">
 	<h3>Game starts when you click the button, You have 20 seconds to get a high score!</h3>
 	<div id="timeLeft"></div>
