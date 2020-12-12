@@ -213,12 +213,12 @@ if($hasScores) {
 
 
 <html>
-    
+    <head>
     <script>
         //var statusState = "Public";
         document.getElementById("10recent").innerHTML = "hello";
     </script>
-    
+    </head>
     
     <body>
         <form method="POST">
