@@ -215,6 +215,7 @@ if($hasScores) {
 <html>
     <head>
     <script>
+        console.log("WHY WONT THIS WORK");
         //var statusState = "Public";
 
         document.getElementById("10recent").innerHTML = "hello";
