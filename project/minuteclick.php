@@ -23,6 +23,20 @@ if (!is_logged_in()) {
 
 <html>
 <head>
+	</head>
+	
+<body>
+	<form method="POST">
+	<h3>Game starts when you click the button, You have 20 seconds to get a high score!</h3>
+	<div id="timeLeft"></div>
+	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
+	<div id="result"></div>
+		<input type="hidden" id="count" name="count" value=0 />
+	<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />-->
+	<!----></form>
+</body>
+	
+
 <script>
 //count.value=0;
 var constTime=20;   //this is so I can change the time length of the game easier, maily for testing
@@ -168,19 +182,6 @@ function startCooldown(){
 	
 	
 </script>
-</head>
-	
-<body>
-	<form method="POST">
-	<h3>Game starts when you click the button, You have 20 seconds to get a high score!</h3>
-	<div id="timeLeft"></div>
-	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
-	<div id="result"></div>
-		<input type="hidden" id="count" name="count" value=0 />
-	<!--<input class="btn btn-primary" onclick="submitScore()" type="submit" name="sendscore" value="Submit Score" />-->
-	<!----></form>
-</body>
-	
 
 </html>
 
