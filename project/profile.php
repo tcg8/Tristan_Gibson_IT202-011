@@ -218,7 +218,7 @@ if($hasScores) {
         
         
     <script>
-        document.getElementById("10recent").innerHTML = "Here are your Top 10 most recent scores";
+        document.getElementById("10recent").innerHTML = "Here are your last 10 scores";
     </script>
     </head>
     
