@@ -25,6 +25,32 @@ $db = getDB();
 flash("Your account has " . $profilePoints . " points.");
     }
 
+//update status to public
+if (isset($_POST["makePub"])) {
+    $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
+        $r = $stmt->execute([":status" => "public", ":id" => get_user_id()]);
+        //flash("line 73 " . count($r));
+        if ($r) {
+            flash("Your profile is public");
+        }
+        else {
+            flash("Error updating profile");
+        }
+}
+//update status to private
+if (isset($_POST["makePriv"])) {
+    $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
+        $r = $stmt->execute([":status" => "private", ":id" => get_user_id()]);
+        //flash("line 73 " . count($r));
+        if ($r) {
+            flash("Your profile is private");
+        }
+        else {
+            flash("Error updating profile");
+        }
+}
+
+
 
 //save data if we submitted the form
 if (isset($_POST["saved"])) {
@@ -186,10 +212,35 @@ if($hasScores) {
 <?php endforeach;?>
 
 
-
-
+<html>
+    
+    <script>
+        //var statusState = "Public";
+        //document.getElementById("currStatus").innerHTML = "Your profile is currently set to "+statusState; 
+    </script>
+    
+    
+    <body>
+        <form method="POST">
+            <table style="width:100%">
+            <div id="currStatus"></div>
+            <tr>
+        <td>  <input class="btn btn-primary" type="submit" name="makePub" value="Set your profile to Public"/>  </td>
+        <td>  <input class="btn btn-primary" type="submit" name="makePriv" value="Set your profile to Private"/>  </td>
+            </tr>
+            </table>
+        </form>
+        
+        
     <form method="POST">
         <table style="width:100%">
+            
+            <!--<tr>
+        <td>  <label for="status">Your profile is </label>  </td>
+                <td><select name="status" id="status">
+  <option value="private">Private</option>
+  <option value="public">Public</option>
+</select></td>-->
             
             <tr>
         <td>  <label for="email">Email</label>  </td>
@@ -216,9 +267,9 @@ if($hasScores) {
         
     
     </form>
+    </body>
 
-
-
+</html>
 
 
 <?php require(__DIR__ . "/partials/flash2.php");?>
