@@ -189,7 +189,8 @@ if($hasScores) {
 <html>
     
     <script>
-        
+        //var statusState = "Public";
+        //document.getElementById("currStatus").innerHTML = "Your profile is currently set to "+statusState; 
     </script>
     
     
@@ -203,8 +204,9 @@ if($hasScores) {
   <option value="private">Private</option>
   <option value="public">Public</option>
 </select></td>-->
+            <div id="currStatus"></div>
         <td>  <label for="status">Set your profile to Public or Private</label>  </td>
-        <td>  <input class="dropdown" type="status" name="status" value="<?php safer_echo(get_status()); ?>"/>  </td>
+        <td>  <input class="form-control" type="status" name="status" value="<?php safer_echo(get_status()); ?>"/>  </td>
             </tr>
             <tr>
         <td>  <label for="email">Email</label>  </td>
