@@ -216,7 +216,7 @@ if($hasScores) {
     
     <script>
         //var statusState = "Public";
-        //document.getElementById("currStatus").innerHTML = "Your profile is currently set to "+statusState; 
+        document.getElementById("10recent").innerHTML = "hello";
     </script>
     
     
@@ -234,14 +234,7 @@ if($hasScores) {
         
     <form method="POST">
         <table style="width:100%">
-            
-            <!--<tr>
-        <td>  <label for="status">Your profile is </label>  </td>
-                <td><select name="status" id="status">
-  <option value="private">Private</option>
-  <option value="public">Public</option>
-</select></td>-->
-            
+
             <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
@@ -265,6 +258,7 @@ if($hasScores) {
         </table>
         <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
         
+        <div id="10recent"></div>
     
     </form>
     </body>
