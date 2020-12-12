@@ -25,6 +25,32 @@ $db = getDB();
 flash("Your account has " . $profilePoints . " points.");
     }
 
+//update status to public
+if (isset($_POST["makePub"])) {
+    $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
+        $r = $stmt->execute([":status" => "public", ":id" => get_user_id()]);
+        //flash("line 73 " . count($r));
+        if ($r) {
+            flash("Your profile is public");
+        }
+        else {
+            flash("Error updating profile");
+        }
+}
+//update status to private
+if (isset($_POST["makePriv"])) {
+    $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
+        $r = $stmt->execute([":status" => "private", ":id" => get_user_id()]);
+        //flash("line 73 " . count($r));
+        if ($r) {
+            flash("Your profile is private");
+        }
+        else {
+            flash("Error updating profile");
+        }
+}
+
+
 
 //save data if we submitted the form
 if (isset($_POST["saved"])) {
