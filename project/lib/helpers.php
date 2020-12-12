@@ -18,13 +18,6 @@ function has_role($role) {
     return false;
 }
 
-function get_status() {
-    if (is_logged_in() && isset($_SESSION["user"]["status"])) {
-        return $_SESSION["user"]["status"];
-    }
-    return "";
-}
-
 function get_username() {
     if (is_logged_in() && isset($_SESSION["user"]["username"])) {
         return $_SESSION["user"]["username"];
