@@ -195,6 +195,17 @@ if($hasScores) {
     
     
     <body>
+        <form method="POST">
+            <table style="width:100%">
+            <div id="currStatus"></div>
+            <tr>
+        <td>  <input class="btn btn-primary" type="submit" name="makePub" value="Set your profile to Public"/>  </td>
+        <td>  <input class="btn btn-primary" type="submit" name="makePriv" value="Set your profile to Private"/>  </td>
+            </tr>
+            </table>
+        </form>
+        
+        
     <form method="POST">
         <table style="width:100%">
             
@@ -204,10 +215,7 @@ if($hasScores) {
   <option value="private">Private</option>
   <option value="public">Public</option>
 </select></td>-->
-            <div id="currStatus"></div>
-        <td>  <input class="btn btn-primary" type="submit" name="makePub" value="Set your profile to Public"/>  </td>
-        <td>  <input class="btn btn-primary" type="submit" name="makePriv" value="Set your profile to Private"/>  </td>
-            </tr>
+            
             <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
