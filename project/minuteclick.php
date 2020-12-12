@@ -25,8 +25,7 @@ if (!is_logged_in()) {
 <html>
 <head></head>
 	
-<body>
-	<form method="POST">
+
 		
 <script>
 //count.value=0;
@@ -171,7 +170,8 @@ function startCooldown(){
 	
 	
 		
-		
+	<body>
+	<form method="POST">
 	<h3>Game starts when you click the button, You have 20 seconds to get a high score!</h3>
 	<div id="timeLeft"></div>
 	<button onclick="clickCounter()" id="clicker" type="button"  name="clicker" style="width: 100%; height: 200px;" >Click Me!</button>
