@@ -36,7 +36,7 @@ function getURL($path) {
     if substr($path, 0, 1) == "/") {
         return $path;
     }
-    return $_SERVER["CONTEXT_PREFIX"] . "/IT202/project/$path";
+    return $_SERVER["CONTEXT_PREFIX"] . "/Tristan_Gibson_IT202-011/project/$path";
 }
 
 function get_user_id() {
