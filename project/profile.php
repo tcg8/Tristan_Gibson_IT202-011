@@ -186,11 +186,26 @@ if($hasScores) {
 <?php endforeach;?>
 
 
-
-
+<html>
+    
+    <script>
+        
+    </script>
+    
+    
+    <body>
     <form method="POST">
         <table style="width:100%">
             
+            <!--<tr>
+        <td>  <label for="status">Your profile is </label>  </td>
+                <td><select name="status" id="status">
+  <option value="private">Private</option>
+  <option value="public">Public</option>
+</select></td>-->
+        <td>  <label for="status">Set your profile to Public or Private</label>  </td>
+        <td>  <input class="dropdown" type="status" name="status" value="<?php safer_echo(get_status()); ?>"/>  </td>
+            </tr>
             <tr>
         <td>  <label for="email">Email</label>  </td>
         <td>  <input class="form-control" type="email" name="email" value="<?php safer_echo(get_email()); ?>"/>  </td>
@@ -216,9 +231,9 @@ if($hasScores) {
         
     
     </form>
+    </body>
 
-
-
+</html>
 
 
 <?php require(__DIR__ . "/partials/flash2.php");?>
