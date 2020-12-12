@@ -254,7 +254,7 @@ if($hasScores) {
         <td>  <label for="cpw">Confirm Password</label>  </td>
         <td>  <input type="password" required minlength="4" required maxlength="60" name="confirm"/>  </td>
             </tr>
-       
+       <div id="10recent"></div>
         </table>
         <input class="btn btn-primary" type="submit" name="saved" value="Save Profile"/>
         
@@ -263,7 +263,8 @@ if($hasScores) {
     </form>
         
         <form method="POST">
-            <div id="10recent"></div>
+            
+            
         </form>
         
         
