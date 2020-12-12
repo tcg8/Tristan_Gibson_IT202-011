@@ -205,8 +205,8 @@ if($hasScores) {
   <option value="public">Public</option>
 </select></td>-->
             <div id="currStatus"></div>
-        <td>  <label for="status">Set your profile to Public or Private</label>  </td>
-        <td>  <input class="form-control" type="status" name="status" value="<?php safer_echo(get_status()); ?>"/>  </td>
+        <td>  <input class="btn btn-primary" type="submit" name="makePub" value="Set your profile to Public"/>  </td>
+        <td>  <input class="btn btn-primary" type="submit" name="makePriv" value="Set your profile to Private"/>  </td>
             </tr>
             <tr>
         <td>  <label for="email">Email</label>  </td>
