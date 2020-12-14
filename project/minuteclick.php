@@ -29,9 +29,9 @@ if (!is_logged_in()) {
 			//the -5 is because it was registering scores of 0-4 as 0, 5-14 as 1, 15-24 as 2, etc.  The -5 fixes this
 			$reason = "Scored points playing the game";
 			
-			//$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
-			//$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
-			//$r = $stmt->execute($params);
+			$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
+			$r = $stmt->execute($params);
 			
 			//$stmt = $db->prepare("SET Users.points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)")
 			//$params = array( ":user_id" => $user_id);
@@ -63,7 +63,7 @@ var constTime2=5;   //this is for cooldown timer
 //variables for game and game timer
 var gameOff=true;
 var clickcount=0;
-var time=constTime;
+var time=20;//constTime;
 
 //variables for cooldown
 var cooldownTime=constTime2; //this is a cooldown timer that starts after the game timer ends to prevent you from accidentailly starting a new game right away or clearing your score before you submit it.
