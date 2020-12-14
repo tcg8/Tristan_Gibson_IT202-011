@@ -7,11 +7,7 @@ if (isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])) {
 }
 ?>
 
-<p>Welcome, <?php echo $email; get10week();
-
-get10month();
-
-get10lifetime();?></p>
+<p>Welcome, <?php echo $email; get10week(); get10month(); get10lifetime();?></p>
 
 
     
