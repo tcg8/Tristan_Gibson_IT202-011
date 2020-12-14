@@ -148,7 +148,7 @@ if($hasScores) {
     $i=10-count($results);
     $a=1;
     do {
-        flash2(" hope this appears2 " . substr(implode($results2[$a-1]),0,2));//THIS IS THE WINNER
+        //flash2(" hope this appears2 " . substr(implode($results2[$a-1]),0,$numlength));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
@@ -156,7 +156,7 @@ if($hasScores) {
         
         $numlength = strlen(implode($results2[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-        $userbro = substr(implode($results2[$a-1]),2) % $modifier;
+        $userbro = substr(implode($results2[$a-1]),2));// % $modifier;
         
         flash2("The #" . $a . " top score is " . $finalNum . " scored by user " . $userbro . " who has " . " profile points");
       $a++;
