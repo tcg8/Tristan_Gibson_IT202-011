@@ -6,7 +6,7 @@ if (isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])) {
     $email = $_SESSION["user"]["email"];
 }
 flash("Welcome, $email");
-//flash("testing, <a href='profile.php'>$email</a>");
+flash("testing, <a href='profile.php/nope'>$email</a>");
 ?>
 
 <?php
