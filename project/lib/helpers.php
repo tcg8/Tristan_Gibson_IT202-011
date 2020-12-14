@@ -139,7 +139,7 @@ if($hasScores) {
         $numlength = strlen(implode($results2[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $userbro = substr(implode($results2[$a-1]),0,$numlength);// % $modifier;
-        
+<a href="login.php">$userbro</a>
         $numlength = strlen(implode($results3[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $pointsbro = implode($results3[$a-1]) % $modifier;
