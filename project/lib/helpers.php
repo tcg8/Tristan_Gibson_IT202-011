@@ -136,6 +136,8 @@ if($hasScores) {
     $a=1;
     do {
         flash2(" hope this appears " . strlen(implode($results2[$a-1])));
+        flash2(" hope this appears2 " . implode($results2[$a-1]));
+        flash2(" hope this appears3 " . $results2[$a-1]);
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
