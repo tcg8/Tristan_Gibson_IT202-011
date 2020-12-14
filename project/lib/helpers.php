@@ -119,7 +119,11 @@ $params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results3 = $stmt3->execute($params2);
 $results3 = $stmt3->fetchAll();
     
-    
+    $id=  get_user_id();
+if(isset($_GET["id"])){
+$id = $_GET["id"];
+    flash2("the id is $id");
+}
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -148,11 +152,7 @@ if($hasScores) {
         if(get_username() == $userbro){
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
         }else{
-$id=  get_user_id();
-if(isset($_GET["id"])){
-$id = $_GET["id"];
-    flash2("the id is $id");
-}
+
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
