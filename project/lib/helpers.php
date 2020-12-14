@@ -130,7 +130,7 @@ $results2 = $stmt2->fetchAll();
         //flash2(" hope this appears2 " . implode($results2[$a-1]));//THIS IS THE WINNER
         //flash2(" hope this appears3 " . $results2[$a-1]);
     
-  $stmt3 = $db->prepare("SELECT Users.username FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+  $stmt3 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
 $params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results3 = $stmt3->execute($params2);
 $results3 = $stmt3->fetchAll();
@@ -148,7 +148,7 @@ if($hasScores) {
     $i=10-count($results);
     $a=1;
     do {
-        //flash2(" hope this appears2 " . substr(implode($results2[$a-1]),0,$numlength));//THIS IS THE WINNER
+        flash2(" hope this appears2 " . implode($results3[$a-1]));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
