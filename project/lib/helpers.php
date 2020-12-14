@@ -154,6 +154,7 @@ if($hasScores) {
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
         }else{
     $id=  get_user_id();
+            flash2("the id should be " . implode($results4[$a-1]));
 if(isset($_GET[implode($results4[$a-1])])){
 $id = $_GET[implode($results4[$a-1])];
     flash2("the id is $id");
