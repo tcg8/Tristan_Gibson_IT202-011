@@ -113,19 +113,19 @@ $results = $stmt->fetchAll();
     flash2("the score is " . $theScore);
 
 $hasScores=true;
-if (count($theScore)==0) {
+if (count($results)==0) {
     $hasScores=false;
     flash2("There have been no scores set in the past " . $timeType);
 }
 if($hasScores) {
-        flash2("The Top " . count($theScore) . " scores of the last " . $timeType);
+        flash2("The Top " . count($results) . " scores of the last " . $timeType);
     $i=10-count($theScore);
     $a=1;
     do {
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
-        $numlength = strlen(implode($theScore[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-        $finalNum = implode($theScore[$a-1]) % $modifier;
+        $finalNum = implode($results[$a-1]) % $modifier;
         flash2("The #" . $a . " top score is " . $finalNum);
       $a++;
       $i++;
