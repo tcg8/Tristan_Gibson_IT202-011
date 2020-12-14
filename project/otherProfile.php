@@ -9,7 +9,10 @@ if (!is_logged_in()) {
     die(header("Location: login.php"));
 }
 
-
+$id=  get_user_id();
+if(isset($_GET["id"])){
+$id = $_GET["id"];
+}
 
 
 
