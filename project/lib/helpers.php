@@ -100,6 +100,7 @@ function getMessages2() {
 
 //One of the functions for milestone 2
 function get10week(){
+$arr = [];
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
@@ -134,6 +135,7 @@ if($hasScores) {
         flash2("The Top " . count($results) . " scores of the last " . $timeType);
     $i=10-count($results);
     $a=1;
+    $w=0;
     do {
         //flash2(" hope this appears2 " . implode($results3[$a-1]));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
@@ -153,7 +155,14 @@ if($hasScores) {
         $numlength = strlen(implode($results4[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $idbro = implode($results4[$a-1]) % $modifier;
-        
+        $arr[$w]=$a;
+        $w++;
+        $arr[$w]=$finalNum;
+        $w++;
+        $arr[$w]=$userbro;
+        $w++;
+        $arr[$w]=$pointsbro;
+        $w++;
         
         //flash2("he $idbro " . get_username() . " ye ");
         if(get_username() == $userbro){
@@ -175,6 +184,7 @@ if($hasScores) {
 flash2("</br>");
         foreach($results as $r):
         endforeach;
+    return $arr;
 }
 
 
