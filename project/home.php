@@ -9,14 +9,14 @@ if (isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])) {
 
 <p>Welcome, <?php echo $email; ?></p>
 
-<?php
+<p><?php
 get10week();
 
 get10month();
 
 get10lifetime();
 
-?>
+    ?></p>
     
 <?php require(__DIR__ . "/partials/flash2.php");?>
 <?php require(__DIR__ . "/partials/flash.php");
