@@ -149,9 +149,9 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
         
-        $numlength = strlen(implode($results2[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $numlength = strlen(implode($results3[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-        $userbro = implode($results2[$a-1]) % $modifier;
+        $userbro = implode($results3[$a-1]) % $modifier;
         
         flash2("The #" . $a . " top score is " . $finalNum . " scored by user " . $userbro . " who has " . " profile points");
       $a++;
