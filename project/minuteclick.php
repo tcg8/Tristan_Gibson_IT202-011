@@ -34,7 +34,8 @@ if (!is_logged_in()) {
 			$r = $stmt->execute($params);
 			
 			//$stmt = $db->prepare("SET Users.points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)")
-			$stmt = $db->prepare("UPDATE Users SET points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)");
+			//$stmt = $db->prepare("UPDATE Users SET points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)");
+			$stmt = $db->prepare("UPDATE Users set points = (SELECT IFNULL(SUM(change), 0) FROM PointsHistory points_change where points_change.user_id = :id) WHERE id = :id");
 			$params = array( ":user_id" => $user_id);
 			$r = $stmt->execute($params);
 			
