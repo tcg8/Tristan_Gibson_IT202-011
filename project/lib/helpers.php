@@ -145,8 +145,8 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
-        flash2("The #" . $a . " top score is " . $finalNum . " scored by user " . $userbro . " who has " . $pointsbro . " profile points");
-      $a++;
+        flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+      $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
     }
     while($i<10);
