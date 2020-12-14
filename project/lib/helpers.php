@@ -109,12 +109,17 @@ $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
     
-    $theScore = $results["score"];
+    //$theScore = $results["score"];
         //flash2(" here is " . strlen(implode($theScore[$a-1])));
-    flash2("the score is " . strlen(implode($theScore)));
+    //flash2("the score is " . strlen(implode($theScore)));
+    
+$stmt2 = $db->prepare("SELECT user_id from Scores where created >= :timeCon order by score desc limit 10");
+$params2 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results2 = $stmt2->execute($params2);
+$results2 = $stmt2->fetchAll();
     
     
-    //$stmt = $db->prepare("SELECT user_id from Scores where created >= :timeCon order by score desc limit 10");
+    
     
     
     
@@ -130,7 +135,7 @@ if($hasScores) {
     $i=10-count($results);
     $a=1;
     do {
-        
+        flash2(" hope this appears " . strlen(implode($results2[$a-1])));
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
