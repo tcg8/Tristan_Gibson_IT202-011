@@ -101,28 +101,30 @@ function getMessages2() {
 //One of the functions for milestone 2
 function get10week(){
 $db = getDB();
-$stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
+$stmt = $db->prepare("SELECT score, user_id from Scores where created >= :timeCon order by score desc limit 10");
 
 $timeType="Week";
 $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH/YEAR
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
+    
+    $theScore = $results["score"];
 
 $hasScores=true;
-if (count($results)==0) {
+if (count($theScore)==0) {
     $hasScores=false;
     flash2("There have been no scores set in the past " . $timeType);
 }
 if($hasScores) {
-        flash2("The Top " . count($results) . " scores of the last " . $timeType);
-    $i=10-count($results);
+        flash2("The Top " . count($theScore) . " scores of the last " . $timeType);
+    $i=10-count($theScore);
     $a=1;
     do {
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
-        $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $numlength = strlen(implode($theScore[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
-        $finalNum = implode($results[$a-1]) % $modifier;
+        $finalNum = implode($theScore[$a-1]) % $modifier;
         flash2("The #" . $a . " top score is " . $finalNum);
       $a++;
       $i++;
