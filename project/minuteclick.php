@@ -34,8 +34,9 @@ if (!is_logged_in()) {
 			$r = $stmt->execute($params);
 			
 			//$stmt = $db->prepare("SET Users.points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)")
-			//$params = array( ":user_id" => $user_id);
-			//$r = $stmt->execute($params);
+			$stmt = $db->prepare("UPDATE Users SET points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)");
+			$params = array( ":user_id" => $user_id);
+			$r = $stmt->execute($params);
 			
 			
 			$e = $stmt->errorInfo();
@@ -70,7 +71,7 @@ var cooldownTime=constTime2; //this is a cooldown timer that starts after the ga
 var onCooldown=false;
 
 //display info
-document.getElementById("timeLeft").innerHTML = "You have 20 seconds to click the button. Timer starts when you click.";
+document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds to click the button. Timer starts when you click.";
 document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 
 
