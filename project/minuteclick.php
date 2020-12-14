@@ -70,7 +70,7 @@ var cooldownTime=constTime2; //this is a cooldown timer that starts after the ga
 var onCooldown=false;
 
 //display info
-document.getElementById("timeLeft").innerHTML = "You have " + time + " seconds to click the button. Timer starts when you click.";
+document.getElementById("timeLeft").innerHTML = "You have " + clickcount + " seconds to click the button. Timer starts when you click.";
 document.getElementById("result").innerHTML = "Your current score is " + clickcount;
 
 
