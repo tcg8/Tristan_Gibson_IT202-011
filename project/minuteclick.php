@@ -63,7 +63,7 @@ var constTime2=5;   //this is for cooldown timer
 //variables for game and game timer
 var gameOff=true;
 var clickcount=0;
-var time=20;//constTime;
+var time=constTime;
 
 //variables for cooldown
 var cooldownTime=constTime2; //this is a cooldown timer that starts after the game timer ends to prevent you from accidentailly starting a new game right away or clearing your score before you submit it.
