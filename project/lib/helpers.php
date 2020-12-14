@@ -119,7 +119,7 @@ $params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results3 = $stmt3->execute($params2);
 $results3 = $stmt3->fetchAll();
 
-$stmt4 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$stmt4 = $db->prepare("SELECT Users.id FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
 $params4 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results4 = $stmt4->execute($params4);
 $results4 = $stmt4->fetchAll();
