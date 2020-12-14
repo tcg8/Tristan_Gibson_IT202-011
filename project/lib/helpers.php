@@ -144,7 +144,7 @@ if($hasScores) {
         $numlength = strlen(implode($results3[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $pointsbro = implode($results3[$a-1]) % $modifier;
-        flash2("he " . get_user_name() . " ye ");
+        flash2("he " . get_username() . " ye ");
         flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
