@@ -111,7 +111,7 @@ $results = $stmt->fetchAll();
     
     $theScore = $results["score"];
         //flash2(" here is " . strlen(implode($theScore[$a-1])));
-    flash2("the score is " . strlen(implode($results)));
+    flash2("the score is " . strlen(implode($theScore)));
     
     
     //$stmt = $db->prepare("SELECT user_id from Scores where created >= :timeCon order by score desc limit 10");
