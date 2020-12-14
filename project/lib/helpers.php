@@ -165,7 +165,7 @@ if($hasScores) {
             $id = $_GET[$idbro];
                 flash2("the id is $id");
             }
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href="profile.php?id= echo $idbro;">$userbro</a> who has " . $pointsbro . " profile points");
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
