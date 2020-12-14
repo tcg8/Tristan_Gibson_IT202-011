@@ -24,7 +24,7 @@ if (!is_logged_in()) {
 			$params = array( ":user_id" => $user_id, ":score" => $score);
 			$r = $stmt->execute($params);
 			
-			$points_change = $score/10;
+			$points_change = (int)$score/10;
 			$reason = "Scored points playing the game";
 			
 			$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
