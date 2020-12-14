@@ -17,7 +17,7 @@ $db = getDB();
 
 //get users points and show on profile page
     $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
-    $params = array(":id" => get_user_id());
+    $params = array(":id" => get_user_id()); //-----------------THIS WONT BE OUR OWN USER ID
     $r = $stmt->execute($params);
     if($r){
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
