@@ -24,15 +24,15 @@ if (!is_logged_in()) {
 			$params = array( ":user_id" => $user_id, ":score" => $score);
 			$r = $stmt->execute($params);
 			
-			//$points_change = $score/10;
+			$points_change = $score/10;
 			
-			//$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
-			//$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
-			//$r = $stmt->execute($params);
-			
-			$stmt = $db->prepare("SET Users.points = SUM(Scores.score where Scores.user_id = Users.id)")
-			$params = array( ":user_id" => $user_id);
+			$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
 			$r = $stmt->execute($params);
+			
+			//$stmt = $db->prepare("SET Users.points = SUM(Scores.score where Scores.user_id = Users.id)")
+			//$params = array( ":user_id" => $user_id);
+			//$r = $stmt->execute($params);
 			
 			
 			/*$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score]);
