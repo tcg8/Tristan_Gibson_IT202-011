@@ -109,7 +109,8 @@ $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
     
-    
+    $theScore = $results["score"];
+        //flash2(" here is " . strlen(implode($theScore[$a-1])));
     //flash2("the score is " . implode($results["score"]));
     
     
@@ -129,8 +130,7 @@ if($hasScores) {
     $i=10-count($results);
     $a=1;
     do {
-        $theScore = $results["score"];
-        flash2(" here is " . strlen(implode($theScore[$a-1])));
+        
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($theScore[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
