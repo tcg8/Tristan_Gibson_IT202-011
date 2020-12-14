@@ -33,7 +33,7 @@ function get_email() {
 }
 
 function getURL($path) {
-    if substr($path, 0, 1) == "/") {
+    if (substr($path, 0, 1) == "/") {
         return $path;
     }
     return $_SERVER["CONTEXT_PREFIX"] . "/Tristan_Gibson_IT202-011/project/$path";
