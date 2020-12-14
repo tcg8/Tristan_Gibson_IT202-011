@@ -110,6 +110,7 @@ $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
     
     $theScore = $results["score"];
+    flash2("the score is " . $theScore);
 
 $hasScores=true;
 if (count($theScore)==0) {
