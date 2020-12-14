@@ -101,7 +101,7 @@ function getMessages2() {
 //One of the functions for milestone 2
 function get10week(){
 $db = getDB();
-$stmt = $db->prepare("SELECT score,user_id from Scores where created >= :timeCon order by score desc limit 10");
+$stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
 $timeType="Week";
 $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH/YEAR
