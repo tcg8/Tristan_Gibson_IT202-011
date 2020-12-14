@@ -6,14 +6,7 @@ if (isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])) {
     $email = $_SESSION["user"]["email"];
 }
 flash("Welcome, $email");
-?>
-
-<?php
-
-//$userbro="<a href='profile.php'>$userbro</a>"
-//echo '<a href="mycgi?foo=', urlencode($userbro), '">';
-flash("testing, <a href='profile.php'>$email</a>");
-
+//flash("testing, <a href='profile.php'>$email</a>");
 ?>
 
 <?php
