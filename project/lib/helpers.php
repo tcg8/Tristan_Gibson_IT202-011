@@ -153,16 +153,18 @@ if($hasScores) {
         $numlength = strlen(implode($results4[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $idbro = implode($results4[$a-1]) % $modifier;
+        
+        
         //flash2("he $idbro " . get_username() . " ye ");
         if(get_username() == $userbro){
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
         }else{
-    $id=  get_user_id();
+            $id=  get_user_id();
             //flash2("the id should be " . implode($results4[$a-1]));
-if(isset($_GET[$idbro])){
-$id = $_GET[$idbro];
-    flash2("the id is $id");
-}
+            if(isset($_GET[$idbro])){
+            $id = $_GET[$idbro];
+                flash2("the id is $id");
+            }
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
@@ -225,7 +227,9 @@ if($hasScores) {
         if(get_username() == $userbro){
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
         }else{
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href="profile.php?id=$result4["user_id"];">$userbro</a> who has " . $pointsbro . " profile points");
+                                                                                  
+
         }
       $a++;
       $i++;
