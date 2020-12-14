@@ -9,6 +9,13 @@ flash("Welcome, $email");
 //flash("testing, <a href='profile.php'>$email</a>");
 ?>
 
+<script>
+    var weekArray=get10week();
+    for (var i=0;i<get10week().length;i++){
+        console.log(weekArray[i]);
+    }
+</script>
+
 <?php
 get10week(); 
 get10month(); 
