@@ -5,7 +5,7 @@ $email = "";
 if (isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])) {
     $email = $_SESSION["user"]["email"];
 }
-flash("Welcome, $email);
+flash("Welcome, $email");
 ?>
 
 
