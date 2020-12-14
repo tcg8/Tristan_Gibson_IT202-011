@@ -31,7 +31,7 @@ if (!is_logged_in()) {
 			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
 			$r = $stmt->execute($params);
 			
-			$stmt = $db->prepare("SET Users.points = SUM(Scores.score where Scores.user_id = Users.id)")
+			$stmt = $db->prepare("Users.points = SUM(Scores.score where Scores.user_id = Users.id)")
 			$params = array( ":user_id" => $user_id);
 			$r = $stmt->execute($params);
 			
