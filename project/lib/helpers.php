@@ -119,7 +119,7 @@ if (count($results)==0) {
 }
 if($hasScores) {
         flash2("The Top " . count($results) . " scores of the last " . $timeType);
-    $i=10-count($theScore);
+    $i=10-count($results);
     $a=1;
     do {
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
