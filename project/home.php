@@ -10,7 +10,7 @@ flash("Welcome, $email");
 ?>
 
 <script>
-    var weekArray=<?php get10week();?>;
+    var weekArray= <?php get10week();?> ;
     for (var i=0;i< <?php get10week();?>.length;i++){
         console.log(weekArray[i]);
     }
