@@ -165,7 +165,7 @@ if($hasScores) {
             $id = $_GET[$idbro];
                 flash2("the id is $id");
             }
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href="profile.php?id=$result4["user_id"];">$userbro</a> who has " . $pointsbro . " profile points");
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
@@ -227,7 +227,7 @@ if($hasScores) {
         if(get_username() == $userbro){
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
         }else{
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href="profile.php?id=$result4["user_id"];">$userbro</a> who has " . $pointsbro . " profile points");
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
                                                                                   
 
         }
