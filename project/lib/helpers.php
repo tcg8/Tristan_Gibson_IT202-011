@@ -130,7 +130,7 @@ if($hasScores) {
     $a=1;
     do {
         $theScore = $results["score"];
-        flash2(" here is " . $theScore);
+        flash2(" here is " . $theScore[$a-1]);
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($theScore[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
