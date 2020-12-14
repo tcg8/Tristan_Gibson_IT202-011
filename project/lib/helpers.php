@@ -118,12 +118,13 @@ $stmt3 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = 
 $params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results3 = $stmt3->execute($params2);
 $results3 = $stmt3->fetchAll();
+
+$stmt4 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params4 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results4 = $stmt4->execute($params4);
+$results4 = $stmt4->fetchAll();
     
-    $id=  get_user_id();
-if(isset($_GET["id"])){
-$id = $_GET["id"];
-    flash2("the id is $id");
-}
+
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -152,7 +153,11 @@ if($hasScores) {
         if(get_username() == $userbro){
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
         }else{
-
+    $id=  get_user_id();
+if(isset($_GET[implode($results4[$a-1])])){
+$id = $_GET[implode($results4[$a-1])];
+    flash2("the id is $id");
+}
             flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
