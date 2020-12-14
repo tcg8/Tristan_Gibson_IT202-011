@@ -5,10 +5,17 @@ $email = "";
 if (isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])) {
     $email = $_SESSION["user"]["email"];
 }
+flash("Welcome, $email);
 ?>
 
-<p>Welcome, <?php echo $email; get10week(); get10month(); get10lifetime();?></p>
 
+
+<?php
+get10week(); 
+get10month(); 
+get10lifetime();
+
+?>
 
     
 <?php require(__DIR__ . "/partials/flash2.php");?>
