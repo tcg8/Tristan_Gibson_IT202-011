@@ -8,7 +8,7 @@ if (!is_logged_in()) {
 ?>
 <?php
 
-//flash("balance is " . getBalance());
+flash("balance is " . getBalance());
 if (isset($_POST["name"])) {
 
     $cost = (int)$_POST["reward"];
