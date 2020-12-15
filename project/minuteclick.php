@@ -23,15 +23,24 @@ if (!is_logged_in()) {
 			//here's the data map for the parameter to data
 			$params = array( ":user_id" => $user_id, ":score" => $score);
 			$r = $stmt->execute($params);
-			/*$r = $stmt -> execute([":user_id" => $user_id, ":score" => $score]);
-			if($r){
-				flash("Created successfully with id: " . $db->lastInsertId());
-			}
-			else{
-				$e = $stmt->errorInfo();
-				flash("Error creating :" . var_export($e, true));
-			}
-			*/$e = $stmt->errorInfo();
+			
+			//you get 1 point for every 10 clicks
+			$points_change = (int)($score-5)/10;
+			//the -5 is because it was registering scores of 0-4 as 0, 5-14 as 1, 15-24 as 2, etc.  The -5 fixes this
+			$reason = "Scored points playing the game";
+			
+			$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
+			$r = $stmt->execute($params);
+			
+			//$stmt = $db->prepare("SET Users.points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)")
+			//$stmt = $db->prepare("UPDATE Users SET Users.points = SUM(select PointsHistory.points_change from PointsHistory where Users.id = PointsHistory.user_id)");
+			$stmt = $db->prepare("UPDATE Users set points = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+            		$params = array(":id" => get_user_id());
+            		$r = $stmt->execute($params);
+			
+			
+			$e = $stmt->errorInfo();
 			if ($e[0] == "00000") {
 				flash("Successfully recorded score");
 			}
