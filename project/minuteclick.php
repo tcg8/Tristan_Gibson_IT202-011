@@ -52,7 +52,7 @@ if (!is_logged_in()) {
 			//$r = $stmt->execute($params);
 			//$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			
-			    //$stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
 			    $params = array(":id" => get_user_id());
 			    $r = $stmt->execute($params);
 			    if($r){
