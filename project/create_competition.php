@@ -116,7 +116,7 @@ if (isset($_POST["name"])) {
         <form method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input id="name" name="name" class="form-control"/>
+                <input id="name" name="name" required minlength="4" required maxlength="60" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="d">Duration (in days)</label>
