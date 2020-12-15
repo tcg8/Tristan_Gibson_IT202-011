@@ -7,6 +7,13 @@ function is_logged_in() {
     return isset($_SESSION["user"]);
 }
 
+function getBalance() {
+    if (is_logged_in() && isset($_SESSION["user"]["points"])) {
+        return $_SESSION["user"]["points"];
+    }
+    return 0;
+}
+
 function has_role($role) {
     if (is_logged_in() && isset($_SESSION["user"]["roles"])) {
         foreach ($_SESSION["user"]["roles"] as $r) {

@@ -24,6 +24,13 @@ if (!is_logged_in()) {
 			$params = array( ":user_id" => $user_id, ":score" => $score);
 			$r = $stmt->execute($params);
 			
+			
+		
+			$e = $stmt->errorInfo();
+			if ($e[0] == "00000") {
+				flash("Successfully recorded score");
+				
+			
 			//you get 1 point for every 10 clicks
 			$points_change = (int)($score-5)/10;
 			//the -5 is because it was registering scores of 0-4 as 0, 5-14 as 1, 15-24 as 2, etc.  The -5 fixes this
@@ -39,10 +46,25 @@ if (!is_logged_in()) {
             		$params = array(":id" => get_user_id());
             		$r = $stmt->execute($params);
 			
+			//This is just to update the session variable for the points/balance
+			//$stmt = $db->prepare("SELECT id, username, password, points from Users WHERE id = :id LIMIT 1");
+			//$params = array(":id" => get_user_id());
+			//$r = $stmt->execute($params);
+			//$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			//$_SESSION["user"] = $result;//This just crashes the game
 			
-			$e = $stmt->errorInfo();
-			if ($e[0] == "00000") {
-				flash("Successfully recorded score");
+				//This is my second attempt to update the session variable for points/balance
+			    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $params = array(":id" => get_user_id());
+			    $r = $stmt->execute($params);
+			    if($r){
+				$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				$profilePoints = $result["points"];
+				$_SESSION["user"]["points"] = $profilePoints;
+				
+				//flash("Your account has " . $profilePoints . " points.");
+			    }
+				
 			}
 			else {
 				flash("You are not logged in so the score was not saved");
