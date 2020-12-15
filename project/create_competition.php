@@ -16,7 +16,7 @@ if (isset($_POST["name"])) {
         $cost = 0;
     }
     $cost++;
-    //flash("cost is $cost");
+    flash("cost is $cost");
     //TODO other validation
     $balance = getBalance();
     if ($cost > $balance) {
@@ -74,7 +74,7 @@ if (isset($_POST["name"])) {
             flash("Successfully created competition", "success");
             
             		$user_id=get_user_id();
-			$points_change = -($reward+1);
+			$points_change = -($cost);
 			$reason = "Created a competition";
             
             $stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
