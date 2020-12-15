@@ -47,11 +47,20 @@ if (!is_logged_in()) {
             		$r = $stmt->execute($params);
 			
 			//This is just to update the query for the points/balance
-			$stmt = $db->prepare("SELECT id, username, points from Users WHERE id = :id LIMIT 1");
-			$params = array(":id" => $user_id);
-			$r = $stmt->execute($params);
-			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			//$stmt = $db->prepare("SELECT id, username, points from Users WHERE id = :id LIMIT 1");
+			//$params = array(":id" => $user_id);
+			//$r = $stmt->execute($params);
+			//$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			
+			    //$stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $params = array(":id" => get_user_id());
+			    $r = $stmt->execute($params);
+			    if($r){
+				$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				$profilePoints = $result["points"];
+				//flash("Your account has " . $profilePoints . " points.");
+			    }
+				
 			}
 			else {
 				flash("You are not logged in so the score was not saved");
