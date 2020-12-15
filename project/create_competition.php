@@ -89,11 +89,11 @@ if (isset($_POST["name"])) {
             </div>
             <div class="form-group">
                 <label for="d">Duration (in days)</label>
-                <input id="d" name="duration" type="number" class="form-control"/>
+                <input id="d" name="duration" type="number" min="1" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="s">Minimum Required Score</label>
-                <input id="s" name="min_score" type="number" class="form-control"/>
+                <input id="s" name="min_score" type="number" min="0" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="r">Reward Split (First, Second, Third)</label>
@@ -103,15 +103,16 @@ if (isset($_POST["name"])) {
                     <option value="2">70%/30%</option>
                     <option value="3">70%/20%/10%</option>
                     <option value="4">60%/30%/10%</option>
+                    <option value="5">50%/30%/20%</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="rw">Reward/Payout</label>
-                <input id="rw" name="reward" type="number" class="form-control"/>
+                <input id="rw" name="reward" type="number" min="0" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="f">Entry Fee</label>
-                <input id="f" name="fee" type="number" class="form-control"/>
+                <input id="f" name="fee" type="number" min="0" class="form-control"/>
             </div>
             <input type="submit" class="btn btn-success" value="Create (Cost: 1)"/>
         </form>
