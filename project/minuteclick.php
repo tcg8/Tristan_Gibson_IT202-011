@@ -46,13 +46,14 @@ if (!is_logged_in()) {
             		$params = array(":id" => get_user_id());
             		$r = $stmt->execute($params);
 			
-			//This is just to update the query for the points/balance
-			$stmt = $db->prepare("SELECT id, username, password, points from Users WHERE id = :id LIMIT 1");
-			$params = array(":id" => get_user_id());
-			$r = $stmt->execute($params);
-			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			$_SESSION["user"] = $result;
+			//This is just to update the session variable for the points/balance
+			//$stmt = $db->prepare("SELECT id, username, password, points from Users WHERE id = :id LIMIT 1");
+			//$params = array(":id" => get_user_id());
+			//$r = $stmt->execute($params);
+			//$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			//$_SESSION["user"] = $result;//This just crashes the game
 			
+				//This is my second attempt to update the session variable for points/balance
 			    /*$stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
 			    $params = array(":id" => get_user_id());
 			    $r = $stmt->execute($params);
