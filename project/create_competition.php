@@ -16,7 +16,7 @@ if (isset($_POST["name"])) {
         $cost = 0;
     }
     $cost++;
-    flash("cost is $cost");
+    //flash("cost is $cost");
     //TODO other validation
     $balance = getBalance();
     if ($cost > $balance) {
