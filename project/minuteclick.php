@@ -40,8 +40,8 @@ if (!is_logged_in()) {
             		$r = $stmt->execute($params);
 			
 			//This is just to update the query
-			$stmt = $db->prepare("SELECT id, email, username, password, points from Users WHERE email = :email LIMIT 1");
-			$params = array(":email" => $email);
+			$stmt = $db->prepare("SELECT id, email, username, password, points from Users WHERE id = :id LIMIT 1");
+			$params = array(":id" => $user_id);
 			
 			$e = $stmt->errorInfo();
 			if ($e[0] == "00000") {
