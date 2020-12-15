@@ -72,6 +72,32 @@ if (isset($_POST["name"])) {
         $r = $stmt->execute($params);
         if ($r) {
             flash("Successfully created competition", "success");
+            
+            
+			$points_change = (int)($reward)*(-1);
+			$reason = "Created a competition";
+            
+            $stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
+			$r = $stmt->execute($params);
+            
+            $stmt = $db->prepare("UPDATE Users set points = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+            $params = array(":id" => get_user_id());
+            $r = $stmt->execute($params);
+            
+                //Update the session variable for points/balance
+			    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $params = array(":id" => get_user_id());
+			    $r = $stmt->execute($params);
+			    if($r){
+				$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				$profilePoints = $result["points"];
+				$_SESSION["user"]["points"] = $profilePoints;
+				
+				//flash("Your account has " . $profilePoints . " points.");
+			    }
+            
+            
             die(header("Location: #"));
         }
         else {
