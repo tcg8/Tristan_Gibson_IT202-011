@@ -54,13 +54,14 @@ if (!is_logged_in()) {
 			//$_SESSION["user"] = $result;//This just crashes the game
 			
 				//This is my second attempt to update the session variable for points/balance
-			    /*$stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
 			    $params = array(":id" => get_user_id());
 			    $r = $stmt->execute($params);
 			    if($r){
 				$result = $stmt->fetch(PDO::FETCH_ASSOC);
 				$profilePoints = $result["points"];
-				*/
+				$_SESSION["user"]["points"] = $profilePoints;
+				
 				//flash("Your account has " . $profilePoints . " points.");
 			    }
 				
