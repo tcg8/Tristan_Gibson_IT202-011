@@ -80,7 +80,7 @@ if (isset($_POST["name"])) {
             
             		$user_id=get_user_id();
 			$points_change = -($cost);
-			$reason = "Created a competition";
+			$reason = "Created a new competition";
             
             $stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
 			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
