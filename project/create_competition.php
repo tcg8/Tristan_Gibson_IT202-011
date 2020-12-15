@@ -63,6 +63,11 @@ if (isset($_POST["name"])) {
                 $params[":sp"] = .3;
                 $params[":tp"] = .1;
                 break;
+	    case 5:
+                $params[":fp"] = .5;
+                $params[":sp"] = .3;
+                $params[":tp"] = .2;
+                break;
             default:
                 $params[":fp"] = 1;
                 $params[":sp"] = 0;
