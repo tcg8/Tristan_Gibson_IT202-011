@@ -38,8 +38,8 @@ if (isset($_POST["name"])) {
             ":reward" => $_POST["reward"]
         ];
         switch ((int)$_POST["split"]) {
-            /* case 0:
-                 break;  using default for this*/
+            // case 0:
+              //   break;  using default for this
             case 1:
                 $params[":fp"] = .8;
                 $params[":sp"] = .2;
