@@ -7,6 +7,8 @@ if (!is_logged_in()) {
 }
 ?>
 <?php
+
+flash("balance is " . getBalance());
 if (isset($_POST["name"])) {
 
     $cost = (int)$_POST["reward"];
@@ -17,7 +19,6 @@ if (isset($_POST["name"])) {
     flash("cost is $cost");
     //TODO other validation
     $balance = getBalance();
-    flash("balance is $balance");
     if ($cost > $balance) {
         flash("You can't afford to create this competition", "warning");
     }
