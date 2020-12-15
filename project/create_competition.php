@@ -74,7 +74,7 @@ if (isset($_POST["name"])) {
             flash("Successfully created competition", "success");
             
             		$user_id=get_user_id();
-			$points_change = ($reward+1)*(-1);
+			$points_change = -($reward+1);
 			$reason = "Created a competition";
             
             $stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
