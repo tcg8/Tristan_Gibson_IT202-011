@@ -73,7 +73,7 @@ if (isset($_POST["name"])) {
         if ($r) {
             flash("Successfully created competition", "success");
             
-            
+            		$user_id=get_user_id();
 			$points_change = (int)($reward)*(-1);
 			$reason = "Created a competition";
             
