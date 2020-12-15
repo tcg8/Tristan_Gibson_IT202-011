@@ -39,10 +39,11 @@ if (!is_logged_in()) {
             		$params = array(":id" => get_user_id());
             		$r = $stmt->execute($params);
 			
-			//This is just to update the query
+			//This is just to update the query for the points/balance
 			$stmt = $db->prepare("SELECT id, email, username, password, points from Users WHERE id = :id LIMIT 1");
 			$params = array(":id" => $user_id);
 			$r = $stmt->execute($params);
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			
 			$e = $stmt->errorInfo();
 			if ($e[0] == "00000") {
