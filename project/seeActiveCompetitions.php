@@ -47,31 +47,9 @@ else {
 ?>
 
 <div class="container-fluid">
-        <h3>My Competitions (Created and Registered)</h3>
+        <h3Active Competitions</h3>
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
-                <div class="list-group-item font-weight-bold">
-                    <div class="row">
-                        <div class="col">
-                            Name
-                        </div>
-                        <div class="col">
-                            Participants
-                        </div>
-                        <div class="col">
-                            Required Score
-                        </div>
-                        <div class="col">
-                            Reward
-                        </div>
-                        <div class="col">
-                            Expires
-                        </div>
-                        <div class="col">
-                            Actions
-                        </div>
-                    </div>
-                </div>
                 <?php foreach ($results as $r): ?>
                     <div class="list-group-item" style="background-color: #D7C51B">
                         <div class="row">
