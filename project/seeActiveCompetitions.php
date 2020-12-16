@@ -107,7 +107,7 @@ flash2("</br>");
                     </div>
                 </div>
                 <?php foreach ($results as $r): ?>
-                    <div class="list-group-item">
+                    <div class="list-group-item" style="background-color: #D7C51B">
                         <div class="row">
                             <div class="col">
                                 <?php safer_echo($r["name"]); ?>
