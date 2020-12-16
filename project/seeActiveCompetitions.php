@@ -90,8 +90,8 @@ if (isset($_POST["join"])) {
 			//Update the Competitions.reward based on the # of participants and the appropriate math from the competition requirements above
 			 //$stmt = $db->prepare("UPDATE Competitions set reward = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
             		$increment = (int)max(1, $fee * .5);
-			$stmt = $db->prepare("UPDATE Competitions set reward = reward + $increment WHERE id = :id");
-            		$params = array(":id" => $_POST["cid"]);//, ":increment" => $increment);
+			$stmt = $db->prepare("UPDATE Competitions set reward = reward + :increment WHERE id = :id");
+            		$params = array(":id" => $_POST["cid"], ":increment" => $increment);
             		$r = $stmt->execute($params);//*/
 			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
 			
