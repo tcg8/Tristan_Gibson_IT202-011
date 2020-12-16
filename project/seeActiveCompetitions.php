@@ -113,11 +113,18 @@ if (isset($_POST["join"])) {
     }
 }
 
-$stmt2 = $db->prepare("SELECT competition_id FROM UserCompetitions WHERE user_id=:id");//Use this one or you can only see what you created
+/*$stmt2 = $db->prepare("SELECT competition_id FROM UserCompetitions WHERE user_id=:id");//Use this one or you can only see what you created
 $r2 = $stmt2->execute([":id" => get_user_id()]);
 if ($r2) {
     $results2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-}
+}*/
+
+/*$stmt3 = $db->prepare("SELECT u.competition_id FROM UserCompetitions u WHERE u.user_id=:id AND u.competition_id=Competitions.id");//Use this one or you can only see what you created
+$r3 = $stmt3->execute([":id" => get_user_id()]);
+if ($r3) {
+    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+}*/
+
 
 //}//end for if logged in
 //$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 AND (UC.user_id = :id OR c.user_id = :id) ORDER BY expires ASC LIMIT 10");
@@ -152,16 +159,6 @@ else {
                             <div class="col">
                                 Participants: 
                                 <?php safer_echo($r["participants"]); ?>
-                            </div>
-			    <div class="col">
-                                Already registered: 
-                                <?php 
-				    //$cid=$_POST["cid"];
-				    if(in_array($_POST["cid"], $r2["competition_id"])){
-					    safer_echo("hell yeah");
-				    }else{ safer_echo("hell nah"); }
-				    //safer_echo($r2["competition_id"]); 
-				 ?>
                             </div>
                             <div class="col">
                                 Required Score: 
