@@ -113,7 +113,7 @@ if (isset($_POST["join"])) {
     }
 }
 
-///*
+/*
 $stmt2 = $db->prepare("SELECT competition_id FROM UserCompetitions WHERE user_id=:id");//Use this one or you can only see what you created
 $r2 = $stmt2->execute([":id" => get_user_id()]);
 if ($r2) {
@@ -177,22 +177,11 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
                             <div class="col">
-                                
-			    <?php $done=false; ?>
-			    <?php foreach ($results2 as $r2): ?>
-			    	<?php if($r["id"]==r2["competition_id"]){ $done=true; } ?>
-			    <?php endforeach; ?>
-			    <?php if ($done==false): ?>
                                     <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
                                         <input type="submit" name="join" class="btn btn-primary"
                                                value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
                                     </form>
-                                <?php else: ?>
-                                    Already Registered
-				    <input type="submit" name="fake-join" class="btn btn-primary" 
-					   	value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
