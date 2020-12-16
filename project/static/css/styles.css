@@ -13,7 +13,7 @@ ul[class="nav"]{
     
 }
 
-ul[class="list-group"]{
+ul[class="list-group-item"]{
     list-style-type: none;
     margin: 0;
     padding: 0;
