@@ -177,7 +177,7 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
                             <div class="col">
-                                <?php if (!(in_array($r["id"], $results2["competition_id"]))): ?>
+                                <?php if (!(in_array($r["id"], $results2))): ?>
                                     <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
                                         <input type="submit" name="join" class="btn btn-primary"
