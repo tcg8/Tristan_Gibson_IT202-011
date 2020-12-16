@@ -120,7 +120,11 @@ if ($r2) {
 }*/
 
 
-
+$stmt3 = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
+$r3 = $stmt3->execute([":id" => get_user_id(),]);
+if ($r3) {
+    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+}
 
 //}//end for if logged in
 //$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 AND (UC.user_id = :id OR c.user_id = :id) ORDER BY expires ASC LIMIT 10");
@@ -171,13 +175,16 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
                             <div class="col">
-                                
+                                <?php if ($r3["reg"] != get_user_id()): ?>
                                     <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
                                         <input type="submit" name="join" class="btn btn-primary"
                                                value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
                                     </form>
-                                
+                                <?php else: ?>
+                                    Already Registered
+				    <input type="submit" name="fake-join" class="btn btn-primary"
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
