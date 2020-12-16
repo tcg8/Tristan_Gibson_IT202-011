@@ -52,16 +52,16 @@ if (isset($_POST["join"])) {
 			
                 //-------------
                 ///*
-		$user_id=get_user_id();
-		$points_change = -($fee);
-		$reason = "Joined a new competition";
-		$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			$user_id=get_user_id();
+			$points_change = -($fee);
+			$reason = "Joined a new competition";
+			$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
 			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
 			$r = $stmt->execute($params);
             
-            $stmt = $db->prepare("UPDATE Users set points = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
-            $params = array(":id" => get_user_id());
-            $r = $stmt->execute($params);
+		    $stmt = $db->prepare("UPDATE Users set points = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+		    $params = array(":id" => get_user_id());
+		    $r = $stmt->execute($params);
             
                 //Update the session variable for points/balance
 			    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
@@ -81,11 +81,17 @@ if (isset($_POST["join"])) {
             		$stmt = $db->prepare("UPDATE Competitions set participants = participants+1 WHERE id = :id");
             		$params = array(":id" => $_POST["cid"]);
             		$r = $stmt->execute($params);//*/
-			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
+			//dont need to update session variable 
 		//--------------------------------------------------------------------------------------
-			/*//Update the Competitions.reward based on the # of participants and the appropriate math from the competition requirements above
-			 $stmt = $db->prepare("UPDATE Competitions set reward = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
-            		$params = array(":id" => get_user_id());
+			$increment = max(1, $fee * .5);
+			$asdf = (int)max(1, $fee * .5);
+			flash("increment by $increment ----- or int version: $asdf");
+			/*
+			//Update the Competitions.reward based on the # of participants and the appropriate math from the competition requirements above
+			 //$stmt = $db->prepare("UPDATE Competitions set reward = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+            		$increment = max(1, $fee * .5);
+			$stmt = $db->prepare("UPDATE Competitions set reward =  WHERE id = :id");
+            		$params = array(":id" => $_POST["cid"]);
             		$r = $stmt->execute($params);*/
 			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
 			
