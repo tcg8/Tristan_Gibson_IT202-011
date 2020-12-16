@@ -97,7 +97,7 @@ if (isset($_POST["join"])) {
                     die(header("Location: #"));
                 }
                 else {
-                    flash("There was a problem joining the competition: " . var_export($stmt->errorInfo(), true), "danger");
+		     flash("You are already in this competition", "warning");
                 }
             }
             else {
