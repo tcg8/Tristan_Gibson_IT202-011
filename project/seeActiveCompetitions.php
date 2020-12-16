@@ -1,7 +1,6 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 <?php
 
-$db = getDB();
 
 if (!is_logged_in()) {
 	if (isset($_POST["join"])) {
@@ -9,23 +8,23 @@ if (!is_logged_in()) {
 	}
 }
 else{
+
+$db = getDB();
 if (isset($_POST["join"])) {
     $balance = getBalance();
     flash("ay boss yo balance is $balance");
     //prevent user from joining expired or paid out comps
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
-    //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
-    $stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
-	//if (!is_logged_in()) {
+    $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
+    //$stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
+	if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    //flash("You need to be logged in to join a competition");
+    flash("You need to be logged in to join a competition");
     //die(header("Location: login.php"));
-	//}else{
-//flash(" 222222 HERE I AM BABYYYYY");
-    //$r = $stmt->execute([":id" => $_POST["cid"]);
+	}else{
     $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
-flash("HERE I AM BABYYYYY");
+	    flash("HERE I AM BABYYYYY");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result) {
             $fee = (int)$result["fee"];
@@ -69,10 +68,8 @@ flash("HERE I AM BABYYYYY");
         flash("Competition is unavailable", "warning");
     }
 }
-//}
-//if (is_logged_in()) {
-$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions where user_id = :id) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 AND (UC.user_id = :id OR c.user_id = :id) ORDER BY expires ASC LIMIT 10");
-//$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions where user_id = :id) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");
+}
+$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");
 $r = $stmt->execute([":id" => get_user_id(),]);
 if ($r) {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +77,7 @@ if ($r) {
 else {
     flash("There was a problem looking up competitions: " . var_export($stmt->errorInfo(), true), "danger");
 }
-}
+}//end for if logged in
 ?>
 
 <div class="container-fluid">
