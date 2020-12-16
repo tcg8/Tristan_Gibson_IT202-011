@@ -13,6 +13,23 @@ if (!is_logged_in()) {
 
 $db = getDB();
 
+// $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
+   // $stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
+
+
+
+$per_page = 10;
+$query = "SELECT count(*) as total FROM Commpetitions WHERE expires > current_timestamp ORDER BY expires ASC";
+paginate($query, [], $per_page);
+
+
+$stmt = $db->prepare("SELECT * FROM Commpetitions WHERE expires > current_timestamp ORDER BY expires ASC LIMIT :offset,:count");
+$stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+$stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
+$stmt->execute();
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+/*
 $page = 1;
 $per_page = 10;
 if(isset($_GET["page"])){
@@ -59,7 +76,7 @@ if($e[0] != "00000"){
     flash(var_export($e, true), "alert");
 }
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+*/
 
 if (isset($_POST["join"])) {
     $balance = getBalance();
