@@ -1,7 +1,5 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
-<?php
 
-$db = getDB();
 
 
 <div class="container-fluid">
