@@ -9,8 +9,14 @@ if (isset($_POST["join"])) {
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
     $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
     //$stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
+	if (!is_logged_in()) {
+    //this will redirect to login and kill the rest of this script (prevent it from executing)
+    flash("You need to be logged in to join a competition");
+    //die(header("Location: login.php"));
+	}else{
     $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
+	    flash("HERE I AM BABYYYYY");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result) {
             $fee = (int)$result["fee"];
@@ -62,7 +68,7 @@ if ($r) {
 else {
     flash("There was a problem looking up competitions: " . var_export($stmt->errorInfo(), true), "danger");
 }
-
+}
 ?>
 
 <div class="container-fluid">
