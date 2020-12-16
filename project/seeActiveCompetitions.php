@@ -83,16 +83,20 @@ else {
                                 <?php endif; ?>
                             </div>
                             <div class="col">
+                                Participants: 
                                 <?php safer_echo($r["participants"]); ?>
                             </div>
                             <div class="col">
+                                Required Score: 
                                 <?php safer_echo($r["min_score"]); ?>
                             </div>
                             <div class="col">
+                                Reward: 
                                 <?php safer_echo($r["reward"]); ?>
                                 <!--TODO show payout-->
                             </div>
                             <div class="col">
+                                Expires: 
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
                             <div class="col">
