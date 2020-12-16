@@ -97,7 +97,7 @@ if (isset($_POST["join"])) {
                     die(header("Location: #"));
                 }
                 else {
-			if((var_export($stmt->errorInfo(), true), "danger") contains "Duplicate entry"){flash("booooooooooooooo");}
+			if(($stmt->errorInfo()) contains "Duplicate entry"){ flash("booooooooooooooo"); }
                     flash("There was a problem joining the competition: " . var_export($stmt->errorInfo(), true), "danger");
                 }
             }
