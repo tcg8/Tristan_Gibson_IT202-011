@@ -119,11 +119,7 @@ if ($r2) {
     $results2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 }*/
 
-/*$stmt3 = $db->prepare("SELECT u.competition_id FROM UserCompetitions u WHERE u.user_id=:id AND u.competition_id=Competitions.id");//Use this one or you can only see what you created
-$r3 = $stmt3->execute([":id" => get_user_id()]);
-if ($r3) {
-    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-}*/
+
 
 
 //}//end for if logged in
@@ -160,6 +156,19 @@ else {
                                 Participants: 
                                 <?php safer_echo($r["participants"]); ?>
                             </div>
+				<div class="col">
+				Already registered: 
+				<?php 
+					///*
+					$stmt3 = $db->prepare("SELECT u.competition_id FROM UserCompetitions u WHERE u.user_id=:id AND u.competition_id=Competitions.id");//Use this one or you can only see what you created
+					$r3 = $stmt3->execute([":id" => get_user_id()]);
+					if ($r3) {
+					    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+					}//*/
+					flash("ayyyyy lets see it: " . );
+					<?php safer_echo($r3["competition_id"]); ?>
+				 ?>
+			</div>
                             <div class="col">
                                 Required Score: 
                                 <?php safer_echo($r["min_score"]); ?>
