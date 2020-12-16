@@ -22,8 +22,8 @@ if (isset($_POST["join"])) {
     //die(header("Location: login.php"));
 	//}else{
 //flash(" 222222 HERE I AM BABYYYYY");
-    $r = $stmt->execute([":id" => $_POST["cid"]);
-    //$r = $stmt->execute();//[":id" => $_POST["cid"]]
+    //$r = $stmt->execute([":id" => $_POST["cid"]);
+    $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
 flash("HERE I AM BABYYYYY");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
