@@ -2,49 +2,7 @@
 <?php
 
 $db = getDB();
-if (isset($_POST["join"])) {
-    $balance = getBalance();
-    //prevent user from joining expired or paid out comps
-    //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
-    $stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0");
-    $r = $stmt->execute();//[":id" => $_POST["cid"]]
-    if ($r) {
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($result) {
-            $fee = (int)$result["fee"];
-            if ($balance >= $fee) {
-                $stmt = $db->prepare("INSERT INTO UserCompetitions (competition_id, user_id) VALUES(:cid, :uid)");
-                $r = $stmt->execute([":cid" => $_POST["cid"], ":uid" => get_user_id()]);
-                if ($r) {
-                    flash("Successfully join competition", "success");
-                    die(header("Location: #"));
-                }
-                else {
-                    flash("There was a problem joining the competition: " . var_export($stmt->errorInfo(), true), "danger");
-                }
-            }
-            else {
-                flash("You can't afford to join this competition, try again later", "warning");
-            }
-        }
-        else {
-            flash("Competition is unavailable", "warning");
-        }
-    }
-    else {
-        flash("Competition is unavailable", "warning");
-    }
-}
-$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC");
-$r = $stmt->execute([":id" => get_user_id(),]);
-if ($r) {
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-else {
-    flash("There was a problem looking up competitions: " . var_export($stmt->errorInfo(), true), "danger");
-}
 
-?>
 
 <div class="container-fluid">
         <h3>Active Competitions</h3>
