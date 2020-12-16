@@ -13,6 +13,15 @@ ul[class="nav"]{
     
 }
 
+ul[class="list-group"]{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #D7C51B;
+    overflow: hidden;
+    
+}
+
 .nav > li {
     float: left;
 }
