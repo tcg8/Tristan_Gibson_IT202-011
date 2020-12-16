@@ -50,8 +50,6 @@ else {
         <h3>Active Competitions</h3>
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
-            <h3>Active Competitions</h3>
-                
                 <?php foreach ($results as $r): ?>
                     <div class="list-group-item" style="background-color: #D7C51B">
                         <div class="row">
