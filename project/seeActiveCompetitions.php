@@ -114,7 +114,7 @@ if (isset($_POST["join"])) {
 }
 
 $stmt2 = $db->prepare("SELECT competition_id FROM UserCompetitions WHERE user_id=:id");//Use this one or you can only see what you created
-$r2 = $stmt->execute([":id" => get_user_id(),]);
+$r2 = $stmt2->execute([":id" => get_user_id(),]);
 if ($r2) {
     $results2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 }
