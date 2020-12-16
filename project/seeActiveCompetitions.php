@@ -19,6 +19,9 @@ if (!is_logged_in()) {
 //else{
 
 $db = getDB();
+if (isset($_POST["Fake-join"])) {
+	flash("Already joined this competition");
+}
 if (isset($_POST["join"])) {
     $balance = getBalance();
     flash("ay boss yo balance is $balance");
@@ -133,7 +136,7 @@ else {
                                     flash("Already Registered");
 				    <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
-                                        <input type="submit" name="join" class="btn btn-primary"
+                                        <input type="submit" name="Fake-join" class="btn btn-primary"
                                                value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
                                     </form>
                                 <?php endif; ?>
