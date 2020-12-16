@@ -42,26 +42,41 @@ if (isset($_POST["join"])) {
             $fee = (int)$result["fee"];
             if ($balance >= $fee) {
                 
-                //-------------
-                /*$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
-			    $params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
-			    $r = $stmt->execute($params);
-                //-------------
-                $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
-			    $params = array(":id" => get_user_id());
-			    $r = $stmt->execute($params);
-			    if($r){
-                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $profilePoints = $result["points"];
-                    $_SESSION["user"]["points"] = $profilePoints;
-			    }*/
-                //-------------
-                
                 $stmt = $db->prepare("INSERT INTO UserCompetitions (competition_id, user_id) VALUES(:cid, :uid)");
                 //$params = array(  ":competition_id" => $points_change, ":uid" => $user_id);
                 $r = $stmt->execute([":cid" => $_POST["cid"], ":uid" => get_user_id()]);
                 if ($r) {
                     flash("Successfully join competition", "success");
+			
+			
+			
+                //-------------
+                ///*
+		$user_id=get_user_id();
+		$points_change = -($fee);
+		$reason = "Joined a new competition";
+		$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			$params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
+			$r = $stmt->execute($params);
+            
+            $stmt = $db->prepare("UPDATE Users set points = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+            $params = array(":id" => get_user_id());
+            $r = $stmt->execute($params);
+            
+                //Update the session variable for points/balance
+			    $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $params = array(":id" => get_user_id());
+			    $r = $stmt->execute($params);
+			    if($r){
+				$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				$profilePoints = $result["points"];
+				$_SESSION["user"]["points"] = $profilePoints;
+				
+				//flash("Your account has " . $profilePoints . " points.");
+			    }
+			
+			
+			
                     die(header("Location: #"));
                 }
                 else {
