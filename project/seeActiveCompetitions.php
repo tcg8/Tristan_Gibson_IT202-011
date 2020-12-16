@@ -45,7 +45,7 @@ if (isset($_POST["join"])) {
                 //$params = array(  ":competition_id" => $points_change, ":uid" => $user_id);
                 $r = $stmt->execute([":cid" => $_POST["cid"], ":uid" => get_user_id()]);
                 if ($r) {
-                    flash("Successfully join competition", "success");
+                    flash("Successfully joined competition", "success");
 			
 			
 			
