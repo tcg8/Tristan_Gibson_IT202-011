@@ -7,14 +7,32 @@ if (isset($_POST["join"])) {
     flash("ay boss yo balance is $balance");
     //prevent user from joining expired or paid out comps
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
-    $stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
+    $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
+    //$stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
     $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result) {
             $fee = (int)$result["fee"];
             if ($balance >= $fee) {
+                
+                //-------------
+                $stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+			    $params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
+			    $r = $stmt->execute($params);
+                //-------------
+                $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
+			    $params = array(":id" => get_user_id());
+			    $r = $stmt->execute($params);
+			    if($r){
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $profilePoints = $result["points"];
+                    $_SESSION["user"]["points"] = $profilePoints;
+			    }
+                //-------------
+                
                 $stmt = $db->prepare("INSERT INTO UserCompetitions (competition_id, user_id) VALUES(:cid, :uid)");
+                //$params = array(  ":competition_id" => $points_change, ":uid" => $user_id);
                 $r = $stmt->execute([":cid" => $_POST["cid"], ":uid" => get_user_id()]);
                 if ($r) {
                     flash("Successfully join competition", "success");
