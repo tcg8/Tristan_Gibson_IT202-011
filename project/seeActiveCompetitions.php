@@ -50,8 +50,9 @@ else {
         
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
-            <h3Active Competitions</h3>
+            
                 <div class="list-group-item font-weight-bold">
+                    <h3Active Competitions</h3>
                     <div class="row">
                         <div class="col">
                             Name
