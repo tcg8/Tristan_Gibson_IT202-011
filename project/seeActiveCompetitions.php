@@ -183,7 +183,8 @@ else {
                                     </form>
                                 <?php else: ?>
                                     Already Registered
-				    <input type="submit" name="fake-join" class="btn btn-primary"
+				    <input type="submit" name="fake-join" class="btn btn-primary" 
+					   	value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
                                 <?php endif; ?>
                             </div>
                         </div>
