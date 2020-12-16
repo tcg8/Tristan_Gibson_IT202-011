@@ -24,7 +24,7 @@ if (isset($_POST["Fake-join"])) {
 }
 if (isset($_POST["join"])) {
     $balance = getBalance();
-    flash("ay boss yo balance is $balance");
+    //flash("ay boss yo balance is $balance");
     //prevent user from joining expired or paid out comps
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
     $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
@@ -36,7 +36,7 @@ if (isset($_POST["join"])) {
 	//}else{
     $r = $stmt->execute([":id" => $_POST["cid"]]);//[":id" => $_POST["cid"]]
     if ($r) {
-	    flash("HERE I AM BABYYYYY");
+	    //flash("HERE I AM BABYYYYY");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result) {
             $fee = (int)$result["fee"];
@@ -71,11 +71,19 @@ if (isset($_POST["join"])) {
 				$result = $stmt->fetch(PDO::FETCH_ASSOC);
 				$profilePoints = $result["points"];
 				$_SESSION["user"]["points"] = $profilePoints;
-				
-				//flash("Your account has " . $profilePoints . " points.");
 			    }
-			
-			
+		//--------------------------------------------------------------------------------------
+			/*//Increments the Competitions.participants value based on the count of participants for this competition in CompetitionParticipants table.
+			 $stmt = $db->prepare("UPDATE Competitions set participants = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+            		$params = array(":id" => get_user_id());
+            		$r = $stmt->execute($params);//*/
+			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
+		//--------------------------------------------------------------------------------------
+			/*//Update the Competitions.reward based on the # of participants and the appropriate math from the competition requirements above
+			 $stmt = $db->prepare("UPDATE Competitions set reward = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
+            		$params = array(":id" => get_user_id());
+            		$r = $stmt->execute($params);*/
+			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
 			
                     die(header("Location: #"));
                 }
