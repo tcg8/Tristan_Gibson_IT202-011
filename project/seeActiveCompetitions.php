@@ -54,7 +54,7 @@ else {
                 <div class="list-group-item font-weight-bold">
                     
                     <div class="row">
-                        <h3Active Competitions</h3>
+                        
                         <div class="col">
                             Name
                         </div>
@@ -78,6 +78,7 @@ else {
                 <?php foreach ($results as $r): ?>
                     <div class="list-group-item" style="background-color: #D7C51B">
                         <div class="row">
+                            <h3Active Competitions</h3>
                             <div class="col">
                                 Name: 
                                 <?php safer_echo($r["name"]); ?>
