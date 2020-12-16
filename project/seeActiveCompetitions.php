@@ -165,8 +165,8 @@ else {
 					if ($r3) {
 					    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
 					}//*/
-					flash("ayyyyy lets see it: " . );
-					<?php safer_echo($r3["competition_id"]); ?>
+					flash("ayyyyy lets see it: " . $r3["competition_id"]);
+					
 				 ?>
 			</div>
                             <div class="col">
