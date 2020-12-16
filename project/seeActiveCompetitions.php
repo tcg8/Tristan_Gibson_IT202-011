@@ -10,17 +10,27 @@ if (!is_logged_in()) {
 
 <?php
 
+$page = 1;
+$per_page = 10;
+if(isset($_GET["page"])){
+    try {
+        $page = (int)$_GET["page"];
+    }
+    catch(Exception $e){
 
-/*if (!is_logged_in()) {
-	if (isset($_POST["join"])) {
-		flash("You need to be logged in to join a competition");
-	}
-}*/
-//else{
+    }
+}
 
 $db = getDB();
-//if (isset($_POST["Fake-join"])) {
-//	flash("Already joined this competition"); }
+
+$total = 0;
+if($result){
+    $total = (int)$result["total"];
+}
+$total_pages = ceil($total / $per_page);
+$offset = ($page-1) * $per_page;
+
+
 if (isset($_POST["join"])) {
     $balance = getBalance();
     //flash("ay boss yo balance is $balance");
