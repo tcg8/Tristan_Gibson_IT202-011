@@ -14,8 +14,8 @@ if (isset($_POST["join"])) {
     flash("ay boss yo balance is $balance");
     //prevent user from joining expired or paid out comps
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
-    $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
-    //$stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
+    //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
+    $stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
 	//if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
     //flash("You need to be logged in to join a competition");
