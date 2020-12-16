@@ -17,11 +17,11 @@ if (isset($_POST["join"])) {
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
     $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
     //$stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
-	if (!is_logged_in()) {
+	//if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    flash("You need to be logged in to join a competition");
+    //flash("You need to be logged in to join a competition");
     //die(header("Location: login.php"));
-	}else{
+	//}else{
     $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
 	    flash("HERE I AM BABYYYYY");
@@ -68,7 +68,7 @@ if (isset($_POST["join"])) {
         flash("Competition is unavailable", "warning");
     }
 }
-}
+
 $stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");
 $r = $stmt->execute([":id" => get_user_id(),]);
 if ($r) {
