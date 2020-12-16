@@ -78,17 +78,7 @@ else {
                                 Expires: 
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
-                            <div class="col">
-                                <?php if ($r["reg"] != get_user_id()): ?>
-                                    <form method="POST">
-                                        <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
-                                        <input type="submit" name="join" class="btn btn-primary"
-                                               value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
-                                    </form>
-                                <?php else: ?>
-                                    Already Registered
-                                <?php endif; ?>
-                            </div>
+                            
                         </div>
                     </div>
                 <?php endforeach; ?>
