@@ -164,9 +164,9 @@ else {
 					$r3 = $stmt3->execute([":id" => get_user_id()]);
 					if ($r3) {
 					    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-						flash("howdy");
+						flash("howdy " . $r3["c.competition_id"] . "    also " . $r3["competition_id"] );
 					}//*/
-					flash("ayyyyy lets see it: " . $results3["competition_id"]);
+					flash("ayyyyy lets see it: " . $results3["c.competition_id"]);
 					
 				 ?>
 			</div>
