@@ -68,7 +68,7 @@ if (isset($_POST["join"])) {
         flash("Competition is unavailable", "warning");
     }
 }
-
+}//end for if logged in
 $stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");
 $r = $stmt->execute([":id" => get_user_id(),]);
 if ($r) {
@@ -77,7 +77,7 @@ if ($r) {
 else {
     flash("There was a problem looking up competitions: " . var_export($stmt->errorInfo(), true), "danger");
 }
-}//end for if logged in
+
 ?>
 
 <div class="container-fluid">
