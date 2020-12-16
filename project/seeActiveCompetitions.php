@@ -165,7 +165,7 @@ else {
                                                value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
                                     </form>
                                 <?php else: ?>
-                                    flash("Already Registered");
+                                    Already Registered
 				    
                                 <?php endif; ?>
                             </div>
