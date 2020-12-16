@@ -131,7 +131,7 @@ if ($r3) {
 //$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 
 $stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
-$r = $stmt->execute([":id" => get_user_id(),]);
+$r = $stmt->execute([":id" => get_user_id()]);
 if ($r) {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
