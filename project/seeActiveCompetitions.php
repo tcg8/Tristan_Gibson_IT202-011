@@ -2,6 +2,13 @@
 <?php
 
 $db = getDB();
+
+if (!is_logged_in()) {
+	if (isset($_POST["join"])) {
+		flash("You need to be logged in to join a competition");
+	}
+}
+else{
 if (isset($_POST["join"])) {
     $balance = getBalance();
     flash("ay boss yo balance is $balance");
@@ -9,11 +16,11 @@ if (isset($_POST["join"])) {
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
     $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
     //$stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
-	if (!is_logged_in()) {
+	//if (!is_logged_in()) {
     //this will redirect to login and kill the rest of this script (prevent it from executing)
-    flash("You need to be logged in to join a competition");
+    //flash("You need to be logged in to join a competition");
     //die(header("Location: login.php"));
-	}else{
+	//}else{
     //$r = $stmt->execute([":id" => $_POST["cid"]);
 flash(" 222222 HERE I AM BABYYYYY");
     $r = $stmt->execute();//[":id" => $_POST["cid"]]
@@ -62,7 +69,7 @@ flash("HERE I AM BABYYYYY");
         flash("Competition is unavailable", "warning");
     }
 }
-}
+//}
 //if (is_logged_in()) {
 //$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions where user_id = :id) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 AND (UC.user_id = :id OR c.user_id = :id) ORDER BY expires ASC LIMIT 10");
 $stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions where user_id = :id) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");
@@ -73,7 +80,7 @@ if ($r) {
 else {
     flash("There was a problem looking up competitions: " . var_export($stmt->errorInfo(), true), "danger");
 }
-//}
+}
 ?>
 
 <div class="container-fluid">
