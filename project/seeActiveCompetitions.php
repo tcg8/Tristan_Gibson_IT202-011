@@ -156,20 +156,7 @@ else {
                                 Participants: 
                                 <?php safer_echo($r["participants"]); ?>
                             </div>
-				<div class="col">
-				Already registered: 
-				<?php 
-					///*
-					$stmt3 = $db->prepare("SELECT u.competition_id,c.id FROM UserCompetitions u, Competitions c WHERE u.user_id=:id AND u.competition_id=c.id");//Use this one or you can only see what you created
-					$r3 = $stmt3->execute([":id" => get_user_id()]);
-					if ($r3) {
-					    $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-						flash("howdy " . $r3["c.competition_id"] . "    also " . $r3["competition_id"] );
-					}//*/
-					flash("ayyyyy lets see it: " . $results3["competition_id"]);
-					
-				 ?>
-			</div>
+				
                             <div class="col">
                                 Required Score: 
                                 <?php safer_echo($r["min_score"]); ?>
