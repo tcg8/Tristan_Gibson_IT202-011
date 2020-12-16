@@ -1,13 +1,22 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
+
+<?php
+if (!is_logged_in()) {
+    //this will redirect to login and kill the rest of this script (prevent it from executing)
+    flash("You don't have permission to access this page");
+    die(header("Location: login.php"));
+}
+?>
+
 <?php
 
 
-if (!is_logged_in()) {
+/*if (!is_logged_in()) {
 	if (isset($_POST["join"])) {
 		flash("You need to be logged in to join a competition");
 	}
-}
-else{
+}*/
+//else{
 
 $db = getDB();
 if (isset($_POST["join"])) {
@@ -68,7 +77,8 @@ if (isset($_POST["join"])) {
         flash("Competition is unavailable", "warning");
     }
 }
-}//end for if logged in
+//}//end for if logged in
+//$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 AND (UC.user_id = :id OR c.user_id = :id) ORDER BY expires ASC LIMIT 10");
 $stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");
 $r = $stmt->execute([":id" => get_user_id(),]);
 if ($r) {
