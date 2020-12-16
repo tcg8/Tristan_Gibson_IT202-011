@@ -8,7 +8,11 @@ if (!is_logged_in()) {
 }
 ?>
 
+
 <?php
+
+$db = getDB();
+
 $page = 1;
 $per_page = 10;
 if(isset($_GET["page"])){
@@ -19,6 +23,11 @@ if(isset($_GET["page"])){
 
     }
 }
+
+
+//$stmt = $db->prepare("SELECT count(*) as total from F20_Eggs e LEFT JOIN F20_Incubators i on e.id = i.egg_id where e.user_id = :id");
+//$stmt = $db->prepare("SELECT e.*, i.name as inc from F20_Eggs e LEFT JOIN F20_Incubators i on e.id = i.egg_id where e.user_id = :id LIMIT :offset, :count");
+
 
 //$stmt = $db->prepare("SELECT count(*) as total from F20_Eggs e LEFT JOIN F20_Incubators i on e.id = i.egg_id where e.user_id = :id");
 //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
@@ -50,11 +59,7 @@ if($e[0] != "00000"){
     flash(var_export($e, true), "alert");
 }
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
 
-<?php
-
-$db = getDB();
 
 if (isset($_POST["join"])) {
     $balance = getBalance();
