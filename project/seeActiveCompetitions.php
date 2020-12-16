@@ -14,8 +14,8 @@ if (isset($_POST["join"])) {
     flash("You need to be logged in to join a competition");
     //die(header("Location: login.php"));
 	}else{
-    $r = $stmt->execute([":id" => $_POST["cid"]);
-    //$r = $stmt->execute();//[":id" => $_POST["cid"]]
+    //$r = $stmt->execute([":id" => $_POST["cid"]);
+    $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
 	    flash("HERE I AM BABYYYYY");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
