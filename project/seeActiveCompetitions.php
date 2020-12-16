@@ -5,7 +5,8 @@ $db = getDB();
 if (isset($_POST["join"])) {
     $balance = getBalance();
     //prevent user from joining expired or paid out comps
-    $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
+    //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
+    $stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0");
     $r = $stmt->execute([":id" => $_POST["cid"]]);
     if ($r) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
