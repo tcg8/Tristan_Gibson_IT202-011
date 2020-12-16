@@ -47,9 +47,10 @@ else {
 ?>
 
 <div class="container-fluid">
-        <h3Active Competitions</h3>
+        
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
+            <h3Active Competitions</h3>
                 <div class="list-group-item font-weight-bold">
                     <div class="row">
                         <div class="col">
