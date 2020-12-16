@@ -113,18 +113,20 @@ if (isset($_POST["join"])) {
     }
 }
 
-/*$stmt2 = $db->prepare("SELECT competition_id FROM UserCompetitions WHERE user_id=:id");//Use this one or you can only see what you created
+///*
+$stmt2 = $db->prepare("SELECT competition_id FROM UserCompetitions WHERE user_id=:id");//Use this one or you can only see what you created
 $r2 = $stmt2->execute([":id" => get_user_id()]);
 if ($r2) {
     $results2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-}*/
+}//*/
 
 
+/*
 $stmt3 = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 $r3 = $stmt3->execute([":id" => get_user_id()]);
 if ($r3) {
     $results3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-}
+}//*/
 
 //}//end for if logged in
 //$stmt = $db->prepare("SELECT c.*, UC.user_id as reg FROM Competitions c LEFT JOIN (SELECT * FROM UserCompetitions ) as UC on c.id = UC.competition_id WHERE c.expires > current_timestamp AND paid_out = 0 AND (UC.user_id = :id OR c.user_id = :id) ORDER BY expires ASC LIMIT 10");
@@ -175,7 +177,7 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
                             <div class="col">
-                                <?php if ($r3["reg"] != get_user_id()): ?>
+                                <?php if (!(in_array($r["id"], $results2["competition_id"]))): ?>
                                     <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
                                         <input type="submit" name="join" class="btn btn-primary"
