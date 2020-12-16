@@ -177,7 +177,12 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
                             <div class="col">
-                                <?php if (!(in_array($r["id"], $r2))): ?>
+                                
+			    <?php $done=false; ?>
+			    <?php foreach ($results2 as $r2): ?>
+			    	<?php if($r["id"]==r2["competition_id"]){ $done=true; } ?>
+			    <?php endforeach; ?>
+			    <?php if ($done==false): ?>
                                     <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
                                         <input type="submit" name="join" class="btn btn-primary"
