@@ -4,6 +4,7 @@
 $db = getDB();
 if (isset($_POST["join"])) {
     $balance = getBalance();
+    flash("ay boss yo balance is $balance");
     //prevent user from joining expired or paid out comps
     //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0");
     $stmt = $db->prepare("select fee from Competitions where expires > current_timestamp && paid_out = 0 LIMIT 10");
