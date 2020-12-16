@@ -15,9 +15,10 @@ if (isset($_POST["join"])) {
     //die(header("Location: login.php"));
 	}else{
     //$r = $stmt->execute([":id" => $_POST["cid"]);
+flash(" 222222 HERE I AM BABYYYYY");
     $r = $stmt->execute();//[":id" => $_POST["cid"]]
     if ($r) {
-	    flash("HERE I AM BABYYYYY");
+flash("HERE I AM BABYYYYY");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result) {
             $fee = (int)$result["fee"];
