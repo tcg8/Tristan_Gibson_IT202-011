@@ -78,7 +78,9 @@ else {
                                 Expires: 
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
-                            
+                            <div class="col">
+                                
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
