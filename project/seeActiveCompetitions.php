@@ -156,8 +156,8 @@ else {
 			    <div class="col">
                                 Already registered: 
                                 <?php 
-				    $cid=$_POST["cid"];
-				    if(in_array($cid, $r2["competition_id"])){
+				    //$cid=$_POST["cid"];
+				    if(in_array($_POST["cid"], $r2["competition_id"])){
 					    safer_echo("hell yeah");
 				    }else{ safer_echo("hell nah"); }
 				    //safer_echo($r2["competition_id"]); 
