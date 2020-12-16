@@ -17,7 +17,7 @@ if (isset($_POST["join"])) {
             if ($balance >= $fee) {
                 
                 //-------------
-                $stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
+                /*$stmt = $db->prepare("INSERT INTO PointsHistory( user_id, points_change, reason) VALUES(:user_id,:points_change,:reason)");
 			    $params = array( ":user_id" => $user_id, ":points_change" => $points_change, ":reason" => $reason);
 			    $r = $stmt->execute($params);
                 //-------------
@@ -28,7 +28,7 @@ if (isset($_POST["join"])) {
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
                     $profilePoints = $result["points"];
                     $_SESSION["user"]["points"] = $profilePoints;
-			    }
+			    }*/
                 //-------------
                 
                 $stmt = $db->prepare("INSERT INTO UserCompetitions (competition_id, user_id) VALUES(:cid, :uid)");
