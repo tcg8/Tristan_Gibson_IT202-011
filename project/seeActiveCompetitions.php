@@ -73,13 +73,13 @@ if (isset($_POST["join"])) {
 				$_SESSION["user"]["points"] = $profilePoints;
 			    }
 		//--------------------------------------------------------------------------------------
-			flash("GIANNNNNNNNTS " . $_POST["cid"]);
-			/*
+			//flash("GIANNNNNNNNTS " . $_POST["cid"]);
+			///*
 			//Increments the Competitions.participants value based on the count of participants for this competition in CompetitionParticipants table.
 			//get current val  ,   increase by 1   ,  set it
 			 //$stmt = $db->prepare("UPDATE Competitions set participants = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
             		$stmt = $db->prepare("UPDATE Competitions set participants = participants+1 WHERE id = :id");
-            		$params = array(":id" => get_user_id());
+            		$params = array(":id" => $_POST["cid"]);
             		$r = $stmt->execute($params);//*/
 			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
 		//--------------------------------------------------------------------------------------
