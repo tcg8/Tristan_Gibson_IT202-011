@@ -72,7 +72,6 @@ else {
                         </div>
                     </div>
                 </div>
-            <?php if (isset($results) && count($results)): ?>
                 <?php foreach ($results as $r): ?>
                     <div class="list-group-item" style="background-color: #D7C51B">
                         <div class="row">
