@@ -19,9 +19,8 @@ if (!is_logged_in()) {
 //else{
 
 $db = getDB();
-if (isset($_POST["Fake-join"])) {
-	flash("Already joined this competition");
-}
+//if (isset($_POST["Fake-join"])) {
+//	flash("Already joined this competition"); }
 if (isset($_POST["join"])) {
     $balance = getBalance();
     //flash("ay boss yo balance is $balance");
@@ -72,30 +71,28 @@ if (isset($_POST["join"])) {
 				$profilePoints = $result["points"];
 				$_SESSION["user"]["points"] = $profilePoints;
 			    }
-		//--------------------------------------------------------------------------------------
+		//------------------------UPDATE COMPETITIONS.PARTICIPANTS--------------------------------------------------------------
 			//flash("GIANNNNNNNNTS " . $_POST["cid"]);
 			///*
 			//Increments the Competitions.participants value based on the count of participants for this competition in CompetitionParticipants table.
-			//get current val  ,   increase by 1   ,  set it
-			 //$stmt = $db->prepare("UPDATE Competitions set participants = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
-            		$stmt = $db->prepare("UPDATE Competitions set participants = participants+1 WHERE id = :id");
+			$stmt = $db->prepare("UPDATE Competitions set participants = participants+1 WHERE id = :id");
             		$params = array(":id" => $_POST["cid"]);
             		$r = $stmt->execute($params);//*/
 			//dont need to update session variable 
-		//--------------------------------------------------------------------------------------
+		//----------------------------UPDATE COMPETITIONS.REWARD----------------------------------------------------------
+			//testing stuff here
 			//$increment = max(1, $fee * .5);
 			//$asdf = (int)max(1, $fee * .5);
 			//flash("increment by $increment ----- or int version: $asdf");
 			///*
 			//Update the Competitions.reward based on the # of participants and the appropriate math from the competition requirements above
-			 //$stmt = $db->prepare("UPDATE Competitions set reward = (SELECT IFNULL(SUM(points_change), 0) FROM PointsHistory p where p.user_id = :id) WHERE id = :id");
-            		$increment = (int)max(1, $fee * .5);
+			$increment = (int)max(1, $fee * .5);
 			if($fee==0){
 				$increment=0;}
 			$stmt = $db->prepare("UPDATE Competitions set reward = reward + :increment WHERE id = :id");
             		$params = array(":id" => $_POST["cid"], ":increment" => $increment);
             		$r = $stmt->execute($params);//*/
-			//DO WE NEED TO UPDATE THE SESSION VARIABLE FOR THIS TOO?????????
+			
 			
                     die(header("Location: #"));
                 }
@@ -169,11 +166,7 @@ else {
                                     </form>
                                 <?php else: ?>
                                     flash("Already Registered");
-				    <form method="POST">
-                                        <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
-                                        <input type="submit" name="Fake-join" class="btn btn-primary"
-                                               value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
-                                    </form>
+				    
                                 <?php endif; ?>
                             </div>
                         </div>
