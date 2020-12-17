@@ -16,7 +16,7 @@ $db = getDB();
 // $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
    // $stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 
-
+if (isset($_POST["join"])) {
 /*
 $per_page = 10;
 $query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
@@ -81,7 +81,7 @@ if($e[0] != "00000"){
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //*/
 
-if (isset($_POST["join"])) {
+
     $balance = getBalance();
     //flash("ay boss yo balance is $balance");
     //prevent user from joining expired or paid out comps
