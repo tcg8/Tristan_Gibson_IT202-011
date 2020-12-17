@@ -174,7 +174,7 @@ if (isset($_POST["saved"])) {
 
 //THIS PHP SECTION WAS CREAED FOR MILESTONE 2, THIS IS WHAT SENDS THE SCORE TO THE DATABASE WHEN THE USER IS LOGGED IN.
 ///*
-$stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
+$stmt = $db->prepare("SELECT * from Scores where user_id = :id order by id desc limit 10");
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
