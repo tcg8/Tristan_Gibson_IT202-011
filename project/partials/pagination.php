@@ -23,5 +23,3 @@ if(!isset($total_pages)) {
     </ul>
 </nav>
 <?php endif;?>
-
-<?php require(__DIR__ . "/flash.php");
