@@ -9,6 +9,7 @@ if(!isset($total_pages)) {
 
 ?>
 <?php if(isset($page) && isset($total_pages)):?>
+flash("heyooooooo page is $page and total_pages is $total_pages");
 <nav aria-label="Page Navigation">
     <ul class="pagination justify-content-center">
         <li class="page-item <?php echo ($page-1) < 1?"disabled":"";?>">
@@ -23,3 +24,5 @@ if(!isset($total_pages)) {
     </ul>
 </nav>
 <?php endif;?>
+
+<?php require(__DIR__ . "/partials/flash.php");
