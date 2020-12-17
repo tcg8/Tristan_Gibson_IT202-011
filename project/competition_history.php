@@ -16,12 +16,12 @@ $db = getDB();
 $per_page = 10;
 $theID = get_user_id();
 //$query = "SELECT count(*) as total FROM UserComptetitions WHERE user_id = $theID ORDER BY created DESC";
-$query = "SELECT count(*) as total FROM UserComptetitions WHERE user_id = $theID ORDER BY created DESC";
+$query = "SELECT count(*) as total FROM Scores WHERE user_id = $theID ORDER BY created DESC";
 paginate($query, [], $per_page);
 
 
 //$stmt = $db->prepare("SELECT * FROM UserComptetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
-$stmt = $db->prepare("SELECT * FROM UserComptetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
@@ -36,7 +36,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="container-fluid">
-        <h3>Your Score History</h3>
+        <h3>Your Competition History</h3>
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
                 <?php foreach ($results as $r): ?>
@@ -61,7 +61,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="list-group-item">
-                    No scores to show, sorry.
+                    No competitions to show, sorry.
                 </div>
             <?php endif; ?>
         </div>
