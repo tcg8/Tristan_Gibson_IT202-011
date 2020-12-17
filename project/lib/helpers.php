@@ -136,10 +136,10 @@ $results4 = $stmt4->fetchAll();
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
-    flash2("There have been no scores set in the past " . $timeType);
+    echo "There have been no scores set in the past " . $timeType;
 }
 if($hasScores) {
-        flash2("The Top " . count($results) . " scores of the last " . $timeType);
+        echo "The Top " . count($results) . " scores of the last " . $timeType;
     $i=10-count($results);
     $a=1;
     $w=0;
@@ -173,22 +173,22 @@ if($hasScores) {
         
         //flash2("he $idbro " . get_username() . " ye ");
         if(get_username() == $userbro){
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points";
         }else{
             $id=  get_user_id();
             //flash2("the id should be " . implode($results4[$a-1]));
             if(isset($_GET[$idbro])){
             $id = $_GET[$idbro];
-                flash2("the id is $id");
+                echo "the id is $id";
             }
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points";
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
     }
     while($i<10);
 }
-flash2("</br>");
+echo "</br>";
         foreach($results as $r):
         endforeach;
     return $arr;
