@@ -16,21 +16,18 @@ $db = getDB();
 $per_page = 10;
 $theID = get_user_id();
 //$query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
-$query = "SELECT count(*) as total FROM Competitions WHERE user_id = $theID ORDER BY created ASC";
+$query = "SELECT count(*) as total FROM Competitions WHERE user_id = $theID ORDER BY created DESC";
 paginate($query, [], $per_page);
 
 
 //$stmt = $db->prepare("SELECT * FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC LIMIT :offset,:count");
-$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created ASC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
 $stmt->execute();
 //$stmt->execute([":id"=>get_user_id()]);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 
 ?>
 
@@ -45,9 +42,6 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <div class="col">
                                 Score: 
                                 <?php safer_echo($r["score"]); ?>
-                                <?php if ($r["user_id"] == get_user_id()): ?>
-                                    (Created)
-                                <?php endif; ?>
                             </div>
                             <div class="col">
                                 Date: 
@@ -68,5 +62,5 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
 <?php include(__DIR__ . "/partials/pagination.php");?>
-
+</div>
 <?php require(__DIR__ . "/partials/flash.php");
