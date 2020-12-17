@@ -189,6 +189,8 @@ if($hasScores) {
     while($i<10);
 }
 echo "</br>";
+echo "</br>";
+echo "</br>";
         foreach($results as $r):
         endforeach;
     return $arr;
@@ -220,10 +222,10 @@ $results3 = $stmt3->fetchAll();
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
-    flash2("There have been no scores set in the past " . $timeType);
+    echo "There have been no scores set in the past " . $timeType . "</br>";
 }
 if($hasScores) {
-        flash2("The Top " . count($results) . " scores of the last " . $timeType);
+        echo "The Top " . count($results) . " scores of the last " . $timeType . "</br>";
     $i=10-count($results);
     $a=1;
     do {
@@ -242,9 +244,9 @@ if($hasScores) {
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
         if(get_username() == $userbro){
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
                                                                                   
 
         }
@@ -253,7 +255,9 @@ if($hasScores) {
     }
     while($i<10);
 }
-flash2("</br>");
+echo "</br>";
+    echo "</br>";
+    echo "</br>";
         foreach($results as $r):
         endforeach;
 }
@@ -288,10 +292,10 @@ $results3 = $stmt3->fetchAll();
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
-    flash2("There have been no scores set in the past " . $timeType);
+    echo "There have been no scores set in the past " . $timeType . "</br>";
 }
 if($hasScores) {
-        flash2("The Top " . count($results) . " scores of the games whole " . $timeType);
+        echo "The Top " . count($results) . " scores of the games whole " . $timeType . "</br>";
     $i=10-count($results);
     $a=1;
     do {
@@ -309,16 +313,18 @@ if($hasScores) {
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
         if(get_username() == $userbro){
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
-            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;
       $i++;
     }
     while($i<10);
 }
-flash2("</br>");
+echo "</br>";
+echo "</br>";
+echo "</br>";
 foreach($results as $r):
 endforeach;
 }
