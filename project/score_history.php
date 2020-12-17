@@ -16,7 +16,7 @@ $db = getDB();
 $per_page = 10;
 $theID = get_user_id();
 //$query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
-$query = "SELECT count(*) as total FROM Competitions WHERE user_id = 1 ORDER BY created DESC";
+$query = "SELECT count(*) as total FROM Competitions WHERE user_id = $theID ORDER BY created DESC";
 paginate($query, [], $per_page);
 
 
