@@ -47,7 +47,10 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 Date: 
                                 <?php safer_echo($r["created"]); ?>
                             </div>
-				
+			    <div class="col">
+                                <form method="POST">
+				</form>
+                            </div>
                             
                             
                         </div>
@@ -62,5 +65,5 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
 <?php include(__DIR__ . "/partials/pagination.php");?>
-</div>
+
 <?php require(__DIR__ . "/partials/flash.php");
