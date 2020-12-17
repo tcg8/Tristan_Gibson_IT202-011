@@ -71,7 +71,7 @@ $stmt = $db->prepare("SELECT * FROM Commpetitions WHERE expires > current_timest
 //otherwise it fails when being converted to strings (the default behavior)
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
-$stmt->bindValue(":id", get_user_id());
+//$stmt->bindValue(":id", get_user_id());
 $stmt->execute();
 
 $e = $stmt->errorInfo();
