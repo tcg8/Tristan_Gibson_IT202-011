@@ -12,10 +12,60 @@ if (!is_logged_in()) {
 <?php
 
 $db = getDB();
-//Do this tomorrow morning
+
+$per_page = 10;
+$theID = get_user_id();
+//$query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
+$query = "SELECT count(*) as total FROM Competitions WHERE user_id = $theID ORDER BY created ASC";
+paginate($query, [], $per_page);
+
+
+//$stmt = $db->prepare("SELECT * FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created ASC LIMIT :offset,:count");
+$stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+$stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
+$stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
+$stmt->execute();
+//$stmt->execute([":id"=>get_user_id()]);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
 
 ?>
 
+<div class="container-fluid">
+        <h3>Score History</h3>
+        <div class="list-group">
+            <?php if (isset($results) && count($results)): ?>
+                <?php foreach ($results as $r): ?>
+                    <div class="list-group-item" style="background-color: #25E418">
+                        <div class="row">
+                            
+                            <div class="col">
+                                Score: 
+                                <?php safer_echo($r["score"]); ?>
+                                <?php if ($r["user_id"] == get_user_id()): ?>
+                                    (Created)
+                                <?php endif; ?>
+                            </div>
+                            <div class="col">
+                                Date: 
+                                <?php safer_echo($r["created"]); ?>
+                            </div>
+				
+                            
+                            
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="list-group-item">
+                    No scores to show, sorry.
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 
 <?php include(__DIR__ . "/partials/pagination.php");?>
 
