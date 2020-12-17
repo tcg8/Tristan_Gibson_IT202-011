@@ -37,7 +37,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //Competitions, id, name
 
 ?>
-<?php include(__DIR__ . "/partials/pagination.php");?>
+
 <div class="container-fluid">
         <h3>Your Competition History</h3>
         <div class="list-group">
