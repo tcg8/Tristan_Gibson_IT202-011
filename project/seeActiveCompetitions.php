@@ -17,7 +17,7 @@ $db = getDB();
    // $stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 
 
-///*
+/*
 $per_page = 10;
 $query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
 paginate($query, [], $per_page);
@@ -30,7 +30,7 @@ $stmt->execute();
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //*/
 
-/*
+///*
 $page = 1;
 $per_page = 10;
 if(isset($_GET["page"])){
