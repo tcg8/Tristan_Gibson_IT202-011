@@ -81,6 +81,10 @@ if($e[0] != "00000"){
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //*/
 
+if (isset($_POST["view"]){
+	
+}
+
 if (isset($_POST["join"])) {
     $balance = getBalance();
     //flash("ay boss yo balance is $balance");
@@ -227,6 +231,13 @@ else {
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
                                         <input type="submit" name="join" class="btn btn-primary"
                                                value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
+                                    </form>
+                            </div>
+			    <div class="col">
+                                    <form method="POST">
+                                        <input type="hidden" name="checkBoard" value="<?php safer_echo($r["id"]); ?>"/>
+                                        <input type="submit" name="view" class="btn btn-primary"
+                                               value="View the Scoreboard"/>
                                     </form>
                             </div>
                         </div>
