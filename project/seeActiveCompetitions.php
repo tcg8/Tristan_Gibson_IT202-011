@@ -225,7 +225,7 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
 			    <div class="col">
-				    <?php $compID=$r["competition_id"]; ?>
+				    <?php $compID=safer_echo($r["competition_id"]); ?>
 				    <a href="check_scoreboard.php?id=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
                             </div>
                             <div class="col">
