@@ -242,6 +242,7 @@ else {
     </div>
 
 </div>
+<div>
 <ul class="pagination justify-content-center">
 	<li class="page-item <?php echo ($page-1) < 1?"disabled":"";?>">
 	    <a class="page-link" href="?page=<?php echo $page-1;?>" tabindex="-1">Previous</a>
