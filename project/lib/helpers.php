@@ -237,7 +237,7 @@ function paginate($query, $params = [], $per_page = 10) {
     $total = 0;
     if ($result) {
         $total = (int)$result["total"];
-        flash("total is $total");
+        //flash("total is $total");
     }
     global $total_pages;
     $total_pages = ceil($total / $per_page);
