@@ -25,16 +25,16 @@ $db = getDB();
 
 //get users points and show on profile page
     $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
-    $params = array(":id" => get_user_id());
+    $params = array(":id" => $id);
     $r = $stmt->execute($params);
     if($r){
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $profilePoints = $result["points"];
-flash("Your account has " . $profilePoints . " points.");
+flash("This account has " . $profilePoints . " points.");
     }
 
 //update status to public
-if (isset($_POST["makePub"])) {
+/*if (isset($_POST["makePub"])) {
     $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
         $r = $stmt->execute([":status" => "public", ":id" => get_user_id()]);
         //flash("line 73 " . count($r));
@@ -56,11 +56,12 @@ if (isset($_POST["makePriv"])) {
         else {
             flash("Error updating profile");
         }
-}
+}*/
 
 
 
 //save data if we submitted the form
+/*
 if (isset($_POST["saved"])) {
     $isValid = true;
     //check if our email changed
@@ -172,7 +173,7 @@ if (isset($_POST["saved"])) {
     else {
         //else for $isValid, though don't need to put anything here since the specific failure will output the message
     }
-}
+}//*/
 
 ?>
 
@@ -183,7 +184,7 @@ if (isset($_POST["saved"])) {
 //THIS PHP SECTION WAS CREAED FOR MILESTONE 2, THIS IS WHAT SENDS THE SCORE TO THE DATABASE WHEN THE USER IS LOGGED IN.
 ///*
 $stmt = $db->prepare("SELECT * from Scores where user_id = :id order by id desc limit 10");
-$params = array(":id" => get_user_id());
+$params = array(":id" => $id);
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
@@ -288,7 +289,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 </html>
 
 <div class="container-fluid">
-        <h3>Your Last 10 Scores</h3>
+        <h3>The Last 10 Scores</h3>
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
                 <?php foreach ($results as $r): ?>
