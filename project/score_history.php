@@ -43,6 +43,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 You scored: 
                                 <?php safer_echo($r["score"]); ?>
                             </div>
+				hola2
                             <div class="col">
                                 Scored on: 
                                 <?php safer_echo($r["created"]); ?>
