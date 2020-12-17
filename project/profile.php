@@ -173,13 +173,13 @@ if (isset($_POST["saved"])) {
 <?php
 
 //THIS PHP SECTION WAS CREAED FOR MILESTONE 2, THIS IS WHAT SENDS THE SCORE TO THE DATABASE WHEN THE USER IS LOGGED IN.
-
+///*
 $stmt = $db->prepare("SELECT score from Scores where user_id = :id order by id desc limit 10");
 $params = array(":id" => get_user_id());
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
 //flash("array length check " . count($results));
-
+/*
 //ADD A FOR LOOP HERE TO CREATE THE TOP 10 CHART    USE ECHO OR FLASH   TO CREATE THE CHART
 $hasScores=true;
 if (count($results)==0) {
@@ -205,11 +205,19 @@ if($hasScores) {
     }
     while($i<10);
 }
+//*/
+
+
+/*$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
+$stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+$stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
+$stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
+$stmt->execute();
+//$stmt->execute([":id"=>get_user_id()]);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
+
+
 ?>
-
-<?php foreach($results as $r):?>
-
-<?php endforeach;?>
 
 
 <html>
@@ -271,6 +279,37 @@ if($hasScores) {
 
 </html>
 
+<div class="container-fluid">
+        <h3>Your Last 10 Scores</h3>
+        <div class="list-group">
+            <?php if (isset($results) && count($results)): ?>
+                <?php foreach ($results as $r): ?>
+                    <div class="list-group-item" style="background-color: #25E418">
+                        <div class="row">
+				
+                            <div class="col">
+                                You scored: 
+                                <?php safer_echo($r["score"]); ?>
+                            </div>
+                            <div class="col">
+                                Scored on: 
+                                <?php safer_echo($r["created"]); ?>
+                            </div>
+			    <div class="col">
+                                <form method="POST">
+				</form>
+                            </div>
+                             
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="list-group-item">
+                    No scores to show, sorry.
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 
 <?php require(__DIR__ . "/partials/flash2.php");?>
 <?php require(__DIR__ . "/partials/flash.php");?>
