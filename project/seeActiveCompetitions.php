@@ -226,7 +226,7 @@ else {
                             </div>
 			    <div class="col">
 				    <?php $compID=$r["id"]; ?>
-				    <a href="check_scoreboard.php?litID=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
+				    <a href="check_scoreboard.php?id=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
                             </div>
                             <div class="col">
                                     <form method="POST">
