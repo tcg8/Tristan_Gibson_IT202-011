@@ -107,6 +107,7 @@ function getMessages2() {
 
 //One of the functions for milestone 2
 function get10week(){
+$arr = [];
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
@@ -115,6 +116,22 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
+    
+$stmt2 = $db->prepare("SELECT Users.username FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params2 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results2 = $stmt2->execute($params2);
+$results2 = $stmt2->fetchAll();
+        //flash2(" hope this appears2 " . implode($results2[$a-1]));//THIS IS THE WINNER
+$stmt3 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results3 = $stmt3->execute($params2);
+$results3 = $stmt3->fetchAll();
+
+$stmt4 = $db->prepare("SELECT Users.id FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params4 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results4 = $stmt4->execute($params4);
+$results4 = $stmt4->fetchAll();
+    
 
 $hasScores=true;
 if (count($results)==0) {
@@ -125,13 +142,48 @@ if($hasScores) {
         flash2("The Top " . count($results) . " scores of the last " . $timeType);
     $i=10-count($results);
     $a=1;
+    $w=0;
     do {
+        //flash2(" hope this appears2 " . implode($results3[$a-1]));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
-        flash2("The #" . $a . " top score is " . $finalNum);
-      $a++;
+        
+        $numlength = strlen(implode($results2[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $userbro = substr(implode($results2[$a-1]),0,$numlength);// % $modifier;
+//$userbro="<a href='profile.php'>$userbro</a>"
+//echo '<a href="mycgi?foo=', urlencode($userbro), '">';
+        $numlength = strlen(implode($results3[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $pointsbro = implode($results3[$a-1]) % $modifier;
+        
+        $numlength = strlen(implode($results4[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $idbro = implode($results4[$a-1]) % $modifier;
+        $arr[$w]=$a;
+        $w++;
+        $arr[$w]=$finalNum;
+        $w++;
+        $arr[$w]=$userbro;
+        $w++;
+        $arr[$w]=$pointsbro;
+        $w++;
+        
+        //flash2("he $idbro " . get_username() . " ye ");
+        if(get_username() == $userbro){
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+        }else{
+            $id=  get_user_id();
+            //flash2("the id should be " . implode($results4[$a-1]));
+            if(isset($_GET[$idbro])){
+            $id = $_GET[$idbro];
+                flash2("the id is $id");
+            }
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+        }
+      $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
     }
     while($i<10);
@@ -139,6 +191,7 @@ if($hasScores) {
 flash2("</br>");
         foreach($results as $r):
         endforeach;
+    return $arr;
 }
 
 
@@ -152,7 +205,18 @@ $testtime=strtotime("-1 " . $timeType); // THIS IS WHERE TO CHANGE BY WEEK/MONTH
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-
+    
+$stmt2 = $db->prepare("SELECT Users.username FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params2 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results2 = $stmt2->execute($params2);
+$results2 = $stmt2->fetchAll();
+        //flash2(" hope this appears2 " . implode($results2[$a-1]));//THIS IS THE WINNER
+$stmt3 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results3 = $stmt3->execute($params2);
+$results3 = $stmt3->fetchAll();
+    
+    
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -163,19 +227,35 @@ if($hasScores) {
     $i=10-count($results);
     $a=1;
     do {
+        //flash2(" hope this appears2 " . implode($results3[$a-1]));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
-        flash2("The #" . $a . " top score is " . $finalNum);
+        
+        $numlength = strlen(implode($results2[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $userbro = substr(implode($results2[$a-1]),0,$numlength);// % $modifier;
+        
+        $numlength = strlen(implode($results3[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $pointsbro = implode($results3[$a-1]) % $modifier;
+        
+        if(get_username() == $userbro){
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+        }else{
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+                                                                                  
+
+        }
       $a++;
       $i++;
     }
     while($i<10);
 }
 flash2("</br>");
-foreach($results as $r):
-endforeach;
+        foreach($results as $r):
+        endforeach;
 }
 
 
@@ -191,7 +271,20 @@ $testtime=strtotime("-1 Year"); //SINCE GOT RID OF "WHERE" PART IN $STMT IT DOES
 $params = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results = $stmt->execute($params);
 $results = $stmt->fetchAll();
-
+    
+$stmt2 = $db->prepare("SELECT Users.username FROM Users JOIN Scores on Users.id = Scores.user_id order by Scores.score desc limit 10");   
+$params2 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results2 = $stmt2->execute($params2);
+$results2 = $stmt2->fetchAll();
+        //flash2(" hope this appears2 " . implode($results2[$a-1]));//THIS IS THE WINNER
+$stmt3 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = Scores.user_id order by Scores.score desc limit 10");   
+$params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results3 = $stmt3->execute($params2);
+$results3 = $stmt3->fetchAll();
+    
+    
+    
+    
 $hasScores=true;
 if (count($results)==0) {
     $hasScores=false;
@@ -206,7 +299,20 @@ if($hasScores) {
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $finalNum = implode($results[$a-1]) % $modifier;
-        flash2("The #" . $a . " top score is " . $finalNum);
+        
+        $numlength = strlen(implode($results2[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $userbro = substr(implode($results2[$a-1]),0,$numlength);// % $modifier;
+        
+        $numlength = strlen(implode($results3[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $pointsbro = implode($results3[$a-1]) % $modifier;
+        
+        if(get_username() == $userbro){
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points");
+        }else{
+            flash2("The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points");
+        }
       $a++;
       $i++;
     }
