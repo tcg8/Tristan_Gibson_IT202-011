@@ -232,11 +232,8 @@ else {
                                     </form>
                             </div>
 			    <div class="col">
-                                    <form method="POST">
-                                        <input type="hidden" name="checkBoard" value="<?php safer_echo($r["id"]); ?>"/>
-                                        <input type="submit" name="view" class="btn btn-primary"
-                                               value="View the Scoreboard"/>
-                                    </form>
+				    <?php $compID=$r["competition_id"]; ?>
+				    <a href="check_scoreboard.php?id=<?php echo $compID;?>">Click here to see the Scoreboard<?php echo "competition_id";?></a>
                             </div>
                         </div>
                     </div>
