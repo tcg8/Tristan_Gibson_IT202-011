@@ -15,12 +15,14 @@ $db = getDB();
 
 $per_page = 10;
 $theID = get_user_id();
+//$query = "SELECT count(*) as total FROM Scores WHERE user_id = $theID ORDER BY created DESC";
 $query = "SELECT count(*) as total FROM UserCompetitions WHERE user_id = $theID ORDER BY created DESC";
 //$query = "SELECT u.count(*) as total FROM UserCompetitions u LEFT JOIN Competitions c ON c.id=u.competition_id WHERE u.user_id = $theID ORDER BY created DESC";
 paginate($query, [], $per_page);
 
 
-$stmt = $db->prepare("SELECT * as total FROM UserCompetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
+//$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT * FROM UserCompetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
 //$stmt = $db->prepare("SELECT u.count(*) as total FROM UserCompetitions u LEFT JOIN Competitions c ON c.id=u.competition_id WHERE u.user_id = $theID ORDER BY created DESC LIMIT :offset,:count");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
