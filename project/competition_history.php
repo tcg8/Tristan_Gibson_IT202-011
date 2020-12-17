@@ -23,7 +23,8 @@ paginate($query, [], $per_page);
 
 //$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
 //$stmt = $db->prepare("SELECT * FROM UserCompetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
-$stmt = $db->prepare("SELECT u.*,c.name FROM UserCompetitions u LEFT JOIN Competitions c ON c.id=u.competition_id WHERE u.user_id = $theID ORDER BY created DESC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT u.*,c.name FROM UserCompetitions u JOIN Competitions c ON c.id=u.competition_id WHERE u.user_id = $theID ORDER BY created DESC LIMIT :offset,:count");
+//$stmt = $db->prepare("SELECT u.*,c.name FROM UserCompetitions u LEFT JOIN Competitions c ON c.id=u.competition_id WHERE u.user_id = $theID ORDER BY created DESC LIMIT :offset,:count");
 //$stmt = $db->prepare("SELECT e.*, i.name as inc from F20_Eggs e LEFT JOIN F20_Incubators i on e.id = i.egg_id where e.user_id = :id LIMIT :offset, :count");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
