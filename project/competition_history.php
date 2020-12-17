@@ -15,19 +15,23 @@ $db = getDB();
 
 $per_page = 10;
 $theID = get_user_id();
-//$query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
-$query = "SELECT count(*) as total FROM Scores WHERE user_id = $theID ORDER BY created DESC";
+//$query = "SELECT count(*) as total FROM UserComptetitions WHERE user_id = $theID ORDER BY created DESC";
+$query = "SELECT count(*) as total FROM UserComptetitions WHERE user_id = $theID ORDER BY created DESC";
 paginate($query, [], $per_page);
 
 
-//$stmt = $db->prepare("SELECT * FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC LIMIT :offset,:count");
-$stmt = $db->prepare("SELECT * FROM Scores WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
+//$stmt = $db->prepare("SELECT * FROM UserComptetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT * FROM UserComptetitions WHERE user_id = :id ORDER BY created DESC LIMIT :offset,:count");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
 $stmt->execute();
 //$stmt->execute([":id"=>get_user_id()]);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+//UserCompetitions, competition_id, user_id
+//Competitions, id, name
 
 ?>
 
@@ -40,11 +44,11 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="row">
 				
                             <div class="col">
-                                You scored: 
-                                <?php safer_echo($r["score"]); ?>
+                                You joined: 
+                                <?php safer_echo($r["id"]); ?>
                             </div>
                             <div class="col">
-                                Scored on: 
+                                You joined this competition on: 
                                 <?php safer_echo($r["created"]); ?>
                             </div>
 			                      <div class="col">
