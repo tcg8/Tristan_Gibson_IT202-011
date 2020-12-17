@@ -233,7 +233,7 @@ else {
                             </div>
 			    <div class="col">
 				    <?php $compID=$r["competition_id"]; ?>
-				    <a href="check_scoreboard.php?id=<?php echo $compID;?>">Click here to see the Scoreboard<?php echo "competition_id";?></a>
+				    <a href="check_scoreboard.php?id=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
                             </div>
                         </div>
                     </div>
