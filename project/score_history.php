@@ -38,12 +38,11 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($results as $r): ?>
                     <div class="list-group-item" style="background-color: #25E418">
                         <div class="row">
-                            hola
+				
                             <div class="col">
                                 You scored: 
                                 <?php safer_echo($r["score"]); ?>
                             </div>
-				hola2
                             <div class="col">
                                 Scored on: 
                                 <?php safer_echo($r["created"]); ?>
@@ -52,8 +51,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <form method="POST">
 				</form>
                             </div>
-                            
-                            
+                             
                         </div>
                     </div>
                 <?php endforeach; ?>
