@@ -19,11 +19,11 @@ $db = getDB();
 
 /*
 $per_page = 10;
-$query = "SELECT count(*) as total FROM Commpetitions WHERE expires > current_timestamp ORDER BY expires ASC";
+$query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
 paginate($query, [], $per_page);
 
 
-$stmt = $db->prepare("SELECT * FROM Commpetitions WHERE expires > current_timestamp ORDER BY expires ASC LIMIT :offset,:count");
+$stmt = $db->prepare("SELECT * FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC LIMIT :offset,:count");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->execute();
@@ -50,8 +50,8 @@ if(isset($_GET["page"])){
 //$stmt = $db->prepare("SELECT count(*) as total from F20_Eggs e LEFT JOIN F20_Incubators i on e.id = i.egg_id where e.user_id = :id");
 //$stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
 //$stmt = $db->prepare("select count(*) as total from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
-$stmt = $db->prepare("SELECT count(*) as total FROM Commpetitions WHERE expires > current_timestamp ORDER BY expires ASC");
-//"SELECT count(*) as total FROM Commpetitions WHERE expires > current_timestamp ORDER BY expires ASC"
+$stmt = $db->prepare("SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC");
+//"SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC"
 $stmt->execute([":id"=>get_user_id()]);
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
