@@ -224,6 +224,10 @@ else {
                                 Expires: 
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
+			    <div class="col">
+				    <?php $compID=$r["competition_id"]; ?>
+				    <a href="check_scoreboard.php?id=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
+                            </div>
                             <div class="col">
                                     <form method="POST">
                                         <input type="hidden" name="cid" value="<?php safer_echo($r["id"]); ?>"/>
@@ -231,10 +235,7 @@ else {
                                                value="Join (Cost: <?php safer_echo($r["fee"]); ?>)"/>
                                     </form>
                             </div>
-			    <div class="col">
-				    <?php $compID=$r["competition_id"]; ?>
-				    <a href="check_scoreboard.php?id=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
-                            </div>
+			    
                         </div>
                     </div>
                 <?php endforeach; ?>
