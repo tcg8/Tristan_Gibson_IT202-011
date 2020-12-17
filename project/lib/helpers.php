@@ -247,6 +247,7 @@ if($hasScores) {
         echo "The Top " . count($results) . " scores of the last " . $timeType . "</br>";
     $i=10-count($results);
     $a=1;
+    $w=0;
     do {
         //flash2(" hope this appears2 " . implode($results3[$a-1]));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
@@ -343,6 +344,7 @@ if($hasScores) {
         echo "The Top " . count($results) . " scores of the games whole " . $timeType . "</br>";
     $i=10-count($results);
     $a=1;
+    $w=0;
     do {
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
