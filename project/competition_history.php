@@ -54,10 +54,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 You joined this competition on: 
                                 <?php safer_echo($r["created"]); ?>
                             </div>
-			    <div class="col">
-                                Competition ID: 
-                                <?php safer_echo($r["competition_id"]); ?>
-                            </div>
+			    
 			    <div class="col">
                                 <form method="POST">
 				</form>
