@@ -254,7 +254,6 @@ else {
             <?php endif; ?>
         </div>
     </div>
-
 </div>
 
 
