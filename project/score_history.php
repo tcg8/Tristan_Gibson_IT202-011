@@ -40,11 +40,11 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="row">
                             
                             <div class="col">
-                                Score: 
+                                You scored: 
                                 <?php safer_echo($r["score"]); ?>
                             </div>
                             <div class="col">
-                                Date: 
+                                Scored on: 
                                 <?php safer_echo($r["created"]); ?>
                             </div>
 			    <div class="col">
