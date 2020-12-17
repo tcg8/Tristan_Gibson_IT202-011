@@ -183,7 +183,7 @@ if($hasScores) {
                 echo "the id is $id" . "</br>";
             }
             
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$userbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
