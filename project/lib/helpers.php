@@ -178,10 +178,10 @@ if($hasScores) {
         }else{
             $id=  get_user_id();
             //flash2("the id should be " . implode($results4[$a-1]));
-            if(isset($_GET[$idbro])){
-            $id = $_GET[$idbro];
-                echo "the id is $id" . "</br>";
-            }
+            //if(isset($_GET[$idbro])){
+            //$id = $_GET[$idbro];
+            //    echo "the id is $id" . "</br>";
+            //}
             
             echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
@@ -246,11 +246,17 @@ if($hasScores) {
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
         if(get_username() == $userbro){
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
+           
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
-                                                                                  
-
+            $id=  get_user_id();
+            //flash2("the id should be " . implode($results4[$a-1]));
+            //if(isset($_GET[$idbro])){
+            //$id = $_GET[$idbro];
+            //    echo "the id is $id" . "</br>";
+            //}
+            
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;
       $i++;
@@ -315,9 +321,17 @@ if($hasScores) {
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
         if(get_username() == $userbro){
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
+           
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
+            $id=  get_user_id();
+            //flash2("the id should be " . implode($results4[$a-1]));
+            //if(isset($_GET[$idbro])){
+            //$id = $_GET[$idbro];
+            //    echo "the id is $id" . "</br>";
+            //}
+            
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;
       $i++;
