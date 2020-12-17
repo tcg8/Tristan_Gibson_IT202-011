@@ -3,10 +3,10 @@
 
 <?php
 
-if(isset($_GET["litID"])){
-$yeet = $_GET["litID"];
+if(isset($_GET["id"])){
+$id = $_GET["id"];
 }
-flash("comp id is " . $yeet);
+flash("comp id is " . $id);
 ?>
 //<a href='profile.php'>$userbro</a>
 
