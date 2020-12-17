@@ -6,7 +6,7 @@ if(!isset($page)) {
 if(!isset($total_pages)) {
     flash("Total Pages variable not set!", "danger");
 }
-
+//flash("heyooooooo page is " . $page . " and total_pages is " . $total_pages);
 ?>
 <?php if(isset($page) && isset($total_pages)):?>
 <nav aria-label="Page Navigation">
