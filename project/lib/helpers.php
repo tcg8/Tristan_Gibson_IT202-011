@@ -212,6 +212,7 @@ echo "</br>";
 
 //one of the scoreboard functions for milestone 2
 function get10month(){
+$arr = [];
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
@@ -307,6 +308,7 @@ echo "</br>";
 
 //the lifetime scoreboard funtion for milestone 2
 function get10lifetime(){
+$arr = [];
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores order by score desc limit 10");
 //THIS SHOULD BE LIFETIME NOT YEAR
