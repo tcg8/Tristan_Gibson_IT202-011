@@ -9,7 +9,7 @@ if(!isset($total_pages)) {
 
 ?>
 <?php if(isset($page) && isset($total_pages)):?>
-<nav aria-label="My Eggs">
+<nav aria-label="Page Navigation">
     <ul class="pagination justify-content-center">
         <li class="page-item <?php echo ($page-1) < 1?"disabled":"";?>">
             <a class="page-link" href="?page=<?php echo $page-1;?>" tabindex="-1">Previous</a>
