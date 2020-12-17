@@ -81,9 +81,7 @@ if($e[0] != "00000"){
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //*/
 
-if (isset($_POST["view"]){
-	
-}
+//if (isset($_POST["view"]){}
 
 if (isset($_POST["join"])) {
     $balance = getBalance();
