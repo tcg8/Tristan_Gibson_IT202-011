@@ -24,4 +24,4 @@ flash("heyooooooo page is " . $page . " and total_pages is " . $total_pages);
 </nav>
 <?php endif;?>
 
-<?php require(__DIR__ . "/partials/flash.php");
+<?php require(__DIR__ . "/flash.php");
