@@ -10,7 +10,9 @@ if (!is_logged_in()) {
 }
 
 
-
+if(isset($_GET["id"]))
+$id = $_GET["id"];
+flash("yyyyyyyyyooooooooooooooo $id");
 
 
 $db = getDB();
