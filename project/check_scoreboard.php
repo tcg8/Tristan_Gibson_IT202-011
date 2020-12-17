@@ -1,7 +1,13 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
 
+<?php
 
+if(isset($_GET["id"])){
+$id = $_GET["id"];
+}
+flash("comp id is " . $compID);
+?>
 //<a href='profile.php'>$userbro</a>
 
 
