@@ -17,7 +17,7 @@ $db = getDB();
    // $stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 
 
-/*
+///*
 $per_page = 10;
 $query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
 paginate($query, [], $per_page);
@@ -27,10 +27,10 @@ $stmt = $db->prepare("SELECT * FROM Competitions WHERE expires > current_timesta
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->execute();
-$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //*/
 
-///*
+/*
 $page = 1;
 $per_page = 10;
 if(isset($_GET["page"])){
@@ -174,14 +174,14 @@ if (isset($_POST["join"])) {
 }
 
 
-$stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
+/*$stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 $r = $stmt->execute([":id" => get_user_id()]);
 if ($r) {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 else {
     flash("There was a problem looking up competitions: " . var_export($stmt->errorInfo(), true), "danger");
-}
+}*/
 
 ?>
 
