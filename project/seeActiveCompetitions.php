@@ -16,7 +16,7 @@ $db = getDB();
 // $stmt = $db->prepare("select fee from Competitions where id = :id && expires > current_timestamp && paid_out = 0 LIMIT 10");
    // $stmt = $db->prepare("SELECT c.* FROM Competitions c WHERE c.expires > current_timestamp AND paid_out = 0 ORDER BY expires ASC LIMIT 10");//Use this one or you can only see what you created
 
-
+$compID;
 ///*
 $per_page = 10;
 $query = "SELECT count(*) as total FROM Competitions WHERE expires > current_timestamp ORDER BY expires ASC";
@@ -225,7 +225,7 @@ else {
                                 <?php safer_echo($r["expires"]); ?>
                             </div>
 			    <div class="col">
-				    <?php $compID=safer_echo($r["competition_id"]); ?>
+				    <?php $compID=$r["competition_id"]; ?>
 				    <a href="check_scoreboard.php?id=<?php echo $compID;?>"><?php echo "Click here to see the Scoreboard";?></a>
                             </div>
                             <div class="col">
