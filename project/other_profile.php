@@ -21,7 +21,19 @@ $id= get_user_id();
 //
 
 
+
+
 $db = getDB();
+
+$stmt = $db->prepare("SELECT status from Users WHERE id = :id LIMIT 1");
+    $params = array(":id" => $id);
+    $r = $stmt->execute($params);
+    if($r){
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        flash("This account is $result["points"]");
+//flash("This account has " . $profilePoints . " points.");
+    }
+
 
 //get users points and show on profile page
     $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
