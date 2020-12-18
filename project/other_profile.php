@@ -14,14 +14,26 @@ else{
 $id= get_user_id();
 //flash("grouuuuuuuuuuup");
 }
-/*if(isset($_GET["username"])){
-	$username=$_GET["username"];
-	flash(" ITSSSSSSSSSSSSSSSSSSSS A $username");
-}*/
-//
+
 
 
 $db = getDB();
+
+$stmt = $db->prepare("SELECT status from Users WHERE id = :id LIMIT 1");
+    $params = array(":id" => $id);
+    $r = $stmt->execute($params);
+    if($r){
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+	if($result["status"]=="private"){
+	flash("You cannot see the profiles of private accounts.");
+	die(header("Location: home.php"));
+		//flash("HHHHHHHHHHHHHHHHHHHHH");
+		
+	}
+        //flash("This account is " . $result["status"]);
+//flash("This account has " . $profilePoints . " points.");
+    }
+
 
 //get users points and show on profile page
     $stmt = $db->prepare("SELECT points from Users WHERE id = :id LIMIT 1");
@@ -33,147 +45,7 @@ $db = getDB();
 flash("This account has " . $profilePoints . " points.");
     }
 
-//update status to public
-/*if (isset($_POST["makePub"])) {
-    $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
-        $r = $stmt->execute([":status" => "public", ":id" => get_user_id()]);
-        //flash("line 73 " . count($r));
-        if ($r) {
-            flash("Your profile is public");
-        }
-        else {
-            flash("Error updating profile");
-        }
-}
-//update status to private
-if (isset($_POST["makePriv"])) {
-    $stmt = $db->prepare("UPDATE Users set status = :status where id = :id");
-        $r = $stmt->execute([":status" => "private", ":id" => get_user_id()]);
-        //flash("line 73 " . count($r));
-        if ($r) {
-            flash("Your profile is private");
-        }
-        else {
-            flash("Error updating profile");
-        }
-}*/
 
-
-
-//save data if we submitted the form
-/*
-if (isset($_POST["saved"])) {
-    $isValid = true;
-    //check if our email changed
-    $newEmail = get_email();
-    if (get_email() != $_POST["email"]) {
-        //TODO we'll need to check if the email is available
-        $email = $_POST["email"];
-        $stmt = $db->prepare("SELECT COUNT(1) as InUse from Users where email = :email");
-        $stmt->execute([":email" => $email]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $inUse = 1;//default it to a failure scenario
-        if ($result && isset($result["InUse"])) {
-            try {
-                $inUse = intval($result["InUse"]);
-            }
-            catch (Exception $e) {
-
-            }
-        }
-        if ($inUse > 0) {
-            flash("Email already in use!");
-            //for now we can just stop the rest of the update
-            $isValid = false;
-        }
-        else {
-            $newEmail = $email;
-        }
-    }
-    $newUsername = get_username();
-    if (get_username() != $_POST["username"]) {
-        $username = $_POST["username"];
-        $stmt = $db->prepare("SELECT COUNT(1) as InUse from Users where username = :username");
-        $stmt->execute([":username" => $username]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $inUse = 1;//default it to a failure scenario
-        if ($result && isset($result["InUse"])) {
-            try {
-                $inUse = intval($result["InUse"]);
-            }
-            catch (Exception $e) {
-
-            }
-        }
-        if ($inUse > 0) {
-            flash("Username already in use");
-            //for now we can just stop the rest of the update
-            $isValid = false;
-        }
-        else {
-            $newUsername = $username;
-        }
-    }
-    if ($isValid) {
-        $stmt = $db->prepare("UPDATE Users set email = :email, username= :username where id = :id");
-        $r = $stmt->execute([":email" => $newEmail, ":username" => $newUsername, ":id" => get_user_id()]);
-        //flash("line 73 " . count($r));
-        if ($r) {
-            flash("Updated profile");
-        }
-        else {
-            flash("Error updating profile");
-        }
-        //password is optional, so check if it's even set
-        //if so, then check if it's a valid reset request
-        if (!empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["current_password"])) {
-            $current = $_POST["current_password"];
-            $stmt = $db->prepare("SELECT password from Users WHERE id = :id LIMIT 1");
-
-            $params = array(":id" => get_user_id());
-            $r = $stmt->execute($params);
-            //flash("line 88 " . count($r));
-            if($r){
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                $_current = $result["password"];
-                if(password_verify($current, $_current)){
-                    if (($_POST["password"] == $_POST["confirm"]) ){//&& ($_POST["confirm"] == ____)) { //flash($_SESSION["user"]["password"])
-
-                        $password = $_POST["password"];
-                        $hash = password_hash($password, PASSWORD_BCRYPT);
-
-                        $stmt = $db->prepare("UPDATE Users set password = :password where id = :id");
-                        $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
-
-                        if ($r) {
-                            flash("Reset Password");
-                        }
-                        else {
-                            flash("Error resetting password");
-                        }
-                    }
-                }
-                else{
-                    flash("That is not your current password, please try again", "danger");
-                }
-            }
-        }
-//fetch/select fresh data in case anything changed
-        $stmt = $db->prepare("SELECT email, username from Users WHERE id = :id LIMIT 1");
-        $stmt->execute([":id" => get_user_id()]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($result) {
-            $email = $result["email"];
-            $username = $result["username"];
-            //let's update our session too
-            $_SESSION["user"]["email"] = $email;
-            $_SESSION["user"]["username"] = $username;
-        }
-    }
-    else {
-        //else for $isValid, though don't need to put anything here since the specific failure will output the message
-    }
-}//*/
 
 ?>
 
