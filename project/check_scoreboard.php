@@ -27,14 +27,14 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 //Scores S,    user_id, score, created
 //Users U,     username???? or get_username();
 //$stmt = $db->prepare("SELECT u.*,c.name FROM UserCompetitions u LEFT JOIN Competitions c ON c.id=u.competition_id WHERE u.user_id = :id ORDER BY u.created DESC LIMIT :offset,:count");
-$stmt = $db->prepare("SELECT U.username,  LIMIT 10");
+/*$stmt = $db->prepare("SELECT U.username,  LIMIT 10");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
 $stmt->execute();
 //$stmt->execute([":id"=>get_user_id()]);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+*/
 ?>
 
 
