@@ -8,7 +8,7 @@ $id = $_GET["id"];
 }else{
 	flash("You can't access this page this way. BEGONE!");
 }
-flash("comp id is " . $id);
+//flash("comp id is " . $id);
 
 
 
