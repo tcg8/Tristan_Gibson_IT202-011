@@ -246,7 +246,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 </html>
 
 <div class="container-fluid">
-        <h3>The Last 10 Scores</h3>
+        <h3>The Last 10 Scores of this account</h3>
         <div class="list-group">
             <?php if (isset($results) && count($results)): ?>
                 <?php foreach ($results as $r): ?>
