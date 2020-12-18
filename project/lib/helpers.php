@@ -105,6 +105,11 @@ function getMessages2() {
 }
 
 
+
+
+
+
+
 //One of the functions for milestone 2
 function get10week(){
 $arr = [];
@@ -173,15 +178,17 @@ if($hasScores) {
         
         //flash2("he $idbro " . get_username() . " ye ");
         if(get_username() == $userbro){
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
+           
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
             $id=  get_user_id();
             //flash2("the id should be " . implode($results4[$a-1]));
-            if(isset($_GET[$idbro])){
-            $id = $_GET[$idbro];
-                echo "the id is $id" . "</br>";
-            }
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
+            //if(isset($_GET[$idbro])){
+            //$id = $_GET[$idbro];
+            //    echo "the id is $id" . "</br>";
+            //}
+            
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='other_profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;//flash("testing, <a href='profile.php'>$email</a>");
       $i++;
@@ -197,8 +204,15 @@ echo "</br>";
 }
 
 
+
+
+
+
+
+
 //one of the scoreboard functions for milestone 2
 function get10month(){
+$arr = [];
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores where created >= :timeCon order by score desc limit 10");
 
@@ -217,6 +231,11 @@ $stmt3 = $db->prepare("SELECT Users.points FROM Users JOIN Scores on Users.id = 
 $params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results3 = $stmt3->execute($params2);
 $results3 = $stmt3->fetchAll();
+      
+$stmt4 = $db->prepare("SELECT Users.id FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params4 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results4 = $stmt4->execute($params4);
+$results4 = $stmt4->fetchAll();
     
     
 $hasScores=true;
@@ -228,6 +247,7 @@ if($hasScores) {
         echo "The Top " . count($results) . " scores of the last " . $timeType . "</br>";
     $i=10-count($results);
     $a=1;
+    $w=0;
     do {
         //flash2(" hope this appears2 " . implode($results3[$a-1]));//THIS IS THE WINNER
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
@@ -243,12 +263,30 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
+        $numlength = strlen(implode($results4[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $idbro = implode($results4[$a-1]) % $modifier;
+        $arr[$w]=$a;
+        $w++;
+        $arr[$w]=$finalNum;
+        $w++;
+        $arr[$w]=$userbro;
+        $w++;
+        $arr[$w]=$pointsbro;
+        $w++;
+        
         if(get_username() == $userbro){
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
+           
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
-                                                                                  
-
+            $id=  get_user_id();
+            //flash2("the id should be " . implode($results4[$a-1]));
+            //if(isset($_GET[$idbro])){
+            //$id = $_GET[$idbro];
+            //    echo "the id is $id" . "</br>";
+            //}
+            
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='other_profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;
       $i++;
@@ -265,8 +303,13 @@ echo "</br>";
 
 
 
+
+
+
+
 //the lifetime scoreboard funtion for milestone 2
 function get10lifetime(){
+$arr = [];
 $db = getDB();
 $stmt = $db->prepare("SELECT score from Scores order by score desc limit 10");
 //THIS SHOULD BE LIFETIME NOT YEAR
@@ -286,7 +329,10 @@ $params3 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
 $results3 = $stmt3->execute($params2);
 $results3 = $stmt3->fetchAll();
     
-    
+$stmt4 = $db->prepare("SELECT Users.id FROM Users JOIN Scores on Users.id = Scores.user_id where Scores.created >= :timeCon order by Scores.score desc limit 10");   
+$params4 = array(":timeCon" => date("Y-m-d h:i:s", $testtime));
+$results4 = $stmt4->execute($params4);
+$results4 = $stmt4->fetchAll();
     
     
 $hasScores=true;
@@ -298,6 +344,7 @@ if($hasScores) {
         echo "The Top " . count($results) . " scores of the games whole " . $timeType . "</br>";
     $i=10-count($results);
     $a=1;
+    $w=0;
     do {
         //Check profile.php code comments to see why this code is here. Basically its because the scores were being printed twice so this fixes that.
         $numlength = strlen(implode($results[$a-1]))/2; //this gets the number of digits that is supposed to be printed
@@ -312,10 +359,30 @@ if($hasScores) {
         $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
         $pointsbro = implode($results3[$a-1]) % $modifier;
         
+        $numlength = strlen(implode($results4[$a-1]))/2; //this gets the number of digits that is supposed to be printed
+        $modifier = 10**$numlength;//this is the number that $results will be modified by, it just gets 10^power of $numlength
+        $idbro = implode($results4[$a-1]) % $modifier;
+        $arr[$w]=$a;
+        $w++;
+        $arr[$w]=$finalNum;
+        $w++;
+        $arr[$w]=$userbro;
+        $w++;
+        $arr[$w]=$pointsbro;
+        $w++;
+        
         if(get_username() == $userbro){
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
+           
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }else{
-            echo "The #" . $a . " top score is " . $finalNum . " scored by user $userbro who has " . $pointsbro . " profile points" . "</br>";
+            $id=  get_user_id();
+            //flash2("the id should be " . implode($results4[$a-1]));
+            //if(isset($_GET[$idbro])){
+            //$id = $_GET[$idbro];
+            //    echo "the id is $id" . "</br>";
+            //}
+            
+            echo "The #" . $a . " top score is " . $finalNum . " scored by user <a href='other_profile.php?id=$idbro'>$userbro</a> who has " . $pointsbro . " profile points" . "</br>";
         }
       $a++;
       $i++;
@@ -328,6 +395,12 @@ echo "</br>";
 foreach($results as $r):
 endforeach;
 }
+
+
+
+
+
+
 
 function paginate($query, $params = [], $per_page = 10) {
     global $page;
