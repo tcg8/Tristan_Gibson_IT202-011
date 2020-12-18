@@ -30,7 +30,7 @@ $stmt = $db->prepare("SELECT status from Users WHERE id = :id LIMIT 1");
     $r = $stmt->execute($params);
     if($r){
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        flash("This account is $result["points"]");
+        flash("This account is $result["status"]");
 //flash("This account has " . $profilePoints . " points.");
     }
 
