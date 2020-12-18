@@ -30,6 +30,9 @@ $stmt = $db->prepare("SELECT status from Users WHERE id = :id LIMIT 1");
     $r = $stmt->execute($params);
     if($r){
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+	if($result["status"]=="public"){
+		flash("HHHHHHHHHHHHHHHHHHHHH");
+	}
         flash("This account is " . $result["status"]);
 //flash("This account has " . $profilePoints . " points.");
     }
