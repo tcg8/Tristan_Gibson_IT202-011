@@ -254,7 +254,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
                         <div class="row">
 				
                             <div class="col">
-                                You scored: 
+                                They scored: 
                                 <?php safer_echo($r["score"]); ?>
                             </div>
                             <div class="col">
