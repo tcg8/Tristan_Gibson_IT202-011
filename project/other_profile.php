@@ -18,6 +18,10 @@ else{
 $id= get_user_id();
 //flash("grouuuuuuuuuuup");
 }
+if(isset($_GET["username"])){
+	$username=$_GET["username"];
+	flash(" ITSSSSSSSSSSSSSSSSSSSS A $username");
+}
 //
 
 
