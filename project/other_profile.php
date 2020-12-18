@@ -25,7 +25,7 @@ $id= get_user_id();
 
 $db = getDB();
 
-$stmt = $db->prepare("SELECT * from Users WHERE id = :id LIMIT 1");
+$stmt = $db->prepare("SELECT status from Users WHERE id = :id LIMIT 1");
     $params = array(":id" => $id);
     $r = $stmt->execute($params);
     if($r){
