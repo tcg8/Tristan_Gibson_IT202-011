@@ -39,7 +39,7 @@ C.id=UC.user_id ---make sure everything is for the SAME COMPETITION
 -------
 */
 ///*
-$stmt = $db->prepare("SELECT U.username,S.score,C.id FROM Users U, Scores S, Competitions C WHERE C.id=$id AND (C.id=UC.user_id AND S.user_id=U.id AND S.user_id=UC.user_id AND S.created < C.expires AND S.created > UC.created) LIMIT 10");
+$stmt = $db->prepare("SELECT U.username,S.score,C.id,UC.user_id FROM Users U, Scores S, Competitions C, UserCompetitions UC WHERE (C.id=$id AND C.id=UC.user_id AND S.user_id=U.id AND S.user_id=UC.user_id AND S.created < C.expires AND S.created > UC.created) LIMIT 10");
 $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
 $stmt->bindValue(":count", $per_page, PDO::PARAM_INT);
 $stmt->bindValue(":id", get_user_id(), PDO::PARAM_INT);
