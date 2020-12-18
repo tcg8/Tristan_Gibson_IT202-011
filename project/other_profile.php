@@ -25,7 +25,7 @@ $stmt = $db->prepare("SELECT status from Users WHERE id = :id LIMIT 1");
     if($r){
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 	if($result["status"]=="private"){
-	flash("You tried to access a private account. Back to the home page for you.");
+	flash("You cannot see the profiles of private accounts.");
 	die(header("Location: home.php"));
 		//flash("HHHHHHHHHHHHHHHHHHHHH");
 		
